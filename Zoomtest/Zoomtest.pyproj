@@ -34,6 +34,9 @@
     <Compile Include="GetRandomEvent.py" />
     <Compile Include="Mainmenu.py" />
     <Compile Include="Node.py" />
+    <Compile Include="PickChoiceOverlay.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Player.py" />
     <Compile Include="resolution_switch.py" />
     <Compile Include="Selectplayers.py" />
