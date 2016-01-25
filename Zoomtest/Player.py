@@ -37,3 +37,24 @@ MT = dmg(one = dmgList(one = dmgItem(3, 1), two = dmgItem(9, 2), three = dmgItem
          four = dmgList(one = dmgItem(2, 1), two = dmgItem(2, 1), three = dmgItem(6, 3)),
          five = dmgList(one = dmgItem(10, 2), two = dmgItem(20, 5), three = dmgItem(30, 8)),
          six = dmgList(one = dmgItem(8, 3), two = dmgItem(13, 4), three = dmgItem(17, 5)))
+
+BH = dmg(one = dmgList(one = dmgItem(5, 2), two = dmgItem(11, 3), three = dmgItem(15, 5)), 
+         two = dmgList(one = dmgItem(3, 1), two = dmgItem(9, 2), three = dmgItem(19, 3)), 
+         three = dmgList(one = dmgItem(2, 1), two = dmgItem(4, 2), three = dmgItem(6, 4)),
+         four = dmgList(one = dmgItem(7, 2), two = dmgItem(12, 3), three = dmgItem(16, 4)),
+         five = dmgList(one = dmgItem(8, 3), two = dmgItem(13, 4), three = dmgItem(17, 5)),
+         six = dmgList(one = dmgItem(10, 5), two = dmgItem(20, 5), three = dmgItem(30, 8)))
+
+RB = dmg(one = dmgList(one = dmgItem(10, 2), two = dmgItem(20, 5), three = dmgItem(30, 8)), 
+         two = dmgList(one = dmgItem(8, 3), two = dmgItem(13, 4), three = dmgItem(17, 5)), 
+         three = dmgList(one = dmgItem(3, 1), two = dmgItem(9, 2), three = dmgItem(19, 3)),
+         four = dmgList(one = dmgItem(5, 2), two = dmgItem(11, 3), three = dmgItem(15,5)),
+         five = dmgList(one = dmgItem(7, 2), two = dmgItem(12, 3), three = dmgItem(16, 4)),
+         six = dmgList(one = dmgItem(2, 1), two = dmgItem(4, 2), three = dmgItem(6, 3)))
+
+MP = dmg(one = dmgList(one = dmgItem(8, 3), two = dmgItem(13, 4), three = dmgItem(17, 5)), 
+         two = dmgList(one = dmgItem(10, 2), two = dmgItem(20, 5), three = dmgItem(30, 8)), 
+         three = dmgList(one = dmgItem(5, 2), two = dmgItem(11, 3), three = dmgItem(15, 5)),
+         four = dmgList(one = dmgItem(3, 1), two = dmgItem(9, 2), three = dmgItem(19, 3)),
+         five = dmgList(one = dmgItem(2, 1), two = dmgItem(4, 2), three = dmgItem(6, 3)),
+         six = dmgList(one = dmgItem(7, 2), two = dmgItem(12, 3), three = dmgItem(16, 4)))
