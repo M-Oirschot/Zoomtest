@@ -10,6 +10,8 @@ from Basegame import *
 from Player import *
 from Selectplayers import *
 from resolution_switch import *
+from GetRandomEvent import *
+from Player import *
 #dankmemes
 preset = 0
 if preset == 0:
@@ -52,6 +54,7 @@ while True:
     name(list,screen,width,height)
     clearPygame(white)
     Main(screen,width,height)
+    
   elif pressed == 4:
     pygame.quit()
     break
@@ -63,7 +66,6 @@ while True:
 #pygame.display.flip()
 #  time.sleep(0.1)
 #print(glove.get_rect().size)
-
 
 
   
