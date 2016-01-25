@@ -39,6 +39,9 @@
     </Compile>
     <Compile Include="Player.py" />
     <Compile Include="resolution_switch.py" />
+    <Compile Include="rules.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Selectplayers.py" />
     <Compile Include="splash.py" />
     <Compile Include="Tile.py">
