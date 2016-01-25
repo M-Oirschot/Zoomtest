@@ -12,8 +12,8 @@ from Selectplayers import *
 from resolution_switch import *
 preset = 0
 if preset == 0:
-  width = 800#int(input("Width: " ))
-  height = 600#int(input("Height: "))
+  width = 800 #int(input("Width: " ))
+  height = 600 #int(input("Height: "))
   size = (width,height)
   screen = pygame.display.set_mode(size)
 if preset == 1:
