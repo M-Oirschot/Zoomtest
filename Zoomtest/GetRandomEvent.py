@@ -10,3 +10,6 @@ class sFighter:
     self.Five = five
     self.Six = six
 
+def MakeList():
+  fighterlist = Empty
+  fighterlist = Node(sFighter("Terry Crews",10,15,25,20,15,10),fighterlist)
