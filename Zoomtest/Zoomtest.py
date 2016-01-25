@@ -10,6 +10,7 @@ from Basegame import *
 from Player import *
 from Selectplayers import *
 from resolution_switch import *
+#dankmemes
 preset = 0
 if preset == 0:
   width = 800#int(input("Width: " ))
