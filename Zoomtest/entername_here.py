@@ -11,13 +11,13 @@ def name(list,screen,width,height):
     font = pygame.font.Font(None, 50)
     playercount = 1
     while not l.IsEmpty:
-        for evt in pygame.event.get():
-            if evt.type == KEYDOWN:
-                if evt.unicode.isalpha():
-                    name += evt.unicode
-                elif evt.key == K_BACKSPACE:
+        for event in pygame.event.get():
+            if event.type == KEYDOWN:
+                if event.unicode.isalpha():
+                    name += event.unicode
+                elif event.key == K_BACKSPACE:
                     name = name[:-1]
-                elif evt.key == K_RETURN:
+                elif event.key == K_RETURN:
                     l.Value = name   #edit naar l.value.player.name
                     name = ""
                     l = l.Tail
