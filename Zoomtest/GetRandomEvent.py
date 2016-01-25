@@ -24,3 +24,10 @@ def MakeList():
   fighterlist = Node(sFighter("Ernold Schwarzenegger", 25,25,20,15,15,10), fighterlist)
   fighterlist = Node(sFighter("James Bend", 25,15,15,7,20,25), fighterlist)
 
+  fighterlist = Node(sFighter("Wesley Sniper",10,12,14,16,14,12),fighterlist)
+  fighterlist = Node(sFighter("Jet Ri",10,30,12,25,14,23),fighterlist)
+  fighterlist = Node(sFighter("Steve Seagal",10,15,12,11,25,20),fighterlist)
+  fightersist = Node(sFighter("Super Merio",10,10,30,30,15,15),fighterlist)
+  fightersist = Node(sFighter("Vin Dieser",20,25,30,25,20,15),fighterlist)
+  fightersist = Node(sFighter("Chack Norris",15,28,27,25,29,30),fighterlist)
+  fightersist = Node(sFighter("The Roch",13,28,30,17,10,7),fighterlist)
