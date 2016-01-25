@@ -1,4 +1,4 @@
-from Node import *
+﻿from Node import *
 
 class sFighter:
   def __init__(self,name,one,two,three,four,five,six):
@@ -9,3 +9,7 @@ class sFighter:
     self.Four = four
     self.Five = five
     self.Six = six
+
+def MakeList():
+  fighterlist = Empty
+  fighterlist = Node(sFighter("Terry Crews",10,15,25,20,15,10),fighterlist)
