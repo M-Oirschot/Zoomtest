@@ -67,8 +67,4 @@ while True:
 #  time.sleep(0.1)
 #print(glove.get_rect().size)
 
-player1 = MakePlayer(0,0,100,15,3,"Bamischijf",1)
-print(player1.dmg.five.one.dmg)
-print(player1.Name)
-print(player1.dmg.six.three.cond)
 
