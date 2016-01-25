@@ -31,6 +31,7 @@
     </Compile>
     <Compile Include="entername_here.py" />
     <Compile Include="Getcenter.py" />
+    <Compile Include="GetRandomEvent.py" />
     <Compile Include="Mainmenu.py" />
     <Compile Include="Node.py" />
     <Compile Include="Player.py" />
