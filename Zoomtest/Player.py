@@ -9,7 +9,12 @@ class Player:
         self.Texture = texture
         self.Name = name
         self.dmg = dmg
+        self.Pos = Vector2(x,y)
 
+class Vector2:
+  def __init__(self,x,y):
+    self.X = x
+    self.Y = y
 
 class dmgList:
     def __init__(self, one, two, three):
