@@ -1,4 +1,4 @@
-from Node import *
+﻿from Node import *
 
 class sFighter:
   def __init__(self,name,one,two,three,four,five,six):
@@ -9,3 +9,4 @@ class sFighter:
     self.Four = four
     self.Five = five
     self.Six = six
+
