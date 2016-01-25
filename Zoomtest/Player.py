@@ -1,4 +1,4 @@
-import random
+﻿import random
  
 class Player:
     def __init__(self, x, y, lifepoints, conditionpoints, texture, name, dmglist):
@@ -31,30 +31,31 @@ class dmg:
         self.five = five
         self.six = six
 
-MT = dmg(one = dmgList(one = dmgItem(3, 1), two = dmgItem(9, 2), three = dmgItem(19, 3)), 
-         two = dmgList(one = dmgItem(5, 2), two = dmgItem(11, 3), three = dmgItem(15, 5)), 
-         three = dmgList(one = dmgItem(7, 3), two = dmgItem(12, 3), three = dmgItem(16, 4)),
-         four = dmgList(one = dmgItem(2, 1), two = dmgItem(2, 1), three = dmgItem(6, 3)),
-         five = dmgList(one = dmgItem(10, 2), two = dmgItem(20, 5), three = dmgItem(30, 8)),
-         six = dmgList(one = dmgItem(8, 3), two = dmgItem(13, 4), three = dmgItem(17, 5)))
 
-BH = dmg(one = dmgList(one = dmgItem(5, 2), two = dmgItem(11, 3), three = dmgItem(15, 5)), 
-         two = dmgList(one = dmgItem(3, 1), two = dmgItem(9, 2), three = dmgItem(19, 3)), 
-         three = dmgList(one = dmgItem(2, 1), two = dmgItem(4, 2), three = dmgItem(6, 4)),
-         four = dmgList(one = dmgItem(7, 2), two = dmgItem(12, 3), three = dmgItem(16, 4)),
-         five = dmgList(one = dmgItem(8, 3), two = dmgItem(13, 4), three = dmgItem(17, 5)),
-         six = dmgList(one = dmgItem(10, 5), two = dmgItem(20, 5), three = dmgItem(30, 8)))
+MT = dmg(dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)), 
+          dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15, 5)), 
+          dmgList(dmgItem(7, 3), dmgItem(12, 3), dmgItem(16, 4)),
+          dmgList(dmgItem(2, 1), dmgItem(2, 1), dmgItem(6, 3)),
+          dmgList(dmgItem(10, 2), dmgItem(20, 5), dmgItem(30, 8)),
+          dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5)))
 
-RB = dmg(one = dmgList(one = dmgItem(10, 2), two = dmgItem(20, 5), three = dmgItem(30, 8)), 
-         two = dmgList(one = dmgItem(8, 3), two = dmgItem(13, 4), three = dmgItem(17, 5)), 
-         three = dmgList(one = dmgItem(3, 1), two = dmgItem(9, 2), three = dmgItem(19, 3)),
-         four = dmgList(one = dmgItem(5, 2), two = dmgItem(11, 3), three = dmgItem(15,5)),
-         five = dmgList(one = dmgItem(7, 2), two = dmgItem(12, 3), three = dmgItem(16, 4)),
-         six = dmgList(one = dmgItem(2, 1), two = dmgItem(4, 2), three = dmgItem(6, 3)))
+BH = dmg(dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15, 5)), 
+          dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)), 
+          dmgList(dmgItem(2, 1), dmgItem(4, 2), dmgItem(6, 4)),
+          dmgList(dmgItem(7, 2), dmgItem(12, 3), dmgItem(16, 4)),
+          dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5)),
+          dmgList(dmgItem(10, 5), dmgItem(20, 5), dmgItem(30, 8)))
 
-MP = dmg(one = dmgList(one = dmgItem(8, 3), two = dmgItem(13, 4), three = dmgItem(17, 5)), 
-         two = dmgList(one = dmgItem(10, 2), two = dmgItem(20, 5), three = dmgItem(30, 8)), 
-         three = dmgList(one = dmgItem(5, 2), two = dmgItem(11, 3), three = dmgItem(15, 5)),
-         four = dmgList(one = dmgItem(3, 1), two = dmgItem(9, 2), three = dmgItem(19, 3)),
-         five = dmgList(one = dmgItem(2, 1), two = dmgItem(4, 2), three = dmgItem(6, 3)),
-         six = dmgList(one = dmgItem(7, 2), two = dmgItem(12, 3), three = dmgItem(16, 4)))
+RB = dmg(dmgList(dmgItem(10, 2), dmgItem(20, 5), dmgItem(30, 8)), 
+          dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5)), 
+          dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)),
+          dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15,5)),
+          dmgList(dmgItem(7, 2), dmgItem(12, 3), dmgItem(16, 4)),
+          dmgList(dmgItem(2, 1), dmgItem(4, 2), dmgItem(6, 3)))
+
+MP = dmg(dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5)), 
+          dmgList(dmgItem(10, 2), dmgItem(20, 5), dmgItem(30, 8)), 
+          dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15, 5)),
+          dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)),
+          dmgList(dmgItem(2, 1), dmgItem(4, 2), dmgItem(6, 3)),
+          dmgList(dmgItem(7, 2), dmgItem(12, 3), dmgItem(16, 4)))
