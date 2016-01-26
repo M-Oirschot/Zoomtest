@@ -13,10 +13,10 @@ from resolution_switch import *
 from GetRandomEvent import *
 from Player import *
 #dankmemes
-preset = 0
+preset = 1
 if preset == 0:
-  width = 800#int(input("Width: " ))
-  height = 600#int(input("Height: "))
+  width = 1000#int(input("Width: " ))
+  height = 800#int(input("Height: "))
   size = (width,height)
   screen = pygame.display.set_mode(size)
 if preset == 1:
@@ -44,16 +44,19 @@ white = (255,255,255)
 
 #Main File
 
-#SplashScreen(screen,width,height)
+SplashScreen(screen,width,height)
+#"""
 while True:
   pressed = mainMenu(screen,width,height)
   if pressed == 1:
-    list = Empty                      
-    for i in range (0,Playerselect(screen,width,height)):
+    list = Empty      
+    playercount = Playerselect(screen,width,height)                
+    for i in range (0,playercount):
       list = Node("", list)
-    name(list,screen,width,height)
+    nameslist = name(list,screen,width,height)# Put players into list as soon as we work out coordinates
+        
     clearPygame(white)
-    Main(screen,width,height)
+    Main(screen,width,height,nameslist,playercount)
     
   elif pressed == 4:
     pygame.quit()
@@ -62,6 +65,7 @@ while True:
     print("Highscores go here")           #Hier komt de highscore function
   elif pressed == 3:
     print("Help goes here")               #Hier komt de help/rules function
+#"""
 #while True:
 #pygame.display.flip()
 #  time.sleep(0.1)

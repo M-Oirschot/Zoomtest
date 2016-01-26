@@ -2,9 +2,12 @@
 from Getcenter import *
 
 def PlayerversusPlayer(screen,width,height):
-  maincolor = (20,66,112)
+  maincolor = (100,100,100)
 
-  square = pygame.Surface((421,421), pygame.SRCALPHA, 32)
+  square = pygame.Surface((width - 200,height - 200), pygame.SRCALPHA, 32)
+  outline = pygame.Surface((width - 190, height - 190), pygame.SRCALPHA, 32)
   square.fill(maincolor)
-  screen.blit(square, (GetCenter(width,height,square)[0] + (width / 6), GetCenter(width,height,square)[1]))
+  outline.fill((0,0,0))
+  screen.blit(outline, (GetCenter(width,height,outline)))
+  screen.blit(square, (GetCenter(width,height,square)))
   pygame.display.flip()

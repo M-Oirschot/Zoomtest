@@ -7,6 +7,7 @@ from Getcenter import *
 
 def name(list,screen,width,height):
     l = list
+    newlist = Empty
     name = ""
     font = pygame.font.Font(None, 50)
     playercount = 1
@@ -18,11 +19,13 @@ def name(list,screen,width,height):
                 elif event.key == K_BACKSPACE:
                     name = name[:-1]
                 elif event.key == K_RETURN:
-                    l.Value = name   #edit naar l.value.player.name
+                    newlist = Node(name, newlist)   #edit naar l.value.player.name
                     name = ""
                     l = l.Tail
                     if not l.IsEmpty:
                       playercount += 1
+                    else:
+                      return newlist
             #elif evt.type == QUIT:
             #    pygame.quit()
             screen.fill ((100, 100, 100))
