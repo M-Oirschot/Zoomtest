@@ -45,7 +45,7 @@ white = (255,255,255)
 
 #Main File
 
-#SplashScreen(screen,width,height)
+SplashScreen(screen,width,height)
 while True:
   pressed = mainMenu(screen,width,height)
   if pressed == 1:
