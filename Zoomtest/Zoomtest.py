@@ -20,12 +20,13 @@ if preset == 0:
   size = (width,height)
   screen = pygame.display.set_mode(size)
 if preset == 1:
-  width = 1920
+  width = 1920  
   height = 1080
   size = (width,height)
+  #screen = pygame.display.set_mode(size)
   screen = pygame.display.set_mode((size),pygame.FULLSCREEN)
 while True:
-  if width >= 800 and width and height >= 600:
+  if width >= 800 and height >= 600:
     break
   else:
     print("Resolution must be at least 800x600")
