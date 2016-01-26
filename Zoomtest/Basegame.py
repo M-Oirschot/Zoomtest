@@ -1,6 +1,7 @@
 ﻿import pygame
 from Dice import *
 from Tile import *
+from Node import *
 from Getcenter import *
 import sys
 
@@ -35,6 +36,7 @@ def Menushit(screen,width,height):
 def Main(screen,width,height):
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     board = build_square_board(11,5)
+
     
     while True:
         screen.fill(white)
@@ -50,6 +52,4 @@ def Main(screen,width,height):
         print("")
         pygame.display.flip()
         Menushit(screen,width,height)
-      
-
-        
+          
