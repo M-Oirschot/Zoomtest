@@ -1,4 +1,4 @@
 import pygame
 
 def fight(playerOne, playerTwo):
-    firstdice
+    firstdice = dice(6)
