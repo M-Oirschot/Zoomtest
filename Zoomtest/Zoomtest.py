@@ -10,6 +10,9 @@ from Basegame import *
 from Player import *
 from Selectplayers import *
 from resolution_switch import *
+from GetRandomEvent import *
+from Player import *
+#dankmemes
 preset = 0
 if preset == 0:
   width = 800 #int(input("Width: " ))
@@ -51,6 +54,7 @@ while True:
     name(list,screen,width,height)
     clearPygame(white)
     Main(screen,width,height)
+    
   elif pressed == 4:
     pygame.quit()
     break
@@ -63,6 +67,8 @@ while True:
 #  time.sleep(0.1)
 #print(glove.get_rect().size)
 
+player1 = MakePlayer(0,0,100,15,3,"Bamischijf",1)
+print(player1.dmg.five.one.dmg)
+print(player1.Name)
+print(player1.dmg.six.three.cond)
 
-
-  
