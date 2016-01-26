@@ -2,6 +2,8 @@
 from Dice import *
 from Tile import *
 from Node import *
+from GetRandomEvent import *
+from PickChoiceOverlay import *
 from Getcenter import *
 import sys
 
@@ -17,11 +19,27 @@ helpBtn = pygame.image.load("content\\helpbtn.png")
 scBtn = pygame.image.load("content\\scoreBoardbtn.png")
 rollDiceBtn = pygame.image.load("content\\rollDiceBtn.png")
 
-def Menushit(screen,width,height):
-    players = 0
+def Menushit(screen,width,height,players,list,fighterlist):
+    if players == 2:
+      player1 = list.Value
+      player2 = list.Tail.Value
+      player = [player1,player2]
+    elif players == 3:
+      player1 = list.Value
+      player2 = list.Tail.Value
+      player3 = list.Tail.Tail.Value
+      player = [player1,player2,player3]
+    elif players == 4:
+      player1 = list.Value
+      player2 = list.Tail.Value
+      player3 = list.Tail.Tail.Value
+      player4 = list.Tail.Tail.Tail.Value
+      player = [player1,player2,player3,player4]
     done = False
     while not done:
-        
+        for i in range (0, len(player)):
+          print(player[i])
+        input()
         screen.blit(helpBtn,(GetCenter(width, height, playerName)[0] - (width / 3.525), GetCenter(width,height, playerName)[1] - (height / 3.525)))
         screen.blit(scBtn,(GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] - (height / 3.525)))
         screen.blit(rollDiceBtn,(GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] - (height / 3)))
@@ -33,10 +51,10 @@ def Menushit(screen,width,height):
 
         pygame.display.flip()
 
-def Main(screen,width,height):
+def Main(screen,width,height,players,list):
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     board = build_square_board(11,5)
-
+    templist = MakeList()
     
     while True:
         screen.fill(white)
@@ -51,5 +69,5 @@ def Main(screen,width,height):
 
         print("")
         pygame.display.flip()
-        Menushit(screen,width,height)
+        Menushit(screen,width,height,players,list,templist)
           

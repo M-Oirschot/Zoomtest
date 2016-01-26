@@ -38,8 +38,7 @@ def getItemFromList(list,position,zero):
   if var == pos:
     return list.Value
   else:
-    var += 1
-    return getItemFromList(list.Tail,position,var)
+    return getItemFromList(list.Tail,position,var + 1)
 
 def countList(list):
   if list.IsEmpty:

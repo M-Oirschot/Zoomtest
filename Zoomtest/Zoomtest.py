@@ -13,7 +13,7 @@ from resolution_switch import *
 from GetRandomEvent import *
 from Player import *
 #dankmemes
-preset = 0
+preset = 1
 if preset == 0:
   width = 800 #int(input("Width: " ))
   height = 600 #int(input("Height: "))
@@ -48,12 +48,26 @@ white = (255,255,255)
 while True:
   pressed = mainMenu(screen,width,height)
   if pressed == 1:
-    list = Empty                      
-    for i in range (0,Playerselect(screen,width,height)):
+    list = Empty             
+    playercount = Playerselect(screen,width,height)      
+    for i in range (0,playercount):
       list = Node("", list)
-    name(list,screen,width,height)
+    namelist = name(list,screen,width,height)
+    emptyList = Empty
+    if playercount == 2:
+      emptyList = Node(Player(0,0,100,15,1,namelist.Value,1),emptyList)
+      emptyList = Node(Player(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
+    elif playercount == 3:
+      emptyList = Node(Player(0,0,100,15,1,namelist.Value,1),emptyList)
+      emptyList = Node(Player(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
+      emptyList = Node(Player(10,0,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
+    elif playercount == 4:
+      emptyList = Node(Player(0,0,100,15,1,namelist.Value,1),emptyList)
+      emptyList = Node(Player(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
+      emptyList = Node(Player(10,0,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
+      emptyList = Node(Player(10,10,100,15,1,namelist.Tail.Tail.Tail.Value,4),emptyList)
     clearPygame(white)
-    Main(screen,width,height)
+    Main(screen,width,height,playercount,emptyList)
     
   elif pressed == 4:
     pygame.quit()
