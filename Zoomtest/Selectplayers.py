@@ -37,6 +37,6 @@ def Playerselect(screen,width,height):
             return 2
         if (pygame.mouse.get_pressed()==(1,0,0)) and threeplayer.get_rect(topleft=(GetCenter(width,height,threeplayer)[0],GetCenter(width,height,threeplayer)[1] + 55)).collidepoint(pygame.mouse.get_pos()):
             return 3
-        if (pygame.mouse.get_pressed()==(1,0,0)) and fourplayer.get_rect(topleft=(GetCenter(width,height,fourplayer)[0],GetCenter(width,height,fourplayer)[1] + 110)).collidepoint(pygame.mouse.get_pos()):
+        if (pygame.mouse.get_pressed()==(1,0,0)) and fourplayer.get_rect(topleft=(GetCenter(width,height,fourplayer)[0],GetCenter(width,height,fourplayer)[1] + 165)).collidepoint(pygame.mouse.get_pos()):
             return 4
         pygame.display.update()

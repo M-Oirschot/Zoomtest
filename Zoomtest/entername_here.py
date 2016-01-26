@@ -29,7 +29,7 @@ def name(list,screen,width,height):
             #elif evt.type == QUIT:
             #    pygame.quit()
             screen.fill ((100, 100, 100))
-            playerindic = font.render("Player " + str(playercount) + " Name:", True, (0,0,0))
+            playerindic = font.render("Type player " + str(playercount) + " name:", True, (0,0,0))
             
             block = font.render(name, True, (0, 0, 0))
             rect = block.get_rect()
