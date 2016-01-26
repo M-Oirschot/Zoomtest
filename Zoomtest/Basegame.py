@@ -37,26 +37,27 @@ def Menushit(screen,width,height,players,list,fighterlist):
       player = [player1,player2,player3,player4]
     done = False
     while not done:
-        PlayerversusSuperfight(screen,width,height,player[0],fighterlist)
 
-        screen.blit(helpBtn,(GetCenter(width, height, playerName)[0] - (width / 3.525), GetCenter(width,height, playerName)[1] - (height / 3.525)))
-        screen.blit(scBtn,(GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] - (height / 3.525)))
-        screen.blit(rollDiceBtn,(GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] - (height / 3)))
+        screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
+        screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
+        screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
            
         pygame.event.get()
 
         if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height,rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
-            #diceRoll = dice(6)
-            #diceImg = pygame.image.load("content\\" + str(dice(6)) +".png")
+            print("done0")
+            diceRoll = dice(6)
+            diceImg = pygame.image.load("content\\" + str(dice(6)) +".png")
+            print("done1")
             done = True
-        elif (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,helpBtn)[0] - (width / 3.525), GetCenter(width,height,helpBtn)[1] - (height / 3.525))).collidepoint(pygame.mouse.get_pos())):
+        if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,helpBtn)[0] - (width / 3.525), GetCenter(width,height,helpBtn)[1] - (height / 3.525))).collidepoint(pygame.mouse.get_pos())):
             print("Help")
             done = True
 
         pygame.display.flip()
 
 def Main(screen,width,height,players,list):
-    pygame.mixer.music.fadeout(1000)
+    #pygame.mixer.music.fadeout(1000)
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     board = build_square_board(11,5)
     templist = MakeList()
