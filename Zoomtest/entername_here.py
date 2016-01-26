@@ -15,7 +15,8 @@ def name(list,screen,width,height):
         for event in pygame.event.get():
             if event.type == KEYDOWN:
                 if event.unicode.isalpha():
-                    name += event.unicode
+                    if len(name) <= 11:
+                        name += event.unicode
                 elif event.key == K_BACKSPACE:
                     name = name[:-1]
                 elif event.key == K_RETURN:
@@ -23,11 +24,10 @@ def name(list,screen,width,height):
                     name = ""
                     l = l.Tail
                     if not l.IsEmpty:
-                      playercount += 1
+                        playercount += 1
                     else:
-                      return newlist
-            #elif evt.type == QUIT:
-            #    pygame.quit()
+                        return newlist
+  
             screen.fill ((100, 100, 100))
             playerindic = font.render("Type player " + str(playercount) + " name:", True, (0,0,0))
             
@@ -36,6 +36,7 @@ def name(list,screen,width,height):
             rect.center = screen.get_rect().center
             screen.blit(block, rect)
             screen.blit(playerindic, (GetCenter(width,height,playerindic)[0], GetCenter(width,height,playerindic)[1] - (height / 6)))
+            if len(name) == 12:             
+                errormsg = font.render("Max name length has been reached", True, (0,0,0))
+                screen.blit(errormsg, (GetCenter(width,height,errormsg)[0], GetCenter(width,height,errormsg)[1] - (height / 8)))
             pygame.display.flip()
-
-
