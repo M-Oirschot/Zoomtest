@@ -37,9 +37,7 @@ def Menushit(screen,width,height,players,list,fighterlist):
       player = [player1,player2,player3,player4]
     done = False
     while not done:
-        for i in range (0, len(player)):
-          print(player[i].Name)
-        input()
+        PlayerversusSuperfight(screen,width,height,player[0],fighterlist)
 
         screen.blit(helpBtn,(GetCenter(width, height, playerName)[0] - (width / 3.525), GetCenter(width,height, playerName)[1] - (height / 3.525)))
         screen.blit(scBtn,(GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] - (height / 3.525)))

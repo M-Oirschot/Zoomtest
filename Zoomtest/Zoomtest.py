@@ -45,7 +45,7 @@ white = (255,255,255)
 
 #Main File
 
-SplashScreen(screen,width,height)
+#SplashScreen(screen,width,height)
 
 while True:
   pressed = mainMenu(screen,width,height)
@@ -57,17 +57,17 @@ while True:
     namelist = name(list,screen,width,height)
     emptyList = Empty
     if playercount == 2:
-      emptyList = Node(Player(0,0,100,15,1,namelist.Value,1),emptyList)
-      emptyList = Node(Player(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
+      emptyList = Node(MakePlayer(0,0,100,15,1,namelist.Value,1),emptyList)
+      emptyList = Node(MakePlayer(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
     elif playercount == 3:
-      emptyList = Node(Player(0,0,100,15,1,namelist.Value,1),emptyList)
-      emptyList = Node(Player(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
-      emptyList = Node(Player(10,0,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
+      emptyList = Node(MakePlayer(0,0,100,15,1,namelist.Value,1),emptyList)
+      emptyList = Node(MakePlayer(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
+      emptyList = Node(MakePlayer(10,0,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
     elif playercount == 4:
-      emptyList = Node(Player(0,0,100,15,1,namelist.Value,1),emptyList)
-      emptyList = Node(Player(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
-      emptyList = Node(Player(10,0,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
-      emptyList = Node(Player(10,10,100,15,1,namelist.Tail.Tail.Tail.Value,4),emptyList)
+      emptyList = Node(MakePlayer(0,0,100,15,1,namelist.Value,1),emptyList)
+      emptyList = Node(MakePlayer(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
+      emptyList = Node(MakePlayer(10,0,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
+      emptyList = Node(MakePlayer(10,10,100,15,1,namelist.Tail.Tail.Tail.Value,4),emptyList)
     clearPygame(white)
     Main(screen,width,height,playercount,emptyList)
     
@@ -83,8 +83,8 @@ while True:
 #  time.sleep(0.1)
 #print(glove.get_rect().size)
 
-player1 = MakePlayer(0,0,100,15,3,"Bamischijf",1)
-print(player1.dmg.five.one.dmg)
-print(player1.Name)
-print(player1.dmg.six.three.cond)
+#player1 = MakePlayer(0,0,100,15,3,"Bamischijf",1)
+#print(player1.dmg.five.one.dmg)
+#print(player1.Name)
+#print(player1.dmg.six.three.cond)
 
