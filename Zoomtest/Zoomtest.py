@@ -13,10 +13,10 @@ from resolution_switch import *
 from GetRandomEvent import *
 from Player import *
 #dankmemes
-preset = 1
+preset = 0
 if preset == 0:
-  width = 1000#int(input("Width: " ))
-  height = 800#int(input("Height: "))
+  width = 800 #int(input("Width: " ))
+  height = 600 #int(input("Height: "))
   size = (width,height)
   screen = pygame.display.set_mode(size)
 if preset == 1:
@@ -44,19 +44,16 @@ white = (255,255,255)
 
 #Main File
 
-SplashScreen(screen,width,height)
-#"""
+#SplashScreen(screen,width,height)
 while True:
   pressed = mainMenu(screen,width,height)
   if pressed == 1:
-    list = Empty      
-    playercount = Playerselect(screen,width,height)                
-    for i in range (0,playercount):
+    list = Empty                      
+    for i in range (0,Playerselect(screen,width,height)):
       list = Node("", list)
-    nameslist = name(list,screen,width,height)# Put players into list as soon as we work out coordinates
-        
+    name(list,screen,width,height)
     clearPygame(white)
-    Main(screen,width,height,nameslist,playercount)
+    Main(screen,width,height)
     
   elif pressed == 4:
     pygame.quit()
@@ -65,10 +62,13 @@ while True:
     print("Highscores go here")           #Hier komt de highscore function
   elif pressed == 3:
     print("Help goes here")               #Hier komt de help/rules function
-#"""
 #while True:
 #pygame.display.flip()
 #  time.sleep(0.1)
 #print(glove.get_rect().size)
 
+player1 = MakePlayer(0,0,100,15,3,"Bamischijf",1)
+print(player1.dmg.five.one.dmg)
+print(player1.Name)
+print(player1.dmg.six.three.cond)
 
