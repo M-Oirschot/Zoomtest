@@ -30,6 +30,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="entername_here.py" />
+    <Compile Include="fightrules.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Getcenter.py" />
     <Compile Include="GetRandomEvent.py" />
     <Compile Include="Mainmenu.py" />
