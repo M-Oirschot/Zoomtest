@@ -40,6 +40,7 @@ def Menushit(screen,width,height,players,list,fighterlist):
         for i in range (0, len(player)):
           print(player[i])
         input()
+
         screen.blit(helpBtn,(GetCenter(width, height, playerName)[0] - (width / 3.525), GetCenter(width,height, playerName)[1] - (height / 3.525)))
         screen.blit(scBtn,(GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] - (height / 3.525)))
         screen.blit(rollDiceBtn,(GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] - (height / 3)))
