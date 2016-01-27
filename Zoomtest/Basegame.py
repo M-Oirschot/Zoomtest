@@ -37,6 +37,7 @@ def Menushit(screen,width,height,players,list,fighterlist):
       player = [player1,player2,player3,player4]
     done = False
     while not done:
+
         screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
         screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
         screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
@@ -61,6 +62,11 @@ def Main(screen,width,height,players,list):
     board = build_square_board(11,5)
     templist = MakeList()
     
+    tl = board
+    while tl is not Empty:
+        print(tl.props)
+        tl = tl.
+
     while True:
         screen.fill(white)
         screen.blit(bg, (0, 0))
