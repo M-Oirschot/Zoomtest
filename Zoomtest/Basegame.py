@@ -41,7 +41,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board):
     while not done:
         if first == True:
           superfight(player[0],PlayerversusSuperfight(screen,width,height,player[0],fighterlist))
-          print(pvp(player[0],player1,PlayerversusPlayer(screen,width,height,player[0],player[1])))
+          print(pvp(player[0],player[1],PlayerversusPlayer(screen,width,height,player[0],player[1])))
           first = False
         
         screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
@@ -68,9 +68,9 @@ def Main(screen,width,height,players,list):
     board = build_square_board(11,5)
     templist = MakeList()
 
-    tp = board
-    while tp is not Empty:
-        print(tp.Value.co)
+    #tp = board
+    #while tp is not Empty:
+    #    print(tp.Value.co)
 
     while True:
         screen.fill(white)
