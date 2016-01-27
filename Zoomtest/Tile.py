@@ -85,6 +85,7 @@ def build_square_board(dimension, offset):
                 node = Node(Tile((lastColumn, firstRow), (0, 0)), node)
     '''
 
+
     for lastRow in range(dimension, 0, -1):
         for firstColumn in range(dimension, 0, -1):
 
@@ -96,4 +97,4 @@ def build_square_board(dimension, offset):
                 else:
                     node = Node(Tile((firstColumn, lastRow), (0, 0), True), node)
 
-    return(finalVar)
+    return(node)
