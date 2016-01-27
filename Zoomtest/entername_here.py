@@ -36,6 +36,9 @@ def name(list,screen,width,height):
             rect.center = screen.get_rect().center
             screen.blit(block, rect)
             screen.blit(playerindic, (GetCenter(width,height,playerindic)[0], GetCenter(width,height,playerindic)[1] - (height / 6)))
+            #if len(name) == 0:
+                #noEmpty = font.render("Name cant be empty", True, (0,0,0))
+                #screen.blit(noEmpty, (GetCenter(width, height, noEmpty)[0], GetCenter(width, height, noEmpty)[1] - (height / 8)))
             if len(name) == 12:             
                 errormsg = font.render("Max name length has been reached", True, (0,0,0))
                 screen.blit(errormsg, (GetCenter(width,height,errormsg)[0], GetCenter(width,height,errormsg)[1] - (height / 8)))
