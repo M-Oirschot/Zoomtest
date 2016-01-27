@@ -10,7 +10,7 @@ bg1 = pygame.image.load('content\\nameinput1.png')
 
 
 def name(list,screen,width,height):
-    memesquare = pygame.Surface((365,55), pygame.SRCALPHA, 32)
+    memesquare = pygame.Surface((385,55), pygame.SRCALPHA, 32)
     othersquare = pygame.Surface((615,95), pygame.SRCALPHA, 32)
     memesquare.fill((222,222,222))
     othersquare.fill((222,222,222))
