@@ -60,4 +60,4 @@ def build_square_board(dimension, tileSize):
                         node = Tile((column, row), properties)
                     else:
                         finalVar += " "
-        return(node, possibleEntry)
+        return(node)

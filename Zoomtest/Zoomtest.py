@@ -59,6 +59,8 @@ while True:
     if playercount == 2:
       emptyList = Node(MakePlayer(0,100,15,1,namelist.Value,1),emptyList)
       emptyList = Node(MakePlayer(10,100,15,1,namelist.Tail.Value,2),emptyList)
+      
+      
     elif playercount == 3:
       emptyList = Node(MakePlayer(0,100,15,1,namelist.Value,1),emptyList)
       emptyList = Node(MakePlayer(10,100,15,1,namelist.Tail.Value,2),emptyList)
