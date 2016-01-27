@@ -15,6 +15,7 @@ class Tile:
         self.right = None
         self.down = None
 
+        self.pos = position
         self.props = properties
 
 def build_square_board(dimension, tileSize):
@@ -27,31 +28,31 @@ def build_square_board(dimension, tileSize):
             if(row == 0 or row == dimension-1):
                 if(column == 0 or column == dimension-1):
                     properties = Node(startingTile, Empty)
-                    node = Tile((column, row), properties)
+                    node = Node(Tile((column, row), properties), node)
                     possibleEntry = node
                 elif(column == (dimension-1)/2):
                     properties = Node(fighterTile, Empty)
-                    node = Tile((column, row), properties)
+                    node = Node(Tile((column, row), properties), node)
                 else:
                     properties = Node(normalTile, Empty)
-                    node = Tile((column, row) , properties)
+                    node = Node(Tile((column, row) , properties), node)
             elif(row == (dimension-1)/2):
                 if(column == (dimension-1)/2):
                     #Cards tile
                     properties = Node(cardStack, Empty)
-                    node = Tile((column, row), properties)
+                    node = Node(Tile((column, row), properties), node)
                 elif(column == 0 or column == dimension-1):
                     properties = Node(fighterTile, Empty)
-                    node = Tile((column, row), properties)
+                    node = Node(Tile((column, row), properties), node)
                 else:
                     finalVar += " "
             else: 
                 if(column == 0):
                     properties = Node(normalTile, Empty)
-                    node = Tile((column, row), properties)
+                    node = Node(Tile((column, row), properties), node)
                 elif(column == dimension-1):
                     properties = Node(normalTile, Empty)
-                    node = Tile((column, row), properties)
+                    node = Node(Tile((column, row), properties), node)
                 else:
                     finalVar += " "
     return(node)
