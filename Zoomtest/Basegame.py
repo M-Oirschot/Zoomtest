@@ -57,15 +57,12 @@ def Menushit(screen,width,height,players,list,fighterlist):
         pygame.display.flip()
 
 def Main(screen,width,height,players,list):
-    #pygame.mixer.music.fadeout(1000)
+    pygame.mixer.music.fadeout(1000)
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     board = build_square_board(11,300)
     templist = MakeList()
     
-    tl = board
-    while tl is not Empty:
-        print(tl.Value.pos, tl.Value.co)
-        tl = tl.Tail
+    print(board)
 
     while True:
         screen.fill(white)
