@@ -11,9 +11,16 @@ from Player import *
 from Selectplayers import *
 from resolution_switch import *
 from GetRandomEvent import *
+from PickChoiceOverlay import *
 from Player import *
 #dankmemes
 preset = 1
+
+pone = pygame.image.load("content\\player1pion.png")
+ptwo = pygame.image.load("content\\player2pion.png")
+pthree = pygame.image.load("content\\player3pion.png")
+pfour = pygame.image.load("content\\player4pion.png")
+
 if preset == 0:
   width = 800 #int(input("Width: " ))
   height = 600 #int(input("Height: "))
@@ -45,7 +52,7 @@ white = (255,255,255)
 
 #Main File
 
-SplashScreen(screen,width,height)
+#SplashScreen(screen,width,height)
 
 while True:
   pressed = mainMenu(screen,width,height)
@@ -57,21 +64,22 @@ while True:
     namelist = name(list,screen,width,height)
     emptyList = Empty
     if playercount == 2:
-      emptyList = Node(MakePlayer(0,100,15,1,namelist.Value,1),emptyList)
-      emptyList = Node(MakePlayer(10,100,15,1,namelist.Tail.Value,2),emptyList)
+      emptyList = Node(MakePlayer(0,100,15,ptwo,namelist.Value,2),emptyList)
+      emptyList = Node(MakePlayer(10,100,15,pone,namelist.Tail.Value,1),emptyList)
       
       
     elif playercount == 3:
-      emptyList = Node(MakePlayer(0,100,15,1,namelist.Value,1),emptyList)
-      emptyList = Node(MakePlayer(10,100,15,1,namelist.Tail.Value,2),emptyList)
-      emptyList = Node(MakePlayer(20,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
+      emptyList = Node(MakePlayer(0,100,15,pthree,namelist.Value,3),emptyList)
+      emptyList = Node(MakePlayer(10,100,15,ptwo,namelist.Tail.Value,2),emptyList)
+      emptyList = Node(MakePlayer(20,100,15,pone,namelist.Tail.Tail.Value,1),emptyList)
     elif playercount == 4:
-      emptyList = Node(MakePlayer(0,100,15,1,namelist.Value,1),emptyList)
-      emptyList = Node(MakePlayer(10,100,15,1,namelist.Tail.Value,2),emptyList)
-      emptyList = Node(MakePlayer(20,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
-      emptyList = Node(MakePlayer(30,100,15,1,namelist.Tail.Tail.Tail.Value,4),emptyList)
+      emptyList = Node(MakePlayer(0,100,15,pfour,namelist.Value,4),emptyList)
+      emptyList = Node(MakePlayer(10,100,15,pthree,namelist.Tail.Value,3),emptyList)
+      emptyList = Node(MakePlayer(20,100,15,ptwo,namelist.Tail.Tail.Value,2),emptyList)
+      emptyList = Node(MakePlayer(30,100,15,pone,namelist.Tail.Tail.Tail.Value,1),emptyList)
     clearPygame(white)
-    Main(screen,width,height,playercount,emptyList)
+    coolstorage = PlayerversusPlayer(screen,width,height,MakePlayer(0,100,15,1,namelist.Value,1),MakePlayer(10,100,15,1,namelist.Tail.Value,2))
+    #Main(screen,width,height,playercount,emptyList)
     
   elif pressed == 4:
     pygame.quit()
