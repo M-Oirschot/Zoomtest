@@ -40,7 +40,7 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
   elif srolled == 6:
     sdmg = fighter.Six  
   
-  fightertext = font.render("Superfighter: " + fighter.Name, 1,(0,0,0))
+  fightertext = font.render("Superfighter '" + fighter.Name + "' will do " + str(sdmg) + " damage", 1,(0,0,0))
   screen.blit(fightertext, (GetCenter(width,height,fightertext)[0],GetCenter(width,height,fightertext)[1] - (height / 3)))
   rolled = dice(6)
   rolltext = font.render(player1.name + " rolled " + str(rolled), 1,(0,0,0))
