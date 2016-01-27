@@ -2,7 +2,9 @@
 from Getcenter import *
 from GetRandomEvent import *
 from Dice import *
-def PlayerversusPlayer(screen,width,height,player1,player2):
+import time
+def PlayerversusPlayer(screen,width,height,attacker,defender):
+
   maincolor = (100,100,100)
 
   square = pygame.Surface((width - 200,height - 200), pygame.SRCALPHA, 32)
@@ -19,6 +21,7 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
   font = pygame.font.Font(None, 40)
   square = pygame.Surface((width - 200,height - 200), pygame.SRCALPHA, 32)
   outline = pygame.Surface((width - 190, height - 190), pygame.SRCALPHA, 32)
+  bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
   square.fill(maincolor)
   outline.fill((0,0,0))
   screen.blit(outline, (GetCenter(width,height,outline)))
@@ -103,4 +106,23 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     screen.blit(textButton1, (GetCenter(width,height,textButton1)[0] - (width / 5), GetCenter(width,height,textButton1)[1]))
     screen.blit(textButton2, (GetCenter(width,height,textButton2)))
     screen.blit(textButton3, (GetCenter(width,height,textButton3)[0] + (width / 5), GetCenter(width,height,textButton3)[1]))
+    
+    pygame.event.get()
+    #Start Game
+    if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0] - (width / 5), GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos())):
+      screen.blit(bg, (0,0))
+      pygame.display.flip()
+      return returnvalue1
+      break
+    if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=GetCenter(width,height,button)).collidepoint(pygame.mouse.get_pos())):
+      screen.blit(bg, (0,0))
+      pygame.display.flip()
+      return returnvalue2
+      break
+    if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0] + (width / 5), GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos())):
+      screen.blit(bg, (0,0))
+      pygame.display.flip()
+      return returnvalue3
+      break
     pygame.display.flip()
+    time.sleep(0.033)
