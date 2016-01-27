@@ -57,17 +57,17 @@ while True:
     namelist = name(list,screen,width,height)
     emptyList = Empty
     if playercount == 2:
-      emptyList = Node(MakePlayer(0,0,100,15,1,namelist.Value,1),emptyList)
-      emptyList = Node(MakePlayer(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
+      emptyList = Node(MakePlayer(0,100,15,1,namelist.Value,1),emptyList)
+      emptyList = Node(MakePlayer(10,100,15,1,namelist.Tail.Value,2),emptyList)
     elif playercount == 3:
-      emptyList = Node(MakePlayer(0,0,100,15,1,namelist.Value,1),emptyList)
-      emptyList = Node(MakePlayer(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
-      emptyList = Node(MakePlayer(10,0,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
+      emptyList = Node(MakePlayer(0,100,15,1,namelist.Value,1),emptyList)
+      emptyList = Node(MakePlayer(10,100,15,1,namelist.Tail.Value,2),emptyList)
+      emptyList = Node(MakePlayer(20,0,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
     elif playercount == 4:
-      emptyList = Node(MakePlayer(0,0,100,15,1,namelist.Value,1),emptyList)
-      emptyList = Node(MakePlayer(0,10,100,15,1,namelist.Tail.Value,2),emptyList)
-      emptyList = Node(MakePlayer(10,0,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
-      emptyList = Node(MakePlayer(10,10,100,15,1,namelist.Tail.Tail.Tail.Value,4),emptyList)
+      emptyList = Node(MakePlayer(0,100,15,1,namelist.Value,1),emptyList)
+      emptyList = Node(MakePlayer(10,100,15,1,namelist.Tail.Value,2),emptyList)
+      emptyList = Node(MakePlayer(20,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
+      emptyList = Node(MakePlayer(30,10,100,15,1,namelist.Tail.Tail.Tail.Value,4),emptyList)
     clearPygame(white)
     Main(screen,width,height,playercount,emptyList)
     

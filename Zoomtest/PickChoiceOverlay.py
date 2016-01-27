@@ -28,7 +28,8 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
   fightertext = font.render("Superfighter: " + fighter.Name, 1,(0,0,0))
   screen.blit(fightertext, (GetCenter(width,height,fightertext)[0],GetCenter(width,height,fightertext)[1] - (height / 3)))
   rolled = dice(6)
-  rolltext = font.render("You rolled " + str(rolled), 1,(0,0,0))
+  rolltext = font.render(player1.name + " rolled " + str(rolled), 1,(0,0,0))
+  
   screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 40))
   button = pygame.Surface((250,140), pygame.SRCALPHA, 32)
   buttonoutline = pygame.Surface((255,145), pygame.SRCALPHA, 32)

@@ -1,20 +1,14 @@
 ﻿import random
  
 class Player:
-    def __init__(self, x, y, lifepoints, conditionpoints, texture, name, dmg):
-        self.Y = y
-        self.X = x
+    def __init__(self,starting, lifepoints, conditionpoints, texture, name, dmg):
+        self.Starting = starting
         self.Lifepoints = lifepoints
         self.Conditionpoints = conditionpoints
         self.Texture = texture
         self.Name = name
         self.dmg = dmg
-        self.Pos = Vector2(x,y)
-
-class Vector2:
-  def __init__(self,x,y):
-    self.X = x
-    self.Y = y
+        self.Pos = starting
 
 class dmgList:
     def __init__(self, one, two, three):

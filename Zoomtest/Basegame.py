@@ -57,7 +57,7 @@ def Menushit(screen,width,height,players,list,fighterlist):
         pygame.display.flip()
 
 def Main(screen,width,height,players,list):
-    #pygame.mixer.music.fadeout(1000)
+    pygame.mixer.music.fadeout(1000)
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     board = build_square_board(11,5)
     templist = MakeList()
