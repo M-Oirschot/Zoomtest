@@ -6,4 +6,6 @@ def superfight(player, fight):
     playercond = fight[1]
     sdmg = fight[2]
 
-    if sdmg >= 
+    if sdmg > playerdmg:
+        sdmg -= playerdmg
+     
