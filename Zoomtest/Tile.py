@@ -51,7 +51,7 @@ def build_square_board(dimension, tileSize):
                         node = Tile((column, row), properties)
                     else:
                         finalVar += " "
-                else:
+                else: 
                     if(column == 0):
                         properties = Node(normalTile, Empty)
                         node = Tile((column, row), properties)
