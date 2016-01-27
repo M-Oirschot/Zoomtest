@@ -11,6 +11,7 @@ from Player import *
 from Selectplayers import *
 from resolution_switch import *
 from GetRandomEvent import *
+from PickChoiceOverlay import *
 from Player import *
 #dankmemes
 preset = 1
@@ -45,7 +46,7 @@ white = (255,255,255)
 
 #Main File
 
-SplashScreen(screen,width,height)
+#SplashScreen(screen,width,height)
 
 while True:
   pressed = mainMenu(screen,width,height)
@@ -71,7 +72,8 @@ while True:
       emptyList = Node(MakePlayer(20,100,15,1,namelist.Tail.Tail.Value,3),emptyList)
       emptyList = Node(MakePlayer(30,100,15,1,namelist.Tail.Tail.Tail.Value,4),emptyList)
     clearPygame(white)
-    Main(screen,width,height,playercount,emptyList)
+    coolstorage = PlayerversusPlayer(screen,width,height,MakePlayer(0,100,15,1,namelist.Value,1),MakePlayer(10,100,15,1,namelist.Tail.Value,2))
+    #Main(screen,width,height,playercount,emptyList)
     
   elif pressed == 4:
     pygame.quit()
