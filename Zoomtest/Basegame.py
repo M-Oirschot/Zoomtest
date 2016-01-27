@@ -70,7 +70,9 @@ def Main(screen,width,height,players,list):
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     board = build_square_board(11,5)
     templist = MakeList()
-    
+    while not board.IsEmpty:
+      print(board.Value)
+      board = board.Tail
     while True:
         screen.fill(white)
         screen.blit(bg, (0, 0))

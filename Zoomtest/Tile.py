@@ -26,7 +26,7 @@ def build_square_board(dimension, offset):
     node = Empty
     
     finalVar = ""
-    '''
+    """
     for row in range(dimension):
         tRow = 600 * row
         for column in range(dimension):
@@ -60,7 +60,7 @@ def build_square_board(dimension, offset):
                     node = Node(Tile((column, row), (tCol, tRow), properties), node)
                 else:
                     finalVar += " "
-    '''
+    """
 
     standardOffset = 850
     colOffset = 600
@@ -72,14 +72,14 @@ def build_square_board(dimension, offset):
             tCol = lastColumn * colOffset
             if(firstRow == 0):
                 if(lastColumn == 0):
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), True), node)
+                    node = Node((lastColumn, firstRow), node)
                 elif(lastColumn == dimension-1):
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), True), node)
+                    node = Node((lastColumn, firstRow), node)
                 else:
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), False), node)
+                    node = Node((lastColumn, firstRow), node)
 
             elif(lastColumn == dimension-1 and row != 0):
-                node = Node(Tile((lastColumn, firstRow), (0, 0), False), node)
+                node = Node((lastColumn, firstRow), node)
     '''
     for lastRow in range (dimension):
         tRow = lastRow * rowOffset + standardOffset
@@ -98,10 +98,10 @@ def build_square_board(dimension, offset):
 
             if(lastColumn == dimension-1):
                 if(firstRow == dimension-1):
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), True), node)
+                    node = Node((lastColumn, firstRow), node)
                 elif(firstrow > 1 and firstRow <= 9):
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), False), node)
+                    node = Node((lastColumn, firstRow), node)
                 else:
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), True), node)
+                    node = Node((lastColumn, firstRow), node)
 
     return(finalVar)
