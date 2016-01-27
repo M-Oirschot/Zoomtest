@@ -11,3 +11,6 @@ def superfight(player, fight):
         player.Conditionpoints -= playercond
     else:
         player.Conditionpoints -= playercond
+
+def pvp():
+    print("test")
