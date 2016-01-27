@@ -41,7 +41,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board):
     while not done:
         if first == True:
           superfight(player[0],PlayerversusSuperfight(screen,width,height,player[0],fighterlist))
-          print(PlayerversusPlayer(screen,width,height,player[0],player[1]))
+          print(pvp(player[0],player1,PlayerversusPlayer(screen,width,height,player[0],player[1])))
           first = False
         
         screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
