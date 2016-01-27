@@ -5,6 +5,10 @@ import time
 from Node import *
 from Getcenter import *
 
+bg = pygame.image.load('content\\nameinput.png')
+bg1 = pygame.image.load('content\\nameinput1.png')
+
+
 def name(list,screen,width,height):
     l = list
     newlist = Empty
