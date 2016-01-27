@@ -9,15 +9,8 @@ normalTile = 3
 
 class Tile:
     def __init__(self,position, coords, startingTile):
-        self.left = None
-        self.up = None
-        self.right = None
-        self.down = None
-
         self.sTile = False
-
         self.co = coords
-
         self.pos = position
 
 def build_square_board(dimension, offset):
@@ -78,7 +71,7 @@ def build_square_board(dimension, offset):
                 else:
                     node = Node(Tile((lastColumn, firstRow), (0, 0), False), node)
 
-            elif(lastColumn == dimension-1 and row != 0):
+            elif(lastColumn == dimension-1 and firstRow != 0):
                 node = Node(Tile((lastColumn, firstRow), (0, 0), False), node)
     '''
     for lastRow in range (dimension):
@@ -92,9 +85,8 @@ def build_square_board(dimension, offset):
                 node = Node(Tile((lastColumn, firstRow), (0, 0)), node)
     '''
 
-    for lastRow in reversed(dimension):
-
-        for firstColumn in reversed(dimension):
+    for lastRow in range(dimension, 0, -1):
+        for firstColumn in range(dimension, 0, -1):
 
             if(lastColumn == dimension-1):
                 if(firstRow == dimension-1):
