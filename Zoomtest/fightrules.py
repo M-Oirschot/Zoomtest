@@ -12,5 +12,27 @@ def superfight(player, fight):
     else:
         player.Conditionpoints -= playercond
 
-def pvp():
-    print("test")
+def pvp(attacker,defender,fight):
+    playeronedmg = fight[0]     #playerone is attacker
+    playeronecond = fight[1]    #playertwo is defender
+    playertwodmg = fight[2]
+    playertwocond = fight[3]
+    
+    if playeronedmg > playertwodmg:
+        playeronedmg -= playertwodmg
+        defender.Lifepoints -= playeronedmg 
+        
+        attacker.Conditionpoints -= playeronecond
+        defender.Conditionpoints -= playertwocond
+    elif playertwodmg > playeronedmg:
+        playertwodmg -= playeronedmg
+        attacker.Lifepoints -= playertwodmg
+
+        attacker.Conditionpoints -= playeronecond
+        defender.Conditionpoints -= playertwocond
+    else:
+        attacker.Conditionpoints -= playeronecond
+        defender.Conditionpoints -= playertwocond
+
+        
+

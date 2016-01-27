@@ -68,6 +68,10 @@ def Main(screen,width,height,players,list):
     board = build_square_board(11,5)
     templist = MakeList()
 
+    tp = board
+    while tp is not Empty:
+        print(tp.Value.co)
+
     while True:
         screen.fill(white)
         screen.blit(bg, (0, 0))
