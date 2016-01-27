@@ -1,4 +1,4 @@
-import pygame
+﻿import pygame
 
 def superfight(player, fight):
     playerdmg = fight[0]
@@ -8,4 +8,6 @@ def superfight(player, fight):
     if sdmg > playerdmg:
         sdmg -= playerdmg
         player.Lifepoints -= sdmg
-        player.conditionpoints -= playercond
+        player.Conditionpoints -= playercond
+    else:
+        player.Conditionpoints -= playercond
