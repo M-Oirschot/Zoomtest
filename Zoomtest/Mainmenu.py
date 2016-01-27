@@ -6,7 +6,7 @@ black = (0,0,0)
 white = (255,255,255)
  
 def mainMenu(screen,width, height):
-  pygame.mixer.music.load("content\\sound\\main.mp3")
+  pygame.mixer.music.load("content\\sound\\EoT.mid")
   pygame.mixer.music.play(-1,0.0)
   font = pygame.font.Font(None, 40)
   img = pygame.transform.scale(pygame.image.load("content\\Board3d.png").convert(), (width,height))
