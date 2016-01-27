@@ -19,7 +19,7 @@ helpBtn = pygame.image.load("content\\helpbtn.png")
 scBtn = pygame.image.load("content\\scoreBoardbtn.png")
 rollDiceBtn = pygame.image.load("content\\rollDiceBtn.png")
 
-def Menushit(screen,width,height,players,list,fighterlist):
+def Menushit(screen,width,height,players,list,fighterlist,board):
     if players == 2:
       player1 = list.Value
       player2 = list.Tail.Value
@@ -36,8 +36,13 @@ def Menushit(screen,width,height,players,list,fighterlist):
       player4 = list.Tail.Tail.Tail.Value
       player = [player1,player2,player3,player4]
     done = False
+    first = True
     while not done:
-
+        if first == True:
+          print(str(PlayerversusSuperfight(screen,width,height,player[0],fighterlist)[1]))
+          first = False
+        
+        screen.blit(bg, (0,0))
         screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
         screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
         screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
@@ -57,16 +62,11 @@ def Menushit(screen,width,height,players,list,fighterlist):
         pygame.display.flip()
 
 def Main(screen,width,height,players,list):
-    #pygame.mixer.music.fadeout(1000)
+    pygame.mixer.music.fadeout(1000)
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     board = build_square_board(11,5)
     templist = MakeList()
     
-    tl = board
-    while tl is not Empty:
-        print(tl.props)
-        tl = tl.
-
     while True:
         screen.fill(white)
         screen.blit(bg, (0, 0))
@@ -80,5 +80,5 @@ def Main(screen,width,height,players,list):
 
         print("")
         pygame.display.flip()
-        Menushit(screen,width,height,players,list,templist)
+        Menushit(screen,width,height,players,list,templist,board)
           
