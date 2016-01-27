@@ -20,7 +20,7 @@ def name(list,screen,width,height):
                 elif event.key == K_BACKSPACE:
                     name = name[:-1]
                 elif event.key == K_RETURN:
-                    newlist = Node(name, newlist)   #edit naar l.value.player.name
+                    newlist = Node(name, newlist)
                     name = ""
                     l = l.Tail
                     if not l.IsEmpty:

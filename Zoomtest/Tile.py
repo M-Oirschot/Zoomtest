@@ -40,7 +40,7 @@ def build_square_board(dimension, tileSize):
                         node = Tile((column, row), properties)
                     else:
                         properties = Node(normalTile, Empty)
-                        node = Tile((column, row), properties)
+                        node = Tile((column, row) , properties)
                 elif(row == (dimension-1)/2):
                     if(column == (dimension-1)/2):
                         #Cards tile
@@ -51,7 +51,7 @@ def build_square_board(dimension, tileSize):
                         node = Tile((column, row), properties)
                     else:
                         finalVar += " "
-                else:
+                else: 
                     if(column == 0):
                         properties = Node(normalTile, Empty)
                         node = Tile((column, row), properties)
@@ -60,4 +60,4 @@ def build_square_board(dimension, tileSize):
                         node = Tile((column, row), properties)
                     else:
                         finalVar += " "
-        return(node)
+        return(node, possibleEntry)
