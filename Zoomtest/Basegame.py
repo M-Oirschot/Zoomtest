@@ -40,11 +40,8 @@ def Menushit(screen,width,height,players,list,fighterlist,board):
     first = True
     while not done:
         if first == True:
-          print(player[0].Lifepoints)
-          print(player[0].Conditionpoints)
           superfight(player[0],PlayerversusSuperfight(screen,width,height,player[0],fighterlist))
-          print(player[0].Lifepoints)
-          print(player[0].Conditionpoints)
+          print(PlayerversusPlayer(screen,width,height,player[0],player[1]))
           first = False
         
         screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
