@@ -110,12 +110,18 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     pygame.event.get()
     #Start Game
     if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0] - (width / 5), GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos())):
+      screen.blit(bg, (0,0))
+      pygame.display.flip()
       return returnvalue1
       break
     if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=GetCenter(width,height,button)).collidepoint(pygame.mouse.get_pos())):
+      screen.blit(bg, (0,0))
+      pygame.display.flip()
       return returnvalue2
       break
     if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0] + (width / 5), GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos())):
+      screen.blit(bg, (0,0))
+      pygame.display.flip()
       return returnvalue3
       break
     pygame.display.flip()

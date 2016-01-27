@@ -4,6 +4,7 @@ from Tile import *
 from Node import *
 from GetRandomEvent import *
 from PickChoiceOverlay import *
+from fightrules import *
 from Getcenter import *
 import sys
 
@@ -39,10 +40,13 @@ def Menushit(screen,width,height,players,list,fighterlist,board):
     first = True
     while not done:
         if first == True:
-          print(str(PlayerversusSuperfight(screen,width,height,player[0],fighterlist)[1]))
+          print(player[0].Lifepoints)
+          print(player[0].Conditionpoints)
+          superfight(player[0],PlayerversusSuperfight(screen,width,height,player[0],fighterlist))
+          print(player[0].Lifepoints)
+          print(player[0].Conditionpoints)
           first = False
         
-        screen.blit(bg, (0,0))
         screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
         screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
         screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
