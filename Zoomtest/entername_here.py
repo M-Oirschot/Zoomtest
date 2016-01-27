@@ -15,6 +15,7 @@ def name(list,screen,width,height):
     name = ""
     font = pygame.font.Font(None, 50)
     playercount = 1
+    screen.blit(bg1, (0,0))
     while not l.IsEmpty:
         for event in pygame.event.get():
             if event.type == KEYDOWN:
@@ -31,8 +32,7 @@ def name(list,screen,width,height):
                         playercount += 1
                     else:
                         return newlist
-  
-            screen.fill ((100, 100, 100))
+
             playerindic = font.render("Type player " + str(playercount) + " name:", True, (0,0,0))
             
             block = font.render(name, True, (0, 0, 0))
