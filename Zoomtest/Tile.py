@@ -56,6 +56,9 @@ def build_square_board(dimension, offset):
     '''
 
     standardOffset = 850
+    coordinates = Empty
+    x = 915
+    y = 20
     colOffset = 600
     rowOffset = 200
 
@@ -65,25 +68,31 @@ def build_square_board(dimension, offset):
             tCol = lastColumn * colOffset
             if(firstRow == 0):
                 if(lastColumn == 0):
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), True), node)
+                    node = Node(Tile((lastColumn, firstRow), (x, y), True), node)
+                    x += 156
                 elif(lastColumn == dimension-1):
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), True), node)
+                    node = Node(Tile((lastColumn, firstRow), (x, y), True), node)
+                    x += 78
+                elif(lastColumn == 5):
+                    x += 39
+                    node = Node(Tile((lastColumn, firstRow), (x, y), False), node)
+                    x += 117
                 else:
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), False), node)
+                    node = Node(Tile((lastColumn, firstRow), (x, y), False), node)
+                    x += 78
 
-            elif(lastColumn == dimension-1 and firstRow != 0):
-                node = Node(Tile((lastColumn, firstRow), (0, 0), False), node)
-    '''
-    for lastRow in range (dimension):
-        tRow = lastRow * rowOffset + standardOffset
-        for firstColumn in range (dimension):
-            tCol = firstColumn * colOffset
-            if(lastRow == dimension-1):
-                if(firstColumn == 
-                node = Node(Tile((lastColumn, firstRow), (0, 0)), node)
-            if(firstColumn == 0):
-                node = Node(Tile((lastColumn, firstRow), (0, 0)), node)
-    '''
+            elif(lastColumn == dimension-1):              
+                if(firstRow == 1):
+                    node = Node(Tile((lastColumn, firstRow), (x, y), False), node)
+
+                elif(firstRow == 5):
+                    node = Node(Tile((lastColumn, firstRow), (x, y), False), node)
+                    y += 117
+                elif(firstRow == dimension-1):
+                    node = Node(Tile((lastColumn, firstRow), (x, y), True), node)
+
+                else:
+                    node = Node(Tile((lastColumn, firstRow), (x, y), True), node)
 
 
     for lastRow in range(dimension, 0, -1):
