@@ -98,10 +98,10 @@ def build_square_board(dimension, offset):
 
             if(lastColumn == dimension-1):
                 if(firstRow == dimension-1):
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), True), node)
+                    node = Node(Tile((firstColumn, lastRow), (0, 0), True), node)
                 elif(firstrow > 1 and firstRow <= 9):
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), False), node)
+                    node = Node(Tile((firstColumn, lastRow), (0, 0), False), node)
                 else:
-                    node = Node(Tile((lastColumn, firstRow), (0, 0), True), node)
+                    node = Node(Tile((firstColumn, lastRow), (0, 0), True), node)
 
     return(finalVar)
