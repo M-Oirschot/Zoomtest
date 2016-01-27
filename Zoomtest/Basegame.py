@@ -64,8 +64,8 @@ def Main(screen,width,height,players,list):
     
     tl = board
     while tl is not Empty:
-        print(tl.props)
-        tl = tl.
+        print(tl.pos)
+        tl = tl.Tail
 
     while True:
         screen.fill(white)
