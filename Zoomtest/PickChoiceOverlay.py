@@ -63,7 +63,7 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     textButton2 = font.render("Dmg: " + str(player1.dmg.two.two.dmg) + " Cond: " + str(player1.dmg.two.two.cond), 1,(0,0,0))
     returnvalue2 = [player1.dmg.two.two.dmg, player1.dmg.two.two.cond, sdmg]
     textButton3 = font.render("Dmg: " + str(player1.dmg.two.three.dmg) + " Cond: " + str(player1.dmg.two.three.cond), 1,(0,0,0))
-    returnvalue3 = [player1.dmg.two.three.dmg, player1.dmg.two.three.cond]
+    returnvalue3 = [player1.dmg.two.three.dmg, player1.dmg.two.three.cond, sdmg]
   elif rolled == 3:
     textButton1 = font.render("Dmg: " + str(player1.dmg.three.one.dmg) + " Cond: " + str(player1.dmg.three.one.cond), 1,(0,0,0))
     returnvalue1 = [player1.dmg.three.one.dmg, player1.dmg.three.one.cond, sdmg]
