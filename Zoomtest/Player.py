@@ -1,20 +1,14 @@
 ﻿import random
  
 class Player:
-    def __init__(self, x, y, lifepoints, conditionpoints, texture, name, dmg):
-        self.Y = y
-        self.X = x
+    def __init__(self,starting, lifepoints, conditionpoints, texture, name, dmg):
+        self.Starting = starting
         self.Lifepoints = lifepoints
         self.Conditionpoints = conditionpoints
         self.Texture = texture
         self.Name = name
         self.dmg = dmg
-        self.Pos = Vector2(x,y)
-
-class Vector2:
-  def __init__(self,x,y):
-    self.X = x
-    self.Y = y
+        self.Pos = starting
 
 class dmgList:
     def __init__(self, one, two, three):
@@ -36,30 +30,30 @@ class dmg:
         self.five = five
         self.six = six
 
-def MakePlayer(x,y,health,condition,texture,name,playernum):
+def MakePlayer(x,health,condition,texture,name,playernum):
   if playernum == 1:
-    return Player(x,y,health,condition,texture,name,dmg(dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)), 
+    return Player(x,health,condition,texture,name,dmg(dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)), 
                                                     dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15, 5)), 
                                                     dmgList(dmgItem(7, 3), dmgItem(12, 3), dmgItem(16, 4)),
                                                     dmgList(dmgItem(2, 1), dmgItem(2, 1), dmgItem(6, 3)),
                                                     dmgList(dmgItem(10, 2), dmgItem(20, 5), dmgItem(30, 8)),
                                                     dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5))))
   if playernum  == 2:
-    return Player(x,y,health,condition,texture,name,dmg(dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15, 5)), 
+    return Player(x,health,condition,texture,name,dmg(dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15, 5)), 
                                                     dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)), 
                                                     dmgList(dmgItem(2, 1), dmgItem(4, 2), dmgItem(6, 4)),
                                                     dmgList(dmgItem(7, 2), dmgItem(12, 3), dmgItem(16, 4)),
                                                     dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5)),
                                                     dmgList(dmgItem(10, 5), dmgItem(20, 5), dmgItem(30, 8))))
   if playernum == 3:
-    return Player(x,y,health,condition,texture,name,dmg(dmgList(dmgItem(10, 2), dmgItem(20, 5), dmgItem(30, 8)), 
+    return Player(x,health,condition,texture,name,dmg(dmgList(dmgItem(10, 2), dmgItem(20, 5), dmgItem(30, 8)), 
                                                     dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5)), 
                                                     dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)),
                                                     dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15,5)),
                                                     dmgList(dmgItem(7, 2), dmgItem(12, 3), dmgItem(16, 4)),
                                                     dmgList(dmgItem(2, 1), dmgItem(4, 2), dmgItem(6, 3))))
   if playernum == 4:
-    return Player(x,y,health,condition,texture,name,dmg(dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5)), 
+    return Player(x,health,condition,texture,name,dmg(dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5)), 
                                                     dmgList(dmgItem(10, 2), dmgItem(20, 5), dmgItem(30, 8)), 
                                                     dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15, 5)),
                                                     dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)),
