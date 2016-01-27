@@ -24,7 +24,7 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
   screen.blit(outline, (GetCenter(width,height,outline)))
   screen.blit(square, (GetCenter(width,height,square)))
   fighter = ReturnSuperfighter(fighterlist)
-
+  pygame.display.flip()
   srolled = dice(6)
 
   if srolled == 1:
@@ -39,13 +39,13 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     sdmg = fighter.Five
   elif srolled == 6:
     sdmg = fighter.Six  
-  
+  print(srolled)
   fightertext = font.render("Superfighter '" + fighter.Name + "' will do " + str(sdmg) + " damage", 1,(0,0,0))
   screen.blit(fightertext, (GetCenter(width,height,fightertext)[0],GetCenter(width,height,fightertext)[1] - (height / 3)))
   rolled = dice(6)
-  rolltext = font.render(player1.name + " rolled " + str(rolled), 1,(0,0,0))
+  rolltext = font.render(player1.Name + " rolled " + str(rolled), 1,(0,0,0))
   
-  screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 40))
+  screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
   button = pygame.Surface((250,140), pygame.SRCALPHA, 32)
   buttonoutline = pygame.Surface((255,145), pygame.SRCALPHA, 32)
   button.fill((200,200,200))
@@ -103,5 +103,4 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     screen.blit(textButton1, (GetCenter(width,height,textButton1)[0] - (width / 5), GetCenter(width,height,textButton1)[1]))
     screen.blit(textButton2, (GetCenter(width,height,textButton2)))
     screen.blit(textButton3, (GetCenter(width,height,textButton3)[0] + (width / 5), GetCenter(width,height,textButton3)[1]))
-
     pygame.display.flip()
