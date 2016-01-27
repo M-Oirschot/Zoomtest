@@ -3,7 +3,7 @@ from Getcenter import *
 from GetRandomEvent import *
 from Dice import *
 import time
-def PlayerversusPlayer(screen,width,height,player1,player2):
+def PlayerversusPlayer(screen,width,height,attacker,defender):
 
   maincolor = (100,100,100)
 
