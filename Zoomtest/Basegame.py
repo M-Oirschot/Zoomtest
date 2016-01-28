@@ -61,7 +61,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
         screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
            
         pygame.event.get()
-        print("maymays")
+        
         if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height,rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
             print("done0")
             diceRoll = dice(6)
