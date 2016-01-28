@@ -115,25 +115,31 @@ def build_square_board(dimension, offset):
         elif topRow == 5:
             node = Node(Tile((x,y), False, False, False, False, True),node)
             x += 117
-        elif topRow == dimension:
+        elif topRow == 10:
             node = Node(Tile((x,y), False, True, False, False, False),node)
             y += 127
         else:
             node = Node(Tile((x,y), False, False, False, False, False),node)
             x  += 78
  
-    for rightRow in range(10):
+    for rightRow in range(0,9):
+        #if rightRow == 0:
+        #    y += 127
+        #    node = Node(Tile((x,y), False, False, False, False, False),node)
+        #    y += 78
         if rightRow == 3:
             node = Node(Tile((x,y), False, False, False, False, False),node)
             y += 117
         elif rightRow == 4:
             node = Node(Tile((x,y), False, False, False, False, True), node)
-            y += 117
-        elif rightRow == 10:
+            y += 123
+        elif rightRow == 8:
             node = Node(Tile((x,y), False, False, True, False, False), node)
+            y += 103
         else:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             y += 78
+        print("I ran " + str(rightRow))
  
     for bottomRow in range(10):
         if bottomRow == 3:
@@ -149,7 +155,7 @@ def build_square_board(dimension, offset):
             node = Node(Tile((x,y), False, False, False, False, False), node)
             x -= 78
  
-    for leftRow in range(9):
+    for leftRow in range(10):
         if leftRow == 3:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             y -= 117

@@ -53,6 +53,8 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
         for i in range (0, len(player)):
           coordinate = getItemFromList(listofcoordinates,player[i].Pos,0).pos
           screen.blit(player[i].Texture, coordinate)
+          if player[i].Pos == 5:
+            superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))        
         #print(player[0].Name, player[0].Pos)
         #print(getItemFromList(listofcoordinates,player[0].Pos,0).pos)
         #input()
@@ -73,7 +75,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
             done = True
 
         pygame.display.flip()
-        time.sleep(0.3)
+        time.sleep(1)
         for i in range (0, len(player)):
           if player[i].Pos == 39:
             player[i].Pos = 0
