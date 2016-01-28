@@ -115,7 +115,7 @@ def build_square_board(dimension, offset):
         elif topRow == 5:
             node = Node(Tile((x,y), False, False, False, False, True),node)
             x += 117
-        elif topRow == dimension:
+        elif topRow == 10:
             node = Node(Tile((x,y), False, True, False, False, False),node)
             y += 127
         else:
