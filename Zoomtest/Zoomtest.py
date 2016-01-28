@@ -14,7 +14,7 @@ from GetRandomEvent import *
 from PickChoiceOverlay import *
 from Player import *
 #dankmemes
-preset = 0
+preset = 1
 
 pone = pygame.image.load("content\\player1pion.png")
 ptwo = pygame.image.load("content\\player2pion.png")
@@ -44,6 +44,10 @@ def clearPygame(color):
   screen.fill(color)
   pygame.display.flip()
 
+   
+
+
+
 pygame.init()
 size=(width,height)
 
@@ -54,7 +58,7 @@ white = (255,255,255)
 pygame.mixer.music.load("content\\sound\\vape.mp3")
 pygame.mixer.music.play(-1,0.0)
 
-#SplashScreen(screen,width,height)
+SplashScreen(screen,width,height)
 
 pygame.mixer.music.fadeout(1000)
 while True:
