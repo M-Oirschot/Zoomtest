@@ -1,17 +1,14 @@
 ﻿import pygame
 from Node import *
 
-#Tile properties
-notTraversable = 0
-startingTile = 1
-fighterTile = 2
-normalTile = 3
-
 class Tile:
-    def __init__(self,position, coords, startingTile):
-        self.sTile = False
-        self.co = coords
+    def __init__(self,position, one, two, three, four, fight):
         self.pos = position
+        self.playerOneBase = one
+        self.playerTwoBase = two
+        self.playerThreeBase = three 
+        self.playerFourBase = four
+        self.sTile = fight          #superfight tile
 
 def build_square_board(dimension, offset):
    
@@ -62,9 +59,10 @@ def build_square_board(dimension, offset):
     colOffset = 600
     rowOffset = 200
 
+    '''
     for firstRow in range(dimension):
         tRow = firstRow * rowOffset + standardOffset
-        for lastColumn in range (dimension):
+        for lastColumn in range(dimension):
             tCol = lastColumn * colOffset
             if(firstRow == 0):
                 if(lastColumn == 0):
@@ -105,6 +103,63 @@ def build_square_board(dimension, offset):
                     node = Node(Tile((firstColumn, lastRow), (0, 0), False), node)
                 else:
                     node = Node(Tile((firstColumn, lastRow), (0, 0), True), node)
+    '''
+    for topRow in range(11):
+        if topRow == 0:
+            node = Node(Tile((x,y), True, False, False, False, False),node)
+            x += 78
+        elif topRow == 4:
+            node = Node(Tile((x,y), False, False, False, False, False),node)
+            x += 117
+        elif topRow == 5:
+            node = Node(Tile((x,y), False, False, False, False, True),node)
+            x += 117
+        elif topRow == dimension:
+            node = Node(Tile((x,y), False, True, False, False, False),node)
+            y += 127
+        else:
+            node = Node(Tile((x,y), False, False, False, False, False),node)
+            x  += 78
+
+    for rightRow in range(10):
+        if rightRow == 3:
+            node = Node(Tile((x,y), False, False, False, False, False),node)
+            y += 117
+        elif rightRow == 4:
+            node = Node(Tile((x,y), False, False, False, False, True), node)
+            y += 117
+        elif rightRow == 10:
+            node = Node(Tile((x,y), False, False, True, False, False), node)
+        else:
+            node = Node(Tile((x,y), False, False, False, False, False), node)
+            y += 78
+
+    for bottomRow in range(10):
+        if bottomRow == 3:
+            node = Node(Tile((x,y), False, False, False, False, False), node)
+            x -= 117
+        elif bottomRow == 4:
+            node = Node(Tile((x,y), False, False, False, False, True), node)
+            x -= 117
+        elif bottomRow == 10:
+            node = Node(Tile((x,y), False, False, False, True, False), node)
+            x += 78
+        else:
+            node = Node(Tile((x,y), False, False, False, False, False), node)
+            x -= 78
+
+    for leftRow in range(9):
+        if leftRow == 3:
+            node = Node(Tile((x,y), False, False, False, False, False), node)
+            y -= 117
+        elif leftRow == 4:
+            node = Node(Tile((x,y), False, False, False, False, True), node)
+            y -= 117
+        else:
+            node = Node(Tile((x,y), False, False, False, False, False), node)
+            y -= 78
 
     return(node)
+
+
 

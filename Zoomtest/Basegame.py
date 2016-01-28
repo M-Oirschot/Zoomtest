@@ -74,9 +74,15 @@ def Main(screen,width,height,players,list):
     board = build_square_board(11,5)
     templist = MakeList()
 
-    #tp = board
-    #while tp is not Empty:
-    #    print(tp.Value.co)
+    tp = board
+    asdf = Empty
+    while tp is not Empty:
+        asdf = Node(tp.Value, asdf)
+        tp = tp.Tail
+
+    while not asdf.IsEmpty:
+        print(asdf.Value.pos)
+        asdf = asdf.Tail
 
     while True:
         screen.fill(white)
