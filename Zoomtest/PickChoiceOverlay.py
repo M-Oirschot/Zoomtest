@@ -7,7 +7,7 @@ import time
 def Firstplayer(screen,width,height,player1,font):
   bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
   rolled = dice(6)
-  rolltext = font.render("Attacker: " + player1.Name + " rolled " + str(rolled), 1,(0,0,0))
+  rolltext = font.render("Attacker: " + player1.Name + " rolled " + str(rolled)  + " and has " + str(player1.Conditionpoints) + " conditionpoints", 1,(0,0,0))
   errtext = font.render("You have too little condition", 1,(242,7,7))
   screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
   button = pygame.Surface((250,140), pygame.SRCALPHA, 32)
@@ -101,6 +101,8 @@ def Firstplayer(screen,width,height,player1,font):
       else:
         screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
     if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150)).collidepoint(pygame.mouse.get_pos())):
+      screen.blit(bg, (0,0))
+      pygame.display.flip()
       return [0,0]
       #Add breaks
     pygame.display.flip()
@@ -120,7 +122,7 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage,font):
   screen.blit(outline, (GetCenter(width,height,outline)))
   screen.blit(square, (GetCenter(width,height,square)))
   pygame.display.flip()
-  rolltext = font.render("Defender: " + player1.Name + " rolled " + str(rolled), 1,(0,0,0))
+  rolltext = font.render("Defender: " + player1.Name + " rolled " + str(rolled) + " and has " + str(player1.Conditionpoints) + " condition", 1,(0,0,0))
   memetext = font.render("Attacker: " + otherplayer.Name + " does " + str(damage) + " damage", 1,(0,0,0))
   screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
   screen.blit(memetext, (GetCenter(width,height,memetext)[0],GetCenter(width,height,memetext)[1] - (height / 3)))
@@ -213,6 +215,8 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage,font):
       else:
         screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
     if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150)).collidepoint(pygame.mouse.get_pos())):
+      screen.blit(bg, (0,0))
+      pygame.display.flip()
       return [0,0]
     pygame.display.flip()
 
@@ -356,6 +360,8 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
       else:
         screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
     if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150)).collidepoint(pygame.mouse.get_pos())):
+      screen.blit(bg, (0,0))
+      pygame.display.flip()
       return [0,0,sdmg]
     pygame.display.flip()
     time.sleep(0.033)
