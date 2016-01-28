@@ -12,7 +12,7 @@ white = (255, 255, 255)
 blue=(0,0,255)
 
 pygame.init()
-font = pygame.font.Font(None, 20)
+font = font = pygame.font.Font("content\\font\\fipps.TTF", 15)
 playerName = font.render("Name:", 1, (255,255,0))
 Condition = font.render("Condition:  4", 1, (255,255,0))
 
@@ -43,7 +43,13 @@ def Menushit(screen,width,height,players,list,fighterlist,board):
           superfight(player[0],PlayerversusSuperfight(screen,width,height,player[0],fighterlist))
           print(pvp(player[0],player[1],PlayerversusPlayer(screen,width,height,player[0],player[1])))
           first = False
-        
+        print(player[0].Name)
+        print(player[0].Conditionpoints)
+        print(player[0].Lifepoints)
+        print(player[1].Name)
+        print(player[1].Conditionpoints)
+        print(player[1].Lifepoints)
+        input()
         screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
         screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
         screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
