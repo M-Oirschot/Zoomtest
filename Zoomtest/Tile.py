@@ -107,3 +107,4 @@ def build_square_board(dimension, offset):
                     node = Node(Tile((firstColumn, lastRow), (0, 0), True), node)
 
     return(node)
+
