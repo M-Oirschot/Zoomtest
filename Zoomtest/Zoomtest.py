@@ -14,7 +14,7 @@ from GetRandomEvent import *
 from PickChoiceOverlay import *
 from Player import *
 #dankmemes
-preset = 0
+preset = 1
 
 pone = pygame.image.load("content\\player1pion.png")
 ptwo = pygame.image.load("content\\player2pion.png")
@@ -67,8 +67,8 @@ while True:
     namelist = name(list,screen,width,height)
     emptyList = Empty
     if playercount == 2:
-      emptyList = Node(MakePlayer(0,100,4,ptwo,namelist.Value,2),emptyList)
-      emptyList = Node(MakePlayer(10,100,4,pone,namelist.Tail.Value,1),emptyList)
+      emptyList = Node(MakePlayer(0,100,15,ptwo,namelist.Value,2),emptyList)
+      emptyList = Node(MakePlayer(10,100,15,pone,namelist.Tail.Value,1),emptyList)
       
       
     elif playercount == 3:
