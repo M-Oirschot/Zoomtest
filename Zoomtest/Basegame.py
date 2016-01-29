@@ -22,20 +22,20 @@ rollDiceBtn = pygame.image.load("content\\rollDiceBtn.png")
 
 def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinates,bg):
     if players == 2:
-      player1 = list.Value
-      player2 = list.Tail.Value
-      player = [player1,player2]
+        player1 = list.Value
+        player2 = list.Tail.Value
+        player = [player1,player2]
     elif players == 3:
-      player1 = list.Value
-      player2 = list.Tail.Value
-      player3 = list.Tail.Tail.Value
-      player = [player1,player2,player3]
+        player1 = list.Value
+        player2 = list.Tail.Value
+        player3 = list.Tail.Tail.Value
+        player = [player1,player2,player3]
     elif players == 4:
-      player1 = list.Value
-      player2 = list.Tail.Value
-      player3 = list.Tail.Tail.Value
-      player4 = list.Tail.Tail.Tail.Value
-      player = [player1,player2,player3,player4]
+        player1 = list.Value
+        player2 = list.Tail.Value
+        player3 = list.Tail.Tail.Value
+        player4 = list.Tail.Tail.Tail.Value
+        player = [player1,player2,player3,player4]
     done = False
     first = True
     while not done:
@@ -51,10 +51,10 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
         print(player[1].Lifepoints)
         input()"""
         for i in range (0, len(player)):
-          coordinate = getItemFromList(listofcoordinates,player[i].Pos,0).pos
-          screen.blit(player[i].Texture, coordinate)
-          if player[i].Pos == 5:
-            superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))        
+            coordinate = getItemFromList(listofcoordinates,player[i].Pos,0).pos
+            screen.blit(player[i].Texture, coordinate)
+            if player[i].Pos == 5:
+                superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))        
         #print(player[0].Name, player[0].Pos)
         #print(getItemFromList(listofcoordinates,player[0].Pos,0).pos)
         #input()
@@ -77,10 +77,10 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
         pygame.display.flip()
         time.sleep(1)
         for i in range (0, len(player)):
-          if player[i].Pos == 39:
-            player[i].Pos = 0
-          else:
-            player[i].Pos += 1
+            if player[i].Pos == 39:
+                player[i].Pos = 0
+            else:
+                player[i].Pos += 1
         screen.blit(bg, (0,0))
 
 def Main(screen,width,height,players,list):
