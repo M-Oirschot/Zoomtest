@@ -46,7 +46,11 @@ def clearPygame(color):
 
    
 
-tpboard = build_square_board(11,5)
+asdf = build_square_board(11,5)
+tpboard = Empty
+while not asdf.IsEmpty:
+    tpboard = Node(asdf.Value, tpboard)
+    asdf = asdf.Tail
 
 pygame.init()
 size=(width,height)
