@@ -2,14 +2,13 @@
 from Node import *
 
 #Tile properties
-notTraversable = 0
 startingTile = 1
 fighterTile = 2
 normalTile = 3
 
 class Tile:
-    def __init__(self,position, coords, startingTile):
-        self.sTile = False
+    def __init__(self,position, coords, properties):
+        self.props = properties
         self.co = coords
         self.pos = position
 
@@ -58,7 +57,7 @@ def build_square_board(dimension, offset):
     standardOffset = 850
     coordinates = Empty
     x = 915
-    y = 20
+    y = 2000
     colOffset = 600
     rowOffset = 200
 
