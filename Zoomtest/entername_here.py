@@ -17,7 +17,8 @@ def name(list,screen,width,height):
     l = list
     newlist = Empty
     name = ""
-    font = pygame.font.Font(None, 50)
+    font = pygame.font.Font("content\\font\\retro.ttf", 23)
+    otherfont = pygame.font.Font("content\\font\\retro.ttf", 30)
     playercount = 1
     screen.blit(bg, (0,0))
     tempbool = False
@@ -46,7 +47,7 @@ def name(list,screen,width,height):
             
             playerindic = font.render("Type player " + str(playercount) + " name:", True, (0,0,0))
             
-            block = font.render(name, True, (0, 0, 0))
+            block = otherfont.render(name, True, (0, 0, 0))
             rect = block.get_rect()
             rect.center = screen.get_rect().center
             screen.blit(memesquare, (GetCenter(width,height,memesquare)[0] + 1, GetCenter(width,height,memesquare)[1]))

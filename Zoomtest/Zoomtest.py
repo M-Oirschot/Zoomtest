@@ -44,6 +44,10 @@ def clearPygame(color):
   screen.fill(color)
   pygame.display.flip()
 
+   
+
+
+
 pygame.init()
 size=(width,height)
 
@@ -51,12 +55,12 @@ black = (0,0,0)
 white = (255,255,255)
 
 #Main File
-pygame.mixer.music.load("content\\sound\\vape.mp3")
-pygame.mixer.music.play(-1,0.0)
+#pygame.mixer.music.load("content\\sound\\vape.mp3")
+#pygame.mixer.music.play(-1,0.0)
 
-SplashScreen(screen,width,height)
+#SplashScreen(screen,width,height)
 
-pygame.mixer.music.fadeout(1000)
+#pygame.mixer.music.fadeout(1000)
 while True:
   pressed = mainMenu(screen,width,height)
   if pressed == 1:

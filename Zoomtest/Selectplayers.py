@@ -3,7 +3,7 @@ import time
 from Getcenter import *
 #pion = pygame.image.load('pion.png')
 #bg= pygame.image.load('board.jpg')
-font = pygame.font.Font(None, 50)
+font = pygame.font.Font("content\\font\\retro.ttf", 20)
 bg1 = pygame.image.load('content\\playerselect1.png')
 bg = pygame.image.load('content\\playerselect.png')
 titletext = font.render("Select amount of players:", 1,(0,0,0))
