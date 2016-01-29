@@ -16,10 +16,10 @@ from Player import *
 #dankmemes
 preset = 1
 
-pone = pygame.image.load("content\\player1pion.png")
-ptwo = pygame.image.load("content\\player2pion.png")
-pthree = pygame.image.load("content\\player3pion.png")
-pfour = pygame.image.load("content\\player4pion.png")
+pone = pygame.image.load("content\\player4pion.png")
+ptwo = pygame.image.load("content\\player3pion.png")
+pthree = pygame.image.load("content\\player2pion.png")
+pfour = pygame.image.load("content\\player1pion.png")
 
 if preset == 0:
     width = 800 #int(input("Width: " ))
