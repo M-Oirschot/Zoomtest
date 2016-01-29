@@ -16,9 +16,11 @@ def Firstplayer(screen,width,height,player1):
     rolltext = font.render("Attacker: '" + player1.Name + "' rolled " + str(rolled)  + " and has " + str(player1.Conditionpoints) + " conditionpoints", 1,(0,64,0))
     errtext = font.render("You have too little condition", 1,(242,7,7))
     screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
+    buttonh = pygame.Surface((250,140), pygame.SRCALPHA, 32)
     button = pygame.Surface((250,140), pygame.SRCALPHA, 32)
     buttonoutline = pygame.Surface((255,145), pygame.SRCALPHA, 32)
     pygame.display.flip()
+    buttonh.fill((222,222,222))
     button.fill((200,200,200))
     buttonoutline.fill((0,0,0))
     textButton4 = smallfont.render("Do nothing",1,(64,0,0))
@@ -76,6 +78,14 @@ def Firstplayer(screen,width,height,player1):
         screen.blit(button, (GetCenter(width,height,button)))
         screen.blit(button, (GetCenter(width,height,button)[0] + (width / 5), GetCenter(width,height,button)[1]))
         screen.blit(button, (GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0] - (width / 5),GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0] - (width / 5),GetCenter(width,height,button)[1]))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1]))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0] + (width / 5),GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0] + (width / 5),GetCenter(width,height,button)[1]))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1]+ 150)).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1] + 150))
         screen.blit(textButton1, (GetCenter(width,height,textButton1)[0] - (width / 5), GetCenter(width,height,textButton1)[1]))
         screen.blit(textButton2, (GetCenter(width,height,textButton2)))
         screen.blit(textButton3, (GetCenter(width,height,textButton3)[0] + (width / 5), GetCenter(width,height,textButton3)[1]))
@@ -131,6 +141,8 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
     pygame.display.flip()
     button = pygame.Surface((250,140), pygame.SRCALPHA, 32)
     buttonoutline = pygame.Surface((255,145), pygame.SRCALPHA, 32)
+    buttonh = pygame.Surface((250,140), pygame.SRCALPHA, 32)
+    buttonh.fill((222,222,222))
     button.fill((200,200,200))
     buttonoutline.fill((0,0,0))
     if rolled == 1:
@@ -185,6 +197,14 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
         screen.blit(button, (GetCenter(width,height,button)))
         screen.blit(button, (GetCenter(width,height,button)[0] + (width / 5), GetCenter(width,height,button)[1]))
         screen.blit(button, (GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0] - (width / 5),GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0] - (width / 5),GetCenter(width,height,button)[1]))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1]))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0] + (width / 5),GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0] + (width / 5),GetCenter(width,height,button)[1]))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1]+ 150)).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1] + 150))
         screen.blit(textButton1, (GetCenter(width,height,textButton1)[0] - (width / 5), GetCenter(width,height,textButton1)[1]))
         screen.blit(textButton2, (GetCenter(width,height,textButton2)))
         screen.blit(textButton3, (GetCenter(width,height,textButton3)[0] + (width / 5), GetCenter(width,height,textButton3)[1]))
@@ -237,8 +257,8 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     font = pygame.font.Font("content\\font\\retro.ttf", 30)
     smallfont = pygame.font.Font("content\\font\\fipps.TTF", 15)
     square = pygame.image.load("content\\eventscreen.png")
-    fillsquare = pygame.Surface((1264,120), pygame.SRCALPHA, 32)
-    fillsquare.fill((222,222,222))
+    #fillsquare = pygame.Surface((1264,120), pygame.SRCALPHA, 32)
+    #fillsquare.fill((222,222,222))
     # square = pygame.Surface((width - 200,height - 200), pygame.SRCALPHA, 32)
     #outline = pygame.Surface((width - 190, height - 190), pygame.SRCALPHA, 32)
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
@@ -269,14 +289,16 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
   
     rolled = dice(6)
     drawDice(rolled,width,height,screen)
-    screen.blit(fillsquare, (GetCenter(width,height,fillsquare)[0], GetCenter(width,height,fillsquare)[1] - 325 ))
+    #screen.blit(fillsquare, (GetCenter(width,height,fillsquare)[0], GetCenter(width,height,fillsquare)[1] - 325 ))
     screen.blit(fightertext, (GetCenter(width,height,fightertext)[0],GetCenter(width,height,fightertext)[1] - (height / 3)))
     rolltext = font.render("'" + player1.Name + "'" + " rolled " + str(rolled) + " and has " + str(player1.Conditionpoints) + " conditionpoints", 1,(0,64,0))
     errtext = font.render("You have too little condition", 1,(242,7,7))
     screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
     button = pygame.Surface((250,140), pygame.SRCALPHA, 32)
     buttonoutline = pygame.Surface((255,145), pygame.SRCALPHA, 32)
-    button.fill((200,200,200))
+    buttonh = pygame.Surface((250,140), pygame.SRCALPHA, 32)
+    buttonh.fill((222,222,222))
+    button.fill((190,190,190))
     buttonoutline.fill((0,0,0))
     
     if rolled == 1:
@@ -332,11 +354,19 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
         screen.blit(button, (GetCenter(width,height,button)))
         screen.blit(button, (GetCenter(width,height,button)[0] + (width / 5), GetCenter(width,height,button)[1]))
         screen.blit(button, (GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0] - (width / 5),GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0] - (width / 5),GetCenter(width,height,button)[1]))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1]))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0] + (width / 5),GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0] + (width / 5),GetCenter(width,height,button)[1]))
+        if button.get_rect(topleft=(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1]+ 150)).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(buttonh,(GetCenter(width,height,button)[0],GetCenter(width,height,button)[1] + 150))
+
         screen.blit(textButton1, (GetCenter(width,height,textButton1)[0] - (width / 5), GetCenter(width,height,textButton1)[1]))
         screen.blit(textButton2, (GetCenter(width,height,textButton2)))
         screen.blit(textButton3, (GetCenter(width,height,textButton3)[0] + (width / 5), GetCenter(width,height,textButton3)[1]))
         screen.blit(textButton4, (GetCenter(width,height,textButton4)[0], GetCenter(width,height,textButton4)[1] + 150))
-       
     
         pygame.event.get()
         #Start Game
