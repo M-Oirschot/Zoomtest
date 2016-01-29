@@ -54,64 +54,19 @@ def build_square_board(dimension, offset):
  
     standardOffset = 850
     coordinates = Empty
-    x = 915
+    x = 853
     y = 20
     colOffset = 600
     rowOffset = 200
- 
-    '''
-   for firstRow in range(dimension):
-       tRow = firstRow * rowOffset + standardOffset
-       for lastColumn in range(dimension):
-           tCol = lastColumn * colOffset
-           if(firstRow == 0):
-               if(lastColumn == 0):
-                   node = Node(Tile((lastColumn, firstRow), (x, y), True), node)
-                   x += 156
-               elif(lastColumn == dimension-1):
-                   node = Node(Tile((lastColumn, firstRow), (x, y), True), node)
-                   x += 78
-               elif(lastColumn == 5):
-                   x += 39
-                   node = Node(Tile((lastColumn, firstRow), (x, y), False), node)
-                   x += 117
-               else:
-                   node = Node(Tile((lastColumn, firstRow), (x, y), False), node)
-                   x += 78
- 
-           elif(lastColumn == dimension-1):              
-               if(firstRow == 1):
-                   node = Node(Tile((lastColumn, firstRow), (x, y), False), node)
- 
-               elif(firstRow == 5):
-                   node = Node(Tile((lastColumn, firstRow), (x, y), False), node)
-                   y += 117
-               elif(firstRow == dimension-1):
-                   node = Node(Tile((lastColumn, firstRow), (x, y), True), node)
- 
-               else:
-                   node = Node(Tile((lastColumn, firstRow), (x, y), True), node)
- 
- 
-   for lastRow in range(dimension, 0, -1):
-       for firstColumn in range(dimension, 0, -1):
- 
-           if(lastColumn == dimension-1):
-               if(firstRow == dimension-1):
-                   node = Node(Tile((firstColumn, lastRow), (0, 0), True), node)
-               elif(firstrow > 1 and firstRow <= 9):
-                   node = Node(Tile((firstColumn, lastRow), (0, 0), False), node)
-               else:
-                   node = Node(Tile((firstColumn, lastRow), (0, 0), True), node)
-   '''
-    
+     
     for topRow in range(11):
+        print("x: " + str(x) + "y: " + str(y))
         if topRow == 0:
             node = Node(Tile((x,y), True, False, False, False, False),node)
-            x += 78
+            x += 130
         elif topRow == 4:
             node = Node(Tile((x,y), False, False, False, False, False),node)
-            x += 117
+            x += 124
         elif topRow == 5:
             node = Node(Tile((x,y), False, False, False, False, True),node)
             x += 117
@@ -121,25 +76,24 @@ def build_square_board(dimension, offset):
         else:
             node = Node(Tile((x,y), False, False, False, False, False),node)
             x  += 78
+        
  
-    for rightRow in range(0,9):
-        #if rightRow == 0:
-        #    y += 127
-        #    node = Node(Tile((x,y), False, False, False, False, False),node)
-        #    y += 78
+    for rightRow in range(9):
+        print("x: " + str(x) + "y: " + str(y))
         if rightRow == 3:
             node = Node(Tile((x,y), False, False, False, False, False),node)
             y += 117
         elif rightRow == 4:
             node = Node(Tile((x,y), False, False, False, False, True), node)
-            y += 123
+            y += 124
         elif rightRow == 8:
             node = Node(Tile((x,y), False, False, True, False, False), node)
-            y += 103
+            y += 78
         else:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             y += 78
         print("I ran " + str(rightRow))
+        print("x: " + str(x) + "y: " + str(y))
  
     for bottomRow in range(10):
         if bottomRow == 3:
@@ -148,9 +102,9 @@ def build_square_board(dimension, offset):
         elif bottomRow == 4:
             node = Node(Tile((x,y), False, False, False, False, True), node)
             x -= 117
-        elif bottomRow == 10:
+        elif bottomRow == 9:
             node = Node(Tile((x,y), False, False, False, True, False), node)
-            x += 78
+            x -= 120
         else:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             x -= 78

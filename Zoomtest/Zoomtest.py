@@ -22,31 +22,35 @@ pthree = pygame.image.load("content\\player3pion.png")
 pfour = pygame.image.load("content\\player4pion.png")
 
 if preset == 0:
-  width = 800 #int(input("Width: " ))
-  height = 600 #int(input("Height: "))
-  size = (width,height)
-  screen = pygame.display.set_mode(size)
+    width = 800 #int(input("Width: " ))
+    height = 600 #int(input("Height: "))
+    size = (width,height)
+    screen = pygame.display.set_mode(size)
 if preset == 1:
-  width = 1920  
-  height = 1080
-  size = (width,height)
-  #screen = pygame.display.set_mode(size)
-  screen = pygame.display.set_mode((size),pygame.FULLSCREEN)
+    width = 1920  
+    height = 1080
+    size = (width,height)
+    #screen = pygame.display.set_mode(size)
+    screen = pygame.display.set_mode((size),pygame.FULLSCREEN)
 while True:
-  if width >= 800 and height >= 600:
-    break
-  else:
-    print("Resolution must be at least 800x600")
-    input("Press enter to continue...")
-    os.system('cls')
+    if width >= 800 and height >= 600:
+        break
+    else:
+        print("Resolution must be at least 800x600")
+        input("Press enter to continue...")
+        os.system('cls')
 
 def clearPygame(color):
-  screen.fill(color)
-  pygame.display.flip()
+    screen.fill(color)
+    pygame.display.flip()
 
    
 
-
+asdf = build_square_board(11,5)
+tpboard = Empty
+while not asdf.IsEmpty:
+    tpboard = Node(asdf.Value, tpboard)
+    asdf = asdf.Tail
 
 pygame.init()
 size=(width,height)
@@ -62,38 +66,38 @@ white = (255,255,255)
 
 #pygame.mixer.music.fadeout(1000)
 while True:
-  pressed = mainMenu(screen,width,height)
-  if pressed == 1:
-    list = Empty             
-    playercount = Playerselect(screen,width,height)      
-    for i in range (0,playercount):
-      list = Node("", list)
-    namelist = name(list,screen,width,height)
-    emptyList = Empty
-    if playercount == 2:
-      emptyList = Node(MakePlayer(0,100,15,ptwo,namelist.Value,2),emptyList)
-      emptyList = Node(MakePlayer(10,100,15,pone,namelist.Tail.Value,1),emptyList)
+    pressed = mainMenu(screen,width,height)
+    if pressed == 1:
+        list = Empty             
+        playercount = Playerselect(screen,width,height)      
+        for i in range (0,playercount):
+            list = Node("", list)
+        namelist = name(list,screen,width,height)
+        emptyList = Empty
+        if playercount == 2:
+            emptyList = Node(MakePlayer(0,100,15,ptwo,namelist.Value,2,tpboard.Value),emptyList)
+            emptyList = Node(MakePlayer(10,100,15,pone,namelist.Tail.Value,1,getItemFromList(tpboard,10,0)),emptyList)
       
       
-    elif playercount == 3:
-      emptyList = Node(MakePlayer(0,100,15,pthree,namelist.Value,3),emptyList)
-      emptyList = Node(MakePlayer(10,100,15,ptwo,namelist.Tail.Value,2),emptyList)
-      emptyList = Node(MakePlayer(20,100,15,pone,namelist.Tail.Tail.Value,1),emptyList)
-    elif playercount == 4:
-      emptyList = Node(MakePlayer(0,100,15,pfour,namelist.Value,4),emptyList)
-      emptyList = Node(MakePlayer(10,100,15,pthree,namelist.Tail.Value,3),emptyList)
-      emptyList = Node(MakePlayer(20,100,15,ptwo,namelist.Tail.Tail.Value,2),emptyList)
-      emptyList = Node(MakePlayer(30,100,15,pone,namelist.Tail.Tail.Tail.Value,1),emptyList)
-    clearPygame(white)
-    Main(screen,width,height,playercount,emptyList)
+        elif playercount == 3:
+            emptyList = Node(MakePlayer(0,100,15,pthree,namelist.Value,3, tpboard.Value),emptyList)
+            emptyList = Node(MakePlayer(10,100,15,ptwo,namelist.Tail.Value,2, getItemFromList(tpboard,10,0)),emptyList)
+            emptyList = Node(MakePlayer(20,100,15,pone,namelist.Tail.Tail.Value,1, getItemFromList(tpboard,20,0)),emptyList)
+        elif playercount == 4:
+            emptyList = Node(MakePlayer(0,100,15,pfour,namelist.Value,4, tpboard.Value),emptyList)
+            emptyList = Node(MakePlayer(10,100,15,pthree,namelist.Tail.Value,3, getItemFromList(tpboard,10,0)),emptyList)
+            emptyList = Node(MakePlayer(20,100,15,ptwo,namelist.Tail.Tail.Value,2, getItemFromList(tpboard,20,0)),emptyList)
+            emptyList = Node(MakePlayer(30,100,15,pone,namelist.Tail.Tail.Tail.Value,1, getItemFromList(tpboard,30,0)),emptyList)
+        clearPygame(white)
+        Main(screen,width,height,playercount,emptyList,tpboard)
     
-  elif pressed == 4:
-    pygame.quit()
-    break
-  elif pressed == 2:
-    print("Highscores go here")           #Hier komt de highscore function
-  elif pressed == 3:
-    print("Help goes here")               #Hier komt de help/rules function
+    elif pressed == 4:
+        pygame.quit()
+        break
+    elif pressed == 2:
+        print("Highscores go here")           #Hier komt de highscore function
+    elif pressed == 3:
+        print("Help goes here")               #Hier komt de help/rules function
 #while True:
 #pygame.display.flip()
 #  time.sleep(0.1)

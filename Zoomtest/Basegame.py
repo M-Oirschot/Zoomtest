@@ -20,7 +20,7 @@ helpBtn = pygame.image.load("content\\helpbtn.png")
 scBtn = pygame.image.load("content\\scoreBoardbtn.png")
 rollDiceBtn = pygame.image.load("content\\rollDiceBtn.png")
 
-def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinates,bg):
+def Menushit(screen,width,height,players,list,fighterlist,board,bg):
     if players == 2:
       player1 = list.Value
       player2 = list.Tail.Value
@@ -38,7 +38,11 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
       player = [player1,player2,player3,player4]
     done = False
     first = True
+
+
     while not done:
+        for i in range (0, len(player)):
+            screen.blit(player[i].Texture, player[i].Tile.pos)
         """if first == True:
           superfight(player[0],PlayerversusSuperfight(screen,width,height,player[0],fighterlist))
           print(pvp(player[0],player[1],PlayerversusPlayer(screen,width,height,player[0],player[1])))
@@ -49,12 +53,22 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
         print(player[1].Name)
         print(player[1].Conditionpoints)
         print(player[1].Lifepoints)
-        input()"""
+        input()
         for i in range (0, len(player)):
-          coordinate = getItemFromList(listofcoordinates,player[i].Pos,0).pos
-          screen.blit(player[i].Texture, coordinate)
-          if player[i].Pos == 5:
-            superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))        
+            while not asdf.IsEmpty:
+                if asdf.Value.playerOneBase:
+                    player[1].Pos = asdf.Value 
+            if asdf.Value.playerTwoBase:
+                    player[2].Pos = asdf.Value
+            if asdf.Value.playerOneBase:
+                    player[3].Pos = asdf.Value
+            if asdf.Value.playerOneBase:
+                    player[4].Pos = asdf.Value  
+            screen.blit(player[i].Texture, player[i].Pos.pos)
+            coordinate = getItemFromList(listofcoordinates,player[i].Pos,0).pos
+            if player[i].Pos == 5:
+                    superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))      
+             """  
         #print(player[0].Name, player[0].Pos)
         #print(getItemFromList(listofcoordinates,player[0].Pos,0).pos)
         #input()
@@ -79,25 +93,22 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
         for i in range (0, len(player)):
           if player[i].Pos == 39:
             player[i].Pos = 0
+            player[i].Tile = board.Value
           else:
             player[i].Pos += 1
+            player[i].Tile = getItemFromList(board, player[i].Pos, 0)
         screen.blit(bg, (0,0))
 
-def Main(screen,width,height,players,list):
+def Main(screen,width,height,players,list,board):
     pygame.mixer.music.fadeout(1000)
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
-    board = build_square_board(11,5)
     templist = MakeList()
-
-    tp = board
-    asdf = Empty
-    while tp is not Empty:
-        asdf = Node(tp.Value, asdf)
-        tp = tp.Tail
+  
+    
 
     #while not asdf.IsEmpty:
     #    print(asdf.Value.pos)
-    #    asdf = asdf.Tail
+   #     asdf = asdf.Tail
 
     while True:
         screen.fill(white)
@@ -112,5 +123,5 @@ def Main(screen,width,height,players,list):
 
         print("")
         pygame.display.flip()
-        Menushit(screen,width,height,players,list,templist,board,asdf,bg)
+        Menushit(screen,width,height,players,list,templist,board,bg)
           
