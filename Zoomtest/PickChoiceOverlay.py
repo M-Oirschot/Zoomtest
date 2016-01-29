@@ -82,31 +82,23 @@ def Firstplayer(screen,width,height,player1):
         #Start Game
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0] - (width / 5), GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos())):
             if player1.Conditionpoints >= returnvalue1[1]:  
-                screen.blit(bg, (0,0))
-                pygame.display.flip()
                 return returnvalue1
                 break
             else:
                 screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=GetCenter(width,height,button)).collidepoint(pygame.mouse.get_pos())):
             if player1.Conditionpoints >= returnvalue2[1]:    
-                screen.blit(bg, (0,0))
-                pygame.display.flip()
                 return returnvalue2
                 break
             else:
                 screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0] + (width / 5), GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos())):
             if player1.Conditionpoints >= returnvalue3[1]:   
-                screen.blit(bg, (0,0))
-                pygame.display.flip()
                 return returnvalue3
                 break
             else:
                 screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150)).collidepoint(pygame.mouse.get_pos())):
-            screen.blit(bg, (0,0))
-            pygame.display.flip()
             return [0,0]
             #Add breaks
         pygame.display.flip()
@@ -199,31 +191,23 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
         #Start Game
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0] - (width / 5), GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos())):
             if player1.Conditionpoints >= returnvalue1[1]:  
-                screen.blit(bg, (0,0))
-                pygame.display.flip()
                 return returnvalue1
                 break
             else:
                 screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=GetCenter(width,height,button)).collidepoint(pygame.mouse.get_pos())):
             if player1.Conditionpoints >= returnvalue2[1]:    
-                screen.blit(bg, (0,0))
-                pygame.display.flip()
                 return returnvalue2
                 break
             else:
                 screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0] + (width / 5), GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos())):
             if player1.Conditionpoints >= returnvalue3[1]:   
-                screen.blit(bg, (0,0))
-                pygame.display.flip()
                 return returnvalue3
                 break
             else:
                 screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150)).collidepoint(pygame.mouse.get_pos())):
-            screen.blit(bg, (0,0))
-            pygame.display.flip()
             return [0,0]
         pygame.display.flip()
 
@@ -347,31 +331,20 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
         #Start Game
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0] - (width / 5), GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos())):
             if player1.Conditionpoints >= returnvalue1[1]:  
-                screen.blit(bg, (0,0))
-                pygame.display.flip()
                 return returnvalue1
-                break
             else:
                 screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=GetCenter(width,height,button)).collidepoint(pygame.mouse.get_pos())):
             if player1.Conditionpoints >= returnvalue2[1]:    
-                screen.blit(bg, (0,0))
-                pygame.display.flip()
                 return returnvalue2
-                break
             else:
                 screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0] + (width / 5), GetCenter(width,height,button)[1])).collidepoint(pygame.mouse.get_pos())):
-            if player1.Conditionpoints >= returnvalue3[1]:   
-                screen.blit(bg, (0,0))
-                pygame.display.flip()
+            if player1.Conditionpoints >= returnvalue3[1]:
                 return returnvalue3
-                break
             else:
                 screen.blit(errtext, (GetCenter(width,height,errtext)[0],GetCenter(width,height,errtext)[1] + (height / 3) - 70))
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150)).collidepoint(pygame.mouse.get_pos())):
-            screen.blit(bg, (0,0))
-            pygame.display.flip()
             return [0,0,sdmg]
         pygame.display.flip()
         time.sleep(0.033)
