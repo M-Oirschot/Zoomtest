@@ -35,4 +35,16 @@ def pvp(attacker,defender,fight):
         defender.Conditionpoints -= playertwocond
 
         
+def AliveCheck(players):
+    alive = 0
+    for i in range (0,len(players)):
+        if players[i] != 0:
+            alive += 1
+    return alive
+
+
+
+
+
+
 
