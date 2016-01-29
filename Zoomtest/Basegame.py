@@ -41,6 +41,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
 
 
     while not done:
+        screen.blit(bg, (0,0))
         for i in range (0, len(player)):
             screen.blit(player[i].Texture, player[i].Tile.pos)
         """if first == True:
@@ -53,9 +54,9 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
         print(player[1].Name)
         print(player[1].Conditionpoints)
         print(player[1].Lifepoints)
-        input()
+        input()"""
         for i in range (0, len(player)):
-            while not asdf.IsEmpty:
+            """while not asdf.IsEmpty:
                 if asdf.Value.playerOneBase:
                     player[1].Pos = asdf.Value 
             if asdf.Value.playerTwoBase:
@@ -65,13 +66,17 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
             if asdf.Value.playerOneBase:
                     player[4].Pos = asdf.Value  
             screen.blit(player[i].Texture, player[i].Pos.pos)
-            coordinate = getItemFromList(listofcoordinates,player[i].Pos,0).pos
+            coordinate = getItemFromList(listofcoordinates,player[i].Pos,0).pos"""
             if player[i].Pos == 5:
-                    superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))      
-             """  
+                superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))
+                screen.blit(bg, (0,0))
+                for i in range (0, len(player)):
+                    screen.blit(player[i].Texture, player[i].Tile.pos)
+            """""" 
         #print(player[0].Name, player[0].Pos)
         #print(getItemFromList(listofcoordinates,player[0].Pos,0).pos)
         #input()
+        
         screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
         screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
         screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
@@ -97,7 +102,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
           else:
             player[i].Pos += 1
             player[i].Tile = getItemFromList(board, player[i].Pos, 0)
-        screen.blit(bg, (0,0))
+        
 
 def Main(screen,width,height,players,list,board):
     pygame.mixer.music.fadeout(1000)
