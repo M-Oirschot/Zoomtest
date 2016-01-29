@@ -67,11 +67,9 @@ def build_square_board(dimension, offset):
         elif topRow == 4:
             node = Node(Tile((x,y), False, False, False, False, False),node)
             x += 124
-            print("row voor fight")
         elif topRow == 5:
             node = Node(Tile((x,y), False, False, False, False, True),node)
             x += 117
-            print("fight")
         elif topRow == 10:
             node = Node(Tile((x,y), False, True, False, False, False),node)
             y += 127
@@ -80,22 +78,17 @@ def build_square_board(dimension, offset):
             x  += 78
         
  
-    for rightRow in range(10):
+    for rightRow in range(9):
         print("x: " + str(x) + "y: " + str(y))
-        if rightRow == 0:
-            print("first of rightrow " + str(x) + '+' + str(y))
-            #    y += 127
-            node = Node(Tile((x,y), False, False, False, False, False),node)
-            #    y += 78
         if rightRow == 3:
             node = Node(Tile((x,y), False, False, False, False, False),node)
             y += 117
         elif rightRow == 4:
             node = Node(Tile((x,y), False, False, False, False, True), node)
-            y += 123
+            y += 124
         elif rightRow == 8:
             node = Node(Tile((x,y), False, False, True, False, False), node)
-            y += 103
+            y += 78
         else:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             y += 78
@@ -109,9 +102,9 @@ def build_square_board(dimension, offset):
         elif bottomRow == 4:
             node = Node(Tile((x,y), False, False, False, False, True), node)
             x -= 117
-        elif bottomRow == 10:
+        elif bottomRow == 9:
             node = Node(Tile((x,y), False, False, False, True, False), node)
-            x += 78
+            x -= 120
         else:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             x -= 78
