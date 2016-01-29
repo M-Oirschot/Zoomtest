@@ -45,7 +45,7 @@ def clearPygame(color):
   pygame.display.flip()
 
    
-
+tpboard = build_square_board(11,5)
 
 
 pygame.init()
@@ -85,7 +85,7 @@ while True:
       emptyList = Node(MakePlayer(20,100,15,ptwo,namelist.Tail.Tail.Value,2),emptyList)
       emptyList = Node(MakePlayer(30,100,15,pone,namelist.Tail.Tail.Tail.Value,1),emptyList)
     clearPygame(white)
-    Main(screen,width,height,playercount,emptyList)
+    Main(screen,width,height,playercount,emptyList,tpboard)
     
   elif pressed == 4:
     pygame.quit()
