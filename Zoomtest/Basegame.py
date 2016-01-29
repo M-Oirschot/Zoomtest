@@ -20,7 +20,7 @@ helpBtn = pygame.image.load("content\\helpbtn.png")
 scBtn = pygame.image.load("content\\scoreBoardbtn.png")
 rollDiceBtn = pygame.image.load("content\\rollDiceBtn.png")
 
-def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinates,bg):
+def Menushit(screen,width,height,players,list,fighterlist,board,bg):
     if players == 2:
       player1 = list.Value
       player2 = list.Tail.Value
@@ -39,21 +39,10 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
     done = False
     first = True
 
-    asdfg = sadf
-    for i in range (0, len(player)):
-        while not asdfg.IsEmpty:
-            if asdfg.Value.playerOneBase == True:
-                player[0].Pos = asdfg.Value 
-            if asdfg.Value.playerTwoBase == True:
-                player[1].Pos = asdfg.Value
-            if asdfg.Value.playerOneBase == True:
-                player[2].Pos = asdfg.Value
-            if asdfg.Value.playerOneBase == True:
-                player[3].Pos = asdfg.Value  
-            asdfg = asdfg.Tail        
 
     while not done:
-        screen.blit(player[i].Texture, player[i].Pos.pos)
+        for i in range (0, len(player)):
+            screen.blit(player[i].Texture, player[i].Tile.pos)
         """if first == True:
           superfight(player[0],PlayerversusSuperfight(screen,width,height,player[0],fighterlist))
           print(pvp(player[0],player[1],PlayerversusPlayer(screen,width,height,player[0],player[1])))
@@ -104,8 +93,10 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
         for i in range (0, len(player)):
           if player[i].Pos == 39:
             player[i].Pos = 0
+            payer[i].Tile = board.Value
           else:
             player[i].Pos += 1
+            player[i].Tile = getItemFromList(board, player[i].Pos, 0)
         screen.blit(bg, (0,0))
 
 def Main(screen,width,height,players,list,board):
@@ -137,5 +128,5 @@ def Main(screen,width,height,players,list,board):
 
         print("")
         pygame.display.flip()
-        Menushit(screen,width,height,players,list,templist,board,asdf,bg)
+        Menushit(screen,width,height,players,list,templist,asdf,bg)
           
