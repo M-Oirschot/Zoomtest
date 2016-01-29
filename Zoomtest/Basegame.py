@@ -12,9 +12,10 @@ white = (255, 255, 255)
 blue=(0,0,255)
 
 pygame.init()
-font = font = pygame.font.Font("content\\font\\fipps.TTF", 15)
+font = pygame.font.Font("content\\font\\fipps.TTF", 15)
 playerName = font.render("Name:", 1, (255,255,0))
 Condition = font.render("Condition:  4", 1, (255,255,0))
+
 
 helpBtn = pygame.image.load("content\\helpbtn.png")
 scBtn = pygame.image.load("content\\scoreBoardbtn.png")
@@ -42,45 +43,45 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
 
     while not done:
         screen.blit(bg, (0,0))
+        
+        
+       
+
         for i in range (0, len(player)):
             screen.blit(player[i].Texture, player[i].Tile.pos)
-        """if first == True:
-          superfight(player[0],PlayerversusSuperfight(screen,width,height,player[0],fighterlist))
-          print(pvp(player[0],player[1],PlayerversusPlayer(screen,width,height,player[0],player[1])))
-          first = False
-        print(player[0].Name)
-        print(player[0].Conditionpoints)
-        print(player[0].Lifepoints)
-        print(player[1].Name)
-        print(player[1].Conditionpoints)
-        print(player[1].Lifepoints)
-        input()"""
+        pygame.display.flip()
         for i in range (0, len(player)):
-            """while not asdf.IsEmpty:
-                if asdf.Value.playerOneBase:
-                    player[1].Pos = asdf.Value 
-            if asdf.Value.playerTwoBase:
-                    player[2].Pos = asdf.Value
-            if asdf.Value.playerOneBase:
-                    player[3].Pos = asdf.Value
-            if asdf.Value.playerOneBase:
-                    player[4].Pos = asdf.Value  
-            screen.blit(player[i].Texture, player[i].Pos.pos)
-            coordinate = getItemFromList(listofcoordinates,player[i].Pos,0).pos"""
-            if player[i].Pos == 5:
+            while True:
+                playeronturn = font.render("It's " + player[i].Name + "'s turn!", 1, (255,255,0))
+                screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.4) + 30))
+                screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
+                screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
+                screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
+                pygame.event.get()
+                pygame.display.flip()
+                if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
+                    diceroll = dice(6)  
+                    drawDice(diceroll,width, height, screen)
+                    for k in range (0, diceroll):
+                        if player[i].Pos == 39:
+                            player[i].Pos = 0
+                            player[i].Tile = board.Value
+                        else:
+                            player[i].Pos += 1
+                            player[i].Tile = getItemFromList(board, player[i].Pos, 0)
+                        screen.blit(bg, (0,0))
+                        for j in range (0, len(player)):
+                            screen.blit(player[j].Texture, player[j].Tile.pos)
+                        pygame.display.flip()
+                    break
+
+                    
+            if player[i].Pos == 5 or player[i].Pos == 15 or player[i].Pos == 25 or player[i].Pos == 35:
                 superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))
                 screen.blit(bg, (0,0))
                 for i in range (0, len(player)):
                     screen.blit(player[i].Texture, player[i].Tile.pos)
-            """""" 
-        #print(player[0].Name, player[0].Pos)
-        #print(getItemFromList(listofcoordinates,player[0].Pos,0).pos)
-        #input()
-        
-        screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
-        screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
-        screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
-           
+            
         pygame.event.get()
         
         if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height,rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
@@ -94,14 +95,14 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
             done = True
 
         pygame.display.flip()
-        time.sleep(0.5)
+        """time.sleep(0.5)
         for i in range (0, len(player)):
           if player[i].Pos == 39:
             player[i].Pos = 0
             player[i].Tile = board.Value
           else:
             player[i].Pos += 1
-            player[i].Tile = getItemFromList(board, player[i].Pos, 0)
+            player[i].Tile = getItemFromList(board, player[i].Pos, 0)"""
         
 
 def Main(screen,width,height,players,list,board):
