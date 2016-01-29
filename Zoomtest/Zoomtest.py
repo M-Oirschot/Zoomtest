@@ -14,7 +14,7 @@ from GetRandomEvent import *
 from PickChoiceOverlay import *
 from Player import *
 #dankmemes
-preset = 0
+preset = 1
 
 pone = pygame.image.load("content\\player1pion.png")
 ptwo = pygame.image.load("content\\player2pion.png")

@@ -4,16 +4,24 @@ import pygame
 import time
 from Node import *
 from Getcenter import *
+import random
 
 bg = pygame.image.load('content\\nameinput.png')
 bg1 = pygame.image.load('content\\nameinput1.png')
 
+r = 222
+g = 222
+b = 222
+
+
+
 
 def name(list,screen,width,height):
+
     memesquare = pygame.Surface((385,55), pygame.SRCALPHA, 32)
     othersquare = pygame.Surface((615,95), pygame.SRCALPHA, 32)
-    memesquare.fill((222,222,222))
-    othersquare.fill((222,222,222))
+    memesquare.fill((r,g,b))
+    othersquare.fill((r,g,b))
     l = list
     newlist = Empty
     name = ""
@@ -23,7 +31,6 @@ def name(list,screen,width,height):
     screen.blit(bg, (0,0))
     tempbool = False
     while not l.IsEmpty:
-        
         for event in pygame.event.get():
             if event.type == KEYDOWN:
                 if event.unicode.isalpha():
