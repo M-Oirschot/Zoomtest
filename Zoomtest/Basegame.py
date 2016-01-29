@@ -93,7 +93,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
         for i in range (0, len(player)):
           if player[i].Pos == 39:
             player[i].Pos = 0
-            payer[i].Tile = board.Value
+            player[i].Tile = board.Value
           else:
             player[i].Pos += 1
             player[i].Tile = getItemFromList(board, player[i].Pos, 0)
@@ -103,13 +103,8 @@ def Main(screen,width,height,players,list,board):
     pygame.mixer.music.fadeout(1000)
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     templist = MakeList()
-
-    tp = board
+  
     
-    asdf = Empty
-    while not tp.IsEmpty:
-        asdf = Node(tp.Value, asdf)
-        tp = tp.Tail
 
     #while not asdf.IsEmpty:
     #    print(asdf.Value.pos)
@@ -128,5 +123,5 @@ def Main(screen,width,height,players,list,board):
 
         print("")
         pygame.display.flip()
-        Menushit(screen,width,height,players,list,templist,asdf,bg)
+        Menushit(screen,width,height,players,list,templist,board,bg)
           
