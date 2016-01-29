@@ -2,6 +2,7 @@
 import pygame
 import time
 from Getcenter import *
+
 def dice(sides):
     return random.randint(1, sides)
 
