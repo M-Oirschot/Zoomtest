@@ -9,7 +9,8 @@ def Firstplayer(screen,width,height,player1):
   smallfont = pygame.font.Font("content\\font\\fipps.TTF", 15)
   bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
   rolled = dice(6)
-  rolltext = font.render("Attacker: '" + player1.Name + "' rolled " + str(rolled)  + " and has " + str(player1.Conditionpoints) + " conditionpoints", 1,(0,0,0))
+  drawDice(rolled,width,height,screen)
+  rolltext = font.render("Attacker: '" + player1.Name + "' rolled " + str(rolled)  + " and has " + str(player1.Conditionpoints) + " conditionpoints", 1,(0,64,0))
   errtext = font.render("You have too little condition", 1,(242,7,7))
   screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
   button = pygame.Surface((250,140), pygame.SRCALPHA, 32)
@@ -17,7 +18,7 @@ def Firstplayer(screen,width,height,player1):
   pygame.display.flip()
   button.fill((200,200,200))
   buttonoutline.fill((0,0,0))
-  textButton4 = smallfont.render("Do nothing",1,(0,0,0))
+  textButton4 = smallfont.render("Do nothing",1,(64,0,0))
   time.sleep(0.5)
   if rolled == 1:
     textButton1 = smallfont.render("Dmg: " + str(player1.dmg.one.one.dmg) + " Cond: " + str(player1.dmg.one.one.cond), 1,(0,0,0))
@@ -61,6 +62,7 @@ def Firstplayer(screen,width,height,player1):
     returnvalue2 = [player1.dmg.six.two.dmg, player1.dmg.six.two.cond]
     textButton3 = smallfont.render("Dmg: " + str(player1.dmg.six.three.dmg) + " Cond: " + str(player1.dmg.six.three.cond), 1,(0,0,0))
     returnvalue3 = [player1.dmg.six.three.dmg, player1.dmg.six.three.cond]
+  
   done = False
   while not done:
     screen.blit(buttonoutline, (GetCenter(width,height,buttonoutline)[0] - (width / 5), GetCenter(width,height,buttonoutline)[1]))
@@ -114,10 +116,11 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
   font = pygame.font.Font("content\\font\\retro.ttf", 30)
   smallfont = pygame.font.Font("content\\font\\fipps.TTF", 15)
   errtext = font.render("You have too little condition", 1,(242,7,7))
-  textButton4 = smallfont.render("Do nothing",1,(0,0,0))
+  textButton4 = smallfont.render("Do nothing",1,(64,0,0))
   bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
-  time.sleep(0.5)
+  #time.sleep(0.5)
   rolled = dice(6)
+  drawDice(rolled,width,height,screen)
   square = pygame.Surface((width - 200,height - 200), pygame.SRCALPHA, 32)
   outline = pygame.Surface((width - 190, height - 190), pygame.SRCALPHA, 32)
   #title = 
@@ -126,8 +129,8 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
   screen.blit(outline, (GetCenter(width,height,outline)))
   screen.blit(square, (GetCenter(width,height,square)))
   pygame.display.flip()
-  rolltext = font.render("Defender: '" + player1.Name + "' rolled " + str(rolled) + " and has " + str(player1.Conditionpoints) + " condition", 1,(0,0,0))
-  memetext = font.render("Attacker: '" + otherplayer.Name + "' does " + str(damage) + " damage", 1,(0,0,0))
+  rolltext = font.render("Defender: '" + player1.Name + "' rolled " + str(rolled) + " and has " + str(player1.Conditionpoints) + " condition", 1,(0,64,0))
+  memetext = font.render("Attacker: '" + otherplayer.Name + "' does " + str(damage) + " damage", 1,(128,0,0))
   screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
   screen.blit(memetext, (GetCenter(width,height,memetext)[0],GetCenter(width,height,memetext)[1] - (height / 3)))
   pygame.display.flip()
@@ -249,7 +252,7 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
   square = pygame.Surface((width - 200,height - 200), pygame.SRCALPHA, 32)
   outline = pygame.Surface((width - 190, height - 190), pygame.SRCALPHA, 32)
   bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
-  textButton4 = smallfont.render("Do nothing",1,(0,0,0))
+  textButton4 = smallfont.render("Do nothing",1,(64,0,0))
   square.fill(maincolor)
   outline.fill((0,0,0))
   screen.blit(outline, (GetCenter(width,height,outline)))
@@ -271,10 +274,12 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
   elif srolled == 6:
     sdmg = fighter.Six  
   print(srolled)
-  fightertext = font.render("Superfighter '" + fighter.Name + "' will do " + str(sdmg) + " damage", 1,(0,0,0))
-  screen.blit(fightertext, (GetCenter(width,height,fightertext)[0],GetCenter(width,height,fightertext)[1] - (height / 3)))
+  fightertext = font.render("Superfighter '" + fighter.Name + "' will do " + str(sdmg) + " damage", 1,(128,0,0))
+  
   rolled = dice(6)
-  rolltext = font.render("'" + player1.Name + "'" + " rolled " + str(rolled) + " and has " + str(player1.Conditionpoints) + " conditionpoints", 1,(0,0,0))
+  drawDice(rolled,width,height,screen)
+  screen.blit(fightertext, (GetCenter(width,height,fightertext)[0],GetCenter(width,height,fightertext)[1] - (height / 3)))
+  rolltext = font.render("'" + player1.Name + "'" + " rolled " + str(rolled) + " and has " + str(player1.Conditionpoints) + " conditionpoints", 1,(0,64,0))
   errtext = font.render("You have too little condition", 1,(242,7,7))
   screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
   button = pygame.Surface((250,140), pygame.SRCALPHA, 32)

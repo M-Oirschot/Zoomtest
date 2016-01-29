@@ -54,7 +54,9 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
           coordinate = getItemFromList(listofcoordinates,player[i].Pos,0).pos
           screen.blit(player[i].Texture, coordinate)
           if player[i].Pos == 5:
-            superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))        
+            superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))
+          if player[i].Pos == 15:
+            superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))
         #print(player[0].Name, player[0].Pos)
         #print(getItemFromList(listofcoordinates,player[0].Pos,0).pos)
         #input()
@@ -63,7 +65,6 @@ def Menushit(screen,width,height,players,list,fighterlist,board,listofcoordinate
         screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
            
         pygame.event.get()
-        print("maymays")
         if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height,rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
             print("done0")
             diceRoll = dice(6)
@@ -105,9 +106,7 @@ def Main(screen,width,height,players,list):
         screen.blit(playerName, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.2)))
         screen.blit(Condition, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.4)))
         
-        diceImg = pygame.image.load("content\\" + str(dice(6)) +".png")
-        screen.blit(diceImg, (GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] + (height / 2.825)))
-
+        drawDice(dice(6),width,height,screen)
         pygame.draw.rect(screen,blue,(200,150,100,50))
 
         print("")
