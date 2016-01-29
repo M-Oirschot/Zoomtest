@@ -8,7 +8,10 @@ import random
 
 bg = pygame.image.load('content\\nameinput.png')
 bg1 = pygame.image.load('content\\nameinput1.png')
-
+poneF = pygame.image.load("content\\player4pion.png")
+ptwoF = pygame.image.load("content\\player3pion.png")
+pthreeF = pygame.image.load("content\\player2pion.png")
+pfourF = pygame.image.load("content\\player1pion.png")
 r = 222
 g = 222
 b = 222
@@ -53,7 +56,14 @@ def name(list,screen,width,height):
                       tempbool = True
             
             playerindic = font.render("Type player " + str(playercount) + " name:", True, (0,0,0))
-            
+            if playercount == 1:
+              screen.blit(pygame.image.load("content\\player1pion.png"), (GetCenter(width,height,pygame.image.load("content\\player1pion.png"))[0],GetCenter(width,height,pygame.image.load("content\\player1pion.png"))[1] + (height / 8)))
+            elif playercount == 2:
+              screen.blit(pygame.image.load("content\\player3pion.png"), (GetCenter(width,height,pygame.image.load("content\\player1pion.png"))[0],GetCenter(width,height,pygame.image.load("content\\player1pion.png"))[1] + (height / 8)))
+            elif playercount == 3: 
+              screen.blit(pygame.image.load("content\\player2pion.png"), (GetCenter(width,height,pygame.image.load("content\\player1pion.png"))[0],GetCenter(width,height,pygame.image.load("content\\player1pion.png"))[1] + (height / 8)))
+            else:
+              screen.blit(pygame.image.load("content\\player4pion.png"), (GetCenter(width,height,pygame.image.load("content\\player1pion.png"))[0],GetCenter(width,height,pygame.image.load("content\\player1pion.png"))[1] + (height / 8)))
             block = otherfont.render(name, True, (0, 0, 0))
             rect = block.get_rect()
             rect.center = screen.get_rect().center
