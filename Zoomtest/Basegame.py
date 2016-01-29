@@ -94,7 +94,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
             done = True
 
         pygame.display.flip()
-        time.sleep(1)
+        time.sleep(0)
         for i in range (0, len(player)):
           if player[i].Pos == 39:
             player[i].Pos = 0

@@ -236,14 +236,18 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     maincolor = (100,100,100)
     font = pygame.font.Font("content\\font\\retro.ttf", 30)
     smallfont = pygame.font.Font("content\\font\\fipps.TTF", 15)
-    square = pygame.Surface((width - 200,height - 200), pygame.SRCALPHA, 32)
-    outline = pygame.Surface((width - 190, height - 190), pygame.SRCALPHA, 32)
+    square = pygame.image.load("content\\eventscreen.png")
+    fillsquare = pygame.Surface((1264,120), pygame.SRCALPHA, 32)
+    fillsquare.fill((222,222,222))
+    # square = pygame.Surface((width - 200,height - 200), pygame.SRCALPHA, 32)
+    #outline = pygame.Surface((width - 190, height - 190), pygame.SRCALPHA, 32)
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     textButton4 = smallfont.render("Do nothing",1,(64,0,0))
-    square.fill(maincolor)
-    outline.fill((0,0,0))
-    screen.blit(outline, (GetCenter(width,height,outline)))
+    #square.fill(maincolor)
+    #outline.fill((0,0,0))
+    #screen.blit(outline, (GetCenter(width,height,outline)))
     screen.blit(square, (GetCenter(width,height,square)))
+
     fighter = ReturnSuperfighter(fighterlist)
     pygame.display.flip()
     srolled = dice(6)
@@ -265,6 +269,7 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
   
     rolled = dice(6)
     drawDice(rolled,width,height,screen)
+    screen.blit(fillsquare, (GetCenter(width,height,fillsquare)[0], GetCenter(width,height,fillsquare)[1] - 325 ))
     screen.blit(fightertext, (GetCenter(width,height,fightertext)[0],GetCenter(width,height,fightertext)[1] - (height / 3)))
     rolltext = font.render("'" + player1.Name + "'" + " rolled " + str(rolled) + " and has " + str(player1.Conditionpoints) + " conditionpoints", 1,(0,64,0))
     errtext = font.render("You have too little condition", 1,(242,7,7))
@@ -273,6 +278,7 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     buttonoutline = pygame.Surface((255,145), pygame.SRCALPHA, 32)
     button.fill((200,200,200))
     buttonoutline.fill((0,0,0))
+    
     if rolled == 1:
         textButton1 = smallfont.render("Dmg: " + str(player1.dmg.one.one.dmg) + " Cond: " + str(player1.dmg.one.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.one.one.dmg, player1.dmg.one.one.cond, sdmg]
@@ -317,6 +323,7 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
         returnvalue3 = [player1.dmg.six.three.dmg, player1.dmg.six.three.cond, sdmg]
     done = False
     while not done:
+        
         screen.blit(buttonoutline, (GetCenter(width,height,buttonoutline)[0] - (width / 5), GetCenter(width,height,buttonoutline)[1]))
         screen.blit(buttonoutline, (GetCenter(width,height,buttonoutline)))
         screen.blit(buttonoutline, (GetCenter(width,height,buttonoutline)[0] + (width / 5), GetCenter(width,height,buttonoutline)[1]))
@@ -329,6 +336,7 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
         screen.blit(textButton2, (GetCenter(width,height,textButton2)))
         screen.blit(textButton3, (GetCenter(width,height,textButton3)[0] + (width / 5), GetCenter(width,height,textButton3)[1]))
         screen.blit(textButton4, (GetCenter(width,height,textButton4)[0], GetCenter(width,height,textButton4)[1] + 150))
+       
     
         pygame.event.get()
         #Start Game
