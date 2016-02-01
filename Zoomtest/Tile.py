@@ -11,7 +11,6 @@ class Tile:
         self.sTile = fight          #superfight tile
  
 def build_square_board(dimension, offset):
-   
     node = Empty
     coordinates = Empty
     x = 873
@@ -20,7 +19,6 @@ def build_square_board(dimension, offset):
     rowOffset = 200
      
     for topRow in range(11):
-        print("x: " + str(x) + "y: " + str(y))
         if topRow == 0:
             node = Node(Tile((x,y), True, False, False, False, False),node)
             x += 110
@@ -31,8 +29,8 @@ def build_square_board(dimension, offset):
             node = Node(Tile((x,y), False, False, False, False, True),node)
             x += 117
         elif topRow == 9:
-            x += 98
             node = Node(Tile((x,y), False, True, False, False, False),node)
+            x += 98
         elif topRow == 10:
             node = Node(Tile((x,y), False, True, False, False, False),node)
             y += 101
@@ -40,9 +38,7 @@ def build_square_board(dimension, offset):
             node = Node(Tile((x,y), False, False, False, False, False),node)
             x  += 78
         
- 
     for rightRow in range(9):
-        print("x: " + str(x) + "y: " + str(y))
         if rightRow == 3:
             node = Node(Tile((x,y), False, False, False, False, False),node)
             y += 117
@@ -55,11 +51,8 @@ def build_square_board(dimension, offset):
         else:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             y += 78
-        print("I ran " + str(rightRow))
-        print("x: " + str(x) + "y: " + str(y))
  
     for bottomRow in range(10):
-        print("x: " + str(x) + "y: " + str(y))
         if bottomRow == 4:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             x -= 117
@@ -77,7 +70,6 @@ def build_square_board(dimension, offset):
             x -= 78
  
     for leftRow in range(10):
-        print("x: " + str(x) + "y: " + str(y))
         if leftRow == 4:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             y -= 117
@@ -90,5 +82,4 @@ def build_square_board(dimension, offset):
         else:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             y -= 78
- 
     return(node)
