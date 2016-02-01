@@ -42,7 +42,6 @@ def name(list,screen,width,height):
                 elif event.key == K_BACKSPACE:
                     name = name[:-1]
                 elif event.key == K_RETURN:
-
                     if len(name) != 0:
                         newlist = Node(name, newlist)
                         name = ""
