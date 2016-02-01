@@ -101,7 +101,6 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
           else:
             player[i].Pos += 1
             player[i].Tile = getItemFromList(board, player[i].Pos, 0)"""
-        
 
 def Main(screen,width,height,players,list,board):
     pygame.mixer.music.fadeout(1000)
@@ -118,7 +117,6 @@ def Main(screen,width,height,players,list,board):
         screen.blit(diceImg, (GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] + (height / 2.825)))
 
         pygame.draw.rect(screen,blue,(200,150,100,50))
-
         print("")
         pygame.display.flip()
         Menushit(screen,width,height,players,list,templist,board,bg)
