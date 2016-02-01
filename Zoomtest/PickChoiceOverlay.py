@@ -1,6 +1,7 @@
 ﻿import pygame
 from Getcenter import *
 from GetRandomEvent import *
+from fightrules import *
 from Dice import *
 import time
 
@@ -386,3 +387,10 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
             return [0,0,sdmg]
         pygame.display.flip()
         time.sleep(0.033)
+
+def UltraPVP(screen,width,height,attacker,defender):
+  memes = random.randint(0,1)
+  if memes == 1:
+    return pvp(attacker,defender,PlayerversusPlayer(screen,width,height,attacker,defender))
+  else:
+    return pvp(defender,attacker,PlayerversusPlayer(screen,width,height,defender,attacker))

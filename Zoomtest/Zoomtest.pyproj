@@ -47,7 +47,7 @@
     <Compile Include="Tile.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="winScreenOverlay.py">
+    <Compile Include="winScreen.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Zoomtest.py" />
