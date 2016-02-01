@@ -110,12 +110,6 @@ def Main(screen,width,height,players,list,board):
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     templist = MakeList()
   
-    
-
-    #while not asdf.IsEmpty:
-    #    print(asdf.Value.pos)
-   #     asdf = asdf.Tail
-
     while True:
         screen.fill(white)
         screen.blit(bg, (0, 0))
