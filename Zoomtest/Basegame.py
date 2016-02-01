@@ -58,6 +58,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
                     diceroll = dice(6)  
                     drawDice(diceroll,width, height, screen)
+                    time.sleep(0.5)
                     for k in range (0, diceroll):
                         if player[i].Pos == 39:
                             player[i].Pos = 0
@@ -65,9 +66,12 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         else:
                             player[i].Pos += 1
                             player[i].Tile = getItemFromList(board, player[i].Pos, 0)
+                        diceImg = pygame.image.load("content\\" + str(diceroll) + ".png")
                         screen.blit(bg, (0,0))
+                        screen.blit(diceImg, (GetCenter(width, height, diceImg)[0] - (width / 3), GetCenter(width,height, diceImg)[1] + (height / 3)))
                         for j in range (0, len(player)):
                             screen.blit(player[j].Texture, player[j].Tile.pos)
+                        time.sleep(0.2)
                         pygame.display.flip()
                     break
 
