@@ -26,17 +26,20 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
       player1 = list.Value
       player2 = list.Tail.Value
       player = [player1,player2]
+      startingtiles = [20,0]
     elif players == 3:
       player1 = list.Value
       player2 = list.Tail.Value
       player3 = list.Tail.Tail.Value
       player = [player1,player2,player3]
+      startingtiles = [10,20,0]
     elif players == 4:
       player1 = list.Value
       player2 = list.Tail.Value
       player3 = list.Tail.Tail.Value
       player4 = list.Tail.Tail.Tail.Value
       player = [player1,player2,player3,player4]
+      startingtiles = [30,10,20,0]
     done = False
     first = True
 
@@ -72,7 +75,10 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         screen.blit(bg, (0,0))
                         for j in range (0, len(player)):
                             screen.blit(player[j].Texture, player[j].Tile.pos)
+                        #screen.blit(pygame.image.load("content\\" + str(diceroll) + ".png"), (GetCenter(width, height, diceImg)[0] - (width / 3), GetCenter(width,height, diceImg)[1] + (height / 3)))
+                        time.sleep(0.4)
                         pygame.display.flip()
+                    
                     break
 
                     
@@ -81,6 +87,10 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 screen.blit(bg, (0,0))
                 for i in range (0, len(player)):
                     screen.blit(player[i].Texture, player[i].Tile.pos)
+            #for m in range (0, len(startingtiles)):
+            #    if player[i].Pos == startingtiles[m]:
+            #        pvp(player[i],player[m], PlayerversusPlayer(screen,width,height,player[i],player[m]))
+                    
             
         pygame.event.get()
         
