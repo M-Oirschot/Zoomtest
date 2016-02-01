@@ -77,23 +77,18 @@ while True:
         if playercount == 2:
             emptyList = Node(MakePlayer(0,80,15,pfour,namelist.Tail.Value,2,tpboard.Value),emptyList)
             emptyList = Node(MakePlayer(20,80,15,ptwo,namelist.Value,1,getItemFromList(tpboard,20,0)),emptyList)
-      
-      
+            flippedList = Node(emptyList.Tail.Value, Node(emptyList.Value, Empty))
         elif playercount == 3:
             emptyList = Node(MakePlayer(0,90,15,pfour,namelist.Tail.Tail.Value,3, tpboard.Value),emptyList)
             emptyList = Node(MakePlayer(20,90,15,ptwo,namelist.Tail.Value,1, getItemFromList(tpboard,20,0)),emptyList)
             emptyList = Node(MakePlayer(10,90,15,pthree,namelist.Value,2, getItemFromList(tpboard,10,0)),emptyList)
+            flippedList = Node(emptyList.Tail.Tail.Value, Node(emptyList.Tail.Value, Node(emptyList.Value, Empty)))
         elif playercount == 4:
             emptyList = Node(MakePlayer(0,100,15,pfour,namelist.Tail.Tail.Tail.Value,4, tpboard.Value),emptyList)
             emptyList = Node(MakePlayer(10,100,15,pthree,namelist.Tail.Value,3, getItemFromList(tpboard,10,0)),emptyList)
             emptyList = Node(MakePlayer(20,100,15,ptwo,namelist.Tail.Tail.Value,2, getItemFromList(tpboard,20,0)),emptyList)
             emptyList = Node(MakePlayer(30,100,15,pone,namelist.Value,1, getItemFromList(tpboard,30,0)),emptyList)
-
-        flippedList = Empty
-        while not emptyList.IsEmpty:
-            flippedList = Node(emptyList.Value, flippedList)
-            emptyList = emptyList.Tail
-        clearPygame(white)
+            flippedList = Node(emptyList.Tail.Tail.Tail.Value, Node(emptyList.Tail.Value, Node(emptyList.Tail.Tail.Value, Node(emptyList.Value, Empty))))
         Main(screen,width,height,playercount,flippedList,tpboard)
     
     elif pressed == 4:
