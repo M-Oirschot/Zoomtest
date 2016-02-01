@@ -12,46 +12,7 @@ class Tile:
  
 def build_square_board(dimension, offset):
    
-    possibleEntry = None
     node = Empty
-   
-    finalVar = ""
-    '''
-   for row in range(dimension):
-       tRow = 600 * row
-       for column in range(dimension):
-           if column == 0:
-               tCol = 300
-           else:
-               tCol = 300 * column
-           if(row == 0 or row == dimension-1):
-               if(column == 0 or column == dimension-1):
-                   properties = Node(startingTile, Empty)
-                   node = Node(Tile((column, row), (tCol, tRow), properties), node)
-                   possibleEntry = node
-               elif(column == (dimension-1)/2):
-                   properties = Node(fighterTile, Empty)
-                   node = Node(Tile((column, row), (tCol, tRow), properties), node)
-               else:
-                   properties = Node(normalTile, Empty)
-                   node = Node(Tile((column, row), (tCol, tRow), properties), node)
-           elif(row == (dimension-1)/2):
-               if(column == 0 or column == dimension-1):
-                   properties = Node(fighterTile, Empty)
-                   node = Node(Tile((column, row), (tCol, tRow), properties), node)
-               else:
-                   finalVar += " "
-           else:
-               if(column == 0):
-                   properties = Node(normalTile, Empty)
-                   node = Node(Tile((column, row), (tCol, tRow), properties), node)
-               elif(column == dimension-1):
-                   properties = Node(normalTile, Empty)
-                   node = Node(Tile((column, row), (tCol, tRow), properties), node)
-               else:
-                   finalVar += " "
-   '''
- 
     standardOffset = 850
     coordinates = Empty
     x = 853
