@@ -15,40 +15,33 @@ pygame.init()
 font = pygame.font.Font("content\\font\\fipps.TTF", 15)
 playerName = font.render("Name:", 1, (255,255,0))
 Condition = font.render("Condition:  4", 1, (255,255,0))
-
-
 helpBtn = pygame.image.load("content\\helpbtn.png")
 scBtn = pygame.image.load("content\\scoreBoardbtn.png")
 rollDiceBtn = pygame.image.load("content\\rollDiceBtn.png")
 
 def Menushit(screen,width,height,players,list,fighterlist,board,bg):
     if players == 2:
-      player1 = list.Value
-      player2 = list.Tail.Value
-      player = [player1,player2]
-      startingtiles = [20,0]
+        player1 = list.Value
+        player2 = list.Tail.Value
+        player = [player1,player2]
     elif players == 3:
-      player1 = list.Value
-      player2 = list.Tail.Value
-      player3 = list.Tail.Tail.Value
-      player = [player1,player2,player3]
-      startingtiles = [10,20,0]
+        player1 = list.Value
+        player2 = list.Tail.Value
+        player3 = list.Tail.Tail.Value
+        player = [player1,player2,player3]
     elif players == 4:
-      player1 = list.Value
-      player2 = list.Tail.Value
-      player3 = list.Tail.Tail.Value
-      player4 = list.Tail.Tail.Tail.Value
-      player = [player1,player2,player3,player4]
-      startingtiles = [30,10,20,0]
+        player1 = list.Value
+        player2 = list.Tail.Value
+        player3 = list.Tail.Tail.Value
+        player4 = list.Tail.Tail.Tail.Value
+        player = [player1,player2,player3,player4]
     done = False
     first = True
-
 
     while not done:
         screen.blit(bg, (0,0))
         
-        
-       
+    
 
         for i in range (0, len(player)):
             screen.blit(player[i].Texture, player[i].Tile.pos)
@@ -75,10 +68,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         screen.blit(bg, (0,0))
                         for j in range (0, len(player)):
                             screen.blit(player[j].Texture, player[j].Tile.pos)
-                        #screen.blit(pygame.image.load("content\\" + str(diceroll) + ".png"), (GetCenter(width, height, diceImg)[0] - (width / 3), GetCenter(width,height, diceImg)[1] + (height / 3)))
-                        time.sleep(0.4)
                         pygame.display.flip()
-                    
                     break
 
                     
@@ -87,10 +77,6 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 screen.blit(bg, (0,0))
                 for i in range (0, len(player)):
                     screen.blit(player[i].Texture, player[i].Tile.pos)
-            #for m in range (0, len(startingtiles)):
-            #    if player[i].Pos == startingtiles[m]:
-            #        pvp(player[i],player[m], PlayerversusPlayer(screen,width,height,player[i],player[m]))
-                    
             
         pygame.event.get()
         
@@ -113,19 +99,12 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
           else:
             player[i].Pos += 1
             player[i].Tile = getItemFromList(board, player[i].Pos, 0)"""
-        
 
 def Main(screen,width,height,players,list,board):
     pygame.mixer.music.fadeout(1000)
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     templist = MakeList()
   
-    
-
-    #while not asdf.IsEmpty:
-    #    print(asdf.Value.pos)
-   #     asdf = asdf.Tail
-
     while True:
         screen.fill(white)
         screen.blit(bg, (0, 0))
@@ -136,7 +115,6 @@ def Main(screen,width,height,players,list,board):
         screen.blit(diceImg, (GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] + (height / 2.825)))
 
         pygame.draw.rect(screen,blue,(200,150,100,50))
-
         print("")
         pygame.display.flip()
         Menushit(screen,width,height,players,list,templist,board,bg)
