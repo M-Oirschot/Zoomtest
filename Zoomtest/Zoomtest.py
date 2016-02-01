@@ -13,7 +13,6 @@ from resolution_switch import *
 from GetRandomEvent import *
 from PickChoiceOverlay import *
 from Player import *
-#dankmemes
 preset = 1
 
 pone = pygame.image.load("content\\player4pion.png")
