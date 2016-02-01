@@ -12,7 +12,7 @@ white = (255, 255, 255)
 blue=(0,0,255)
 
 pygame.init()
-font = pygame.font.Font("content\\font\\fipps.TTF", 15)
+font = pygame.font.Font("content\\font\\retro.ttf", 15)
 playerName = font.render("Name:", 1, (255,255,0))
 Condition = font.render("Condition:  4", 1, (255,255,0))
 helpBtn = pygame.image.load("content\\helpbtn.png")
@@ -49,7 +49,8 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
         for i in range (0, len(player)):
             while True:
                 playeronturn = font.render("It's " + player[i].Name + "'s turn!", 1, (255,255,0))
-                screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.4) + 30))
+                screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 2.3), GetCenter(width,height, playerName)[1] - (height / 2.4) + 30))
+                screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] - (height / 2.4) - 50))
                 screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
                 screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
                 screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
@@ -69,8 +70,18 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         diceImg = pygame.image.load("content\\" + str(diceroll) + ".png")
                         screen.blit(bg, (0,0))
                         screen.blit(diceImg, (GetCenter(width, height, diceImg)[0] - (width / 3), GetCenter(width,height, diceImg)[1] + (height / 3)))
+
+                        standingOnOther = False
+                        print("FALSE")
+                        for m in range(0, len(player)):
+                            if player[m].Tile.pos == player[i].Tile.pos and player[m].Texture != player[i].Texture:
+                                standingOnOther = True
+                                print ("TRUE")
                         for j in range (0, len(player)):
-                            screen.blit(player[j].Texture, player[j].Tile.pos)
+                            if player[i].Tile.pos == player[j].Tile.pos and standingOnOther == True:
+                                screen.blit(player[j].Texture, (player[j].Tile.pos[0] + 10,player[j].Tile.pos[1]))
+                            else:
+                                screen.blit(player[j].Texture, player[j].Tile.pos)
                         time.sleep(0.2)
                         pygame.display.flip()
                     break
@@ -112,8 +123,8 @@ def Main(screen,width,height,players,list,board):
     while True:
         screen.fill(white)
         screen.blit(bg, (0, 0))
-        screen.blit(playerName, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.2)))
-        screen.blit(Condition, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.4)))
+        #screen.blit(playerName, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.2)))
+        #screen.blit(Condition, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.4)))
         
         diceImg = pygame.image.load("content\\" + str(dice(6)) +".png")
         screen.blit(diceImg, (GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] + (height / 2.825)))
