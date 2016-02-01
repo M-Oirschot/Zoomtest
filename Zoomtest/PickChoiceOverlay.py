@@ -4,9 +4,6 @@ from GetRandomEvent import *
 from Dice import *
 import time
 
-
-
-
 def Firstplayer(screen,width,height,player1):
     font = pygame.font.Font("content\\font\\retro.ttf", 30)
     smallfont = pygame.font.Font("content\\font\\fipps.TTF", 15)

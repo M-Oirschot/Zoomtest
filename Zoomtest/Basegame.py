@@ -5,6 +5,7 @@ from Node import *
 from GetRandomEvent import *
 from PickChoiceOverlay import *
 from fightrules import *
+from winScreenOverlay import *
 from Getcenter import *
 import sys
 
@@ -40,9 +41,9 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
 
     while not done:
         screen.blit(bg, (0,0))
-        
-    
 
+        winScreen(screen, width, height, "test")
+      
         for i in range (0, len(player)):
             screen.blit(player[i].Texture, player[i].Tile.pos)
         pygame.display.flip()
@@ -86,7 +87,6 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         pygame.display.flip()
                     break
 
-                    
             if player[i].Pos == 5 or player[i].Pos == 15 or player[i].Pos == 25 or player[i].Pos == 35:
                 superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))
                 screen.blit(bg, (0,0))
@@ -127,10 +127,9 @@ def Main(screen,width,height,players,list,board):
         #screen.blit(Condition, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.4)))
         
         diceImg = pygame.image.load("content\\" + str(dice(6)) +".png")
-        screen.blit(diceImg, (GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] + (height / 2.825)))
+        screen.blit(diceImg, (GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] + (height / 2.825)))        
 
-        pygame.draw.rect(screen,blue,(200,150,100,50))
-        print("")
+        #pygame.draw.rect(screen,blue,(200,150,100,50))
         pygame.display.flip()
         Menushit(screen,width,height,players,list,templist,board,bg)
           
