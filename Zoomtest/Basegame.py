@@ -5,6 +5,7 @@ from Node import *
 from GetRandomEvent import *
 from PickChoiceOverlay import *
 from fightrules import *
+from Player import *
 from Getcenter import *
 import sys
 
@@ -38,13 +39,28 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
     done = False
     first = True
 
-    while not done:
-        screen.blit(bg, (0,0))
-        
     
 
-        for i in range (0, len(player)):
-            screen.blit(player[i].Texture, player[i].Tile.pos)
+    while not done:
+        screen.blit(bg, (0,0))
+        playersStandingOnSameTile = checkPlayers(player)
+        if len(playersStandingOnSameTile) != 0:
+            offset = 0
+            for m in range (0, len(playersStandingOnSameTile)):
+                screen.blit(playersStandingOnSameTile[m].Texture, (playersStandingOnSameTile[m].Tile.pos[0] + offset, playersStandingOnSameTile[m].Tile.pos[1]))
+                offset += 10
+            for j in range (0, len(player)):
+                if player[j] not in playersStandingOnSameTile:
+                    screen.blit(player[j].Texture, player[j].Tile.pos)
+        
+        else:
+            for j in range (0, len(player)):
+                screen.blit(player[j].Texture, player[j].Tile.pos)
+
+        checkPvp(player,screen,width,height)
+
+        #for i in range (0, len(player)):
+        #    screen.blit(player[i].Texture, player[i].Tile.pos)
         pygame.display.flip()
         for i in range (0, len(player)):
             while True:
@@ -70,20 +86,23 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         diceImg = pygame.image.load("content\\" + str(diceroll) + ".png")
                         screen.blit(bg, (0,0))
                         screen.blit(diceImg, (GetCenter(width, height, diceImg)[0] - (width / 3), GetCenter(width,height, diceImg)[1] + (height / 3)))
-
-                        standingOnOther = False
-                        print("FALSE")
-                        for m in range(0, len(player)):
-                            if player[m].Tile.pos == player[i].Tile.pos and player[m].Texture != player[i].Texture:
-                                standingOnOther = True
-                                print ("TRUE")
-                        for j in range (0, len(player)):
-                            if player[i].Tile.pos == player[j].Tile.pos and standingOnOther == True:
-                                screen.blit(player[j].Texture, (player[j].Tile.pos[0] + 10,player[j].Tile.pos[1]))
-                            else:
+                        playersStandingOnSameTile = checkPlayers(player)
+                        if len(playersStandingOnSameTile) != 0:
+                            offset = 0
+                            for m in range (0, len(playersStandingOnSameTile)):
+                                screen.blit(playersStandingOnSameTile[m].Texture, (playersStandingOnSameTile[m].Tile.pos[0] + offset, playersStandingOnSameTile[m].Tile.pos[1]))
+                                offset += 10
+                            for j in range (0, len(player)):
+                                if player[j] not in playersStandingOnSameTile:
+                                    screen.blit(player[j].Texture, player[j].Tile.pos)
+                        else:
+                            for j in range (0, len(player)):
                                 screen.blit(player[j].Texture, player[j].Tile.pos)
+
+
                         time.sleep(0.2)
                         pygame.display.flip()
+                    
                     break
 
                     
@@ -92,18 +111,19 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 screen.blit(bg, (0,0))
                 for i in range (0, len(player)):
                     screen.blit(player[i].Texture, player[i].Tile.pos)
+            checkPvp(player,screen,width,height)
             
         pygame.event.get()
         
-        if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height,rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
-            print("done0")
-            diceRoll = dice(6)
-            diceImg = pygame.image.load("content\\" + str(dice(6)) +".png")
-            print("done1")
-            done = True
-        if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,helpBtn)[0] - (width / 3.525), GetCenter(width,height,helpBtn)[1] - (height / 3.525))).collidepoint(pygame.mouse.get_pos())):
-            print("Help")
-            done = True
+        #if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height,rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
+        #    print("done0")
+        #    diceRoll = dice(6)
+        #    diceImg = pygame.image.load("content\\" + str(dice(6)) +".png")
+        #    print("done1")
+        #    done = True
+        #if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,helpBtn)[0] - (width / 3.525), GetCenter(width,height,helpBtn)[1] - (height / 3.525))).collidepoint(pygame.mouse.get_pos())):
+        #    print("Help")
+        #    done = True
 
         pygame.display.flip()
         """time.sleep(0.5)
