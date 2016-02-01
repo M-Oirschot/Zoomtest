@@ -42,10 +42,12 @@ def AliveCheck(players):
             alive += 1
     return alive
 
-def winCheck(players):
-    for i in range(0, len(players)):
-        if not players[i].health <= 0:
-            return player[i]
+def removeDead(players):
+    newlist = []
+    for i in range(len(players)):
+        if not players[i].health < 0:
+            newlist += [player[i]]
+    return newlist
             
 
 
