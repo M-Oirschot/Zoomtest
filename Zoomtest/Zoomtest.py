@@ -59,12 +59,12 @@ black = (0,0,0)
 white = (255,255,255)
 
 #Main File
-#pygame.mixer.music.load("content\\sound\\vape.mp3")
-#pygame.mixer.music.play(-1,0.0)
+pygame.mixer.music.load("content\\sound\\vape.mp3")
+pygame.mixer.music.play(-1,0.0)
 
-#SplashScreen(screen,width,height)
+SplashScreen(screen,width,height)
 
-#pygame.mixer.music.fadeout(1000)
+pygame.mixer.music.fadeout(1000)
 while True:
     pressed = mainMenu(screen,width,height)
     if pressed == 1:
@@ -88,8 +88,13 @@ while True:
             emptyList = Node(MakePlayer(10,100,15,pthree,namelist.Tail.Value,3, getItemFromList(tpboard,10,0)),emptyList)
             emptyList = Node(MakePlayer(20,100,15,ptwo,namelist.Tail.Tail.Value,2, getItemFromList(tpboard,20,0)),emptyList)
             emptyList = Node(MakePlayer(30,100,15,pone,namelist.Value,1, getItemFromList(tpboard,30,0)),emptyList)
+
+        flippedList = Empty
+        while not emptyList.IsEmpty:
+            flippedList = Node(emptyList.Value, flippedList)
+            emptyList = emptyList.Tail
         clearPygame(white)
-        Main(screen,width,height,playercount,emptyList,tpboard)
+        Main(screen,width,height,playercount,flippedList,tpboard)
     
     elif pressed == 4:
         pygame.quit()
