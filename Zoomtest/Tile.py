@@ -11,7 +11,6 @@ class Tile:
         self.sTile = fight          #superfight tile
  
 def build_square_board(dimension, offset):
-   
     node = Empty
     coordinates = Empty
     x = 873
@@ -39,9 +38,7 @@ def build_square_board(dimension, offset):
             node = Node(Tile((x,y), False, False, False, False, False),node)
             x  += 78
         
- 
     for rightRow in range(9):
-        print("x: " + str(x) + "y: " + str(y))
         if rightRow == 3:
             node = Node(Tile((x,y), False, False, False, False, False),node)
             y += 117
@@ -56,7 +53,6 @@ def build_square_board(dimension, offset):
             y += 78
  
     for bottomRow in range(10):
-        print("x: " + str(x) + "y: " + str(y))
         if bottomRow == 4:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             x -= 117
@@ -74,7 +70,6 @@ def build_square_board(dimension, offset):
             x -= 78
  
     for leftRow in range(10):
-        print("x: " + str(x) + "y: " + str(y))
         if leftRow == 4:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             y -= 117
@@ -87,5 +82,4 @@ def build_square_board(dimension, offset):
         else:
             node = Node(Tile((x,y), False, False, False, False, False), node)
             y -= 78
- 
     return(node)
