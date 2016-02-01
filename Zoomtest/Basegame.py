@@ -15,28 +15,26 @@ pygame.init()
 font = pygame.font.Font("content\\font\\fipps.TTF", 15)
 playerName = font.render("Name:", 1, (255,255,0))
 Condition = font.render("Condition:  4", 1, (255,255,0))
-
-
 helpBtn = pygame.image.load("content\\helpbtn.png")
 scBtn = pygame.image.load("content\\scoreBoardbtn.png")
 rollDiceBtn = pygame.image.load("content\\rollDiceBtn.png")
 
 def Menushit(screen,width,height,players,list,fighterlist,board,bg):
     if players == 2:
-      player1 = list.Value
-      player2 = list.Tail.Value
-      player = [player1,player2]
+        player1 = list.Value
+        player2 = list.Tail.Value
+        player = [player1,player2]
     elif players == 3:
-      player1 = list.Value
-      player2 = list.Tail.Value
-      player3 = list.Tail.Tail.Value
-      player = [player1,player2,player3]
+        player1 = list.Value
+        player2 = list.Tail.Value
+        player3 = list.Tail.Tail.Value
+        player = [player1,player2,player3]
     elif players == 4:
-      player1 = list.Value
-      player2 = list.Tail.Value
-      player3 = list.Tail.Tail.Value
-      player4 = list.Tail.Tail.Tail.Value
-      player = [player1,player2,player3,player4]
+        player1 = list.Value
+        player2 = list.Tail.Value
+        player3 = list.Tail.Tail.Value
+        player4 = list.Tail.Tail.Tail.Value
+        player = [player1,player2,player3,player4]
     done = False
     first = True
 
