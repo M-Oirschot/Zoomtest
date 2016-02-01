@@ -38,12 +38,10 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
     done = False
     first = True
 
-
     while not done:
         screen.blit(bg, (0,0))
         
-        
-       
+    
 
         for i in range (0, len(player)):
             screen.blit(player[i].Texture, player[i].Tile.pos)
