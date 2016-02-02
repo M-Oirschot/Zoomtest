@@ -126,7 +126,6 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
     drawDiceBL(rolled,width,height,screen)
     square = pygame.image.load("content\\eventscreen.png")
     #title = 
-    square.fill((100,100,100))
     #outline.fill((0,0,0))
     #screen.blit(outline, (GetCenter(width,height,outline)))
     screen.blit(square, (GetCenter(width,height,square)))
@@ -237,10 +236,9 @@ def PlayerversusPlayer(screen,width,height,attacker,defender):
 
     square = pygame.image.load("content\\eventscreen.png")
     #title = 
-    square.fill(maincolor)
     #outline.fill((0,0,0))
-    screen.blit(outline, (GetCenter(width,height,outline)))
-    #screen.blit(square, (GetCenter(width,height,square)))
+    #screen.blit(outline, (GetCenter(width,height,outline)))
+    screen.blit(square, (GetCenter(width,height,square)))
     pygame.display.flip()
     Attacker = Firstplayer(screen,width,height,attacker)
     Defender = Secondplayer(screen,width,height,defender,attacker,Attacker[0])
