@@ -230,11 +230,8 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150)).collidepoint(pygame.mouse.get_pos())):
             return [0,0]
         pygame.display.flip()
-
+         
 def PlayerversusPlayer(screen,width,height,attacker,defender):
-
-    maincolor = (100,100,100)
-
     square = pygame.image.load("content\\eventscreen.png")
     #title = 
     #outline.fill((0,0,0))
