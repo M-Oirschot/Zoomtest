@@ -14,7 +14,8 @@ white = (255, 255, 255)
 blue=(0,0,255)
 
 pygame.init()
-font = pygame.font.Font("content\\font\\retro.ttf", 15)
+font = pygame.font.Font("content\\font\\retro.ttf", 35)
+statfont = pygame.font.Font("content\\font\\retro.ttf", 25)
 playerName = font.render("Name:", 1, (255,255,0))
 Condition = font.render("Condition:  4", 1, (255,255,0))
 helpBtn = pygame.image.load("content\\helpbtn.png")
@@ -68,9 +69,12 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
         pygame.display.flip()
         for i in range (0, len(player)):
             while True:
-                playeronturn = font.render("It's " + player[i].Name + "'s turn!", 1, (255,255,0))
-                screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 2.3), GetCenter(width,height, playerName)[1] - (height / 2.4) + 30))
-                screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.2), GetCenter(width,height, playerName)[1] - (height / 2.4) - 50))
+                player1health = statfont.render("Health: " + str(player[1].Lifepoints), 1, (0,0,0))
+                player1stamina = font.render(str(player[1].Conditionpoints), 1, (0,0,0))
+                screen.blit(player1health, (GetCenter(width, height, player1health)[0] - (width / 2.8), GetCenter(width,height, player1health)[1] - (height / 6.5) + 10))
+                playeronturn = font.render("It's " + player[i].Name + "'s turn!", 1, (0,0,0))
+                screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 3), GetCenter(width,height, playerName)[1] - (height / 2.4) - 15))
+                screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.1) + 45, GetCenter(width,height, playerName)[1] - (height / 2.4) - 20))
                 screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
                 screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
                 screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
@@ -144,7 +148,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
           else:
             player[i].Pos += 1
             player[i].Tile = getItemFromList(board, player[i].Pos, 0)"""
-
+             
 def Main(screen,width,height,players,list,board):
     pygame.mixer.music.fadeout(1000)
     bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
@@ -162,3 +166,9 @@ def Main(screen,width,height,players,list,board):
         #pygame.draw.rect(screen,blue,(200,150,100,50))
         pygame.display.flip()
         Menushit(screen,width,height,players,list,templist,board,bg)
+
+def playerstats(player):
+    while True:
+        player1health = font.render(player[1].Lifepoints, 1, (0,0,0))
+        player1stamina = font.render(player[1].Conditionpoints, 1, (0,0,0))
+        screen.blit(player1health, (GetCenter(width, height, player1health)[0] - (width / 3), GetCenter(width,height, player1health)[1] - (height / 2.4) - 15))
