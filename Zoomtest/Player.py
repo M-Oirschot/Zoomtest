@@ -108,27 +108,38 @@ def checkPlayers(playerlist):
       return []
 
 def checkPvp(playerlist,screen,width,height):
+  bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
   if len(playerlist) == 2:
     if playerlist[0].Tile.pos == playerlist[1].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      screen.blit(bg, (0,0))
   elif len(playerlist) == 3:
     if playerlist[0].Tile.pos == playerlist[1].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      screen.blit(bg, (0,0))
     if playerlist[1].Tile.pos == playerlist[2].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[1],playerlist[2])
+      UltraPVP(screen,width,height,playerlist[1],playerlist[2])
+      screen.blit(bg, (0,0))
     if playerlist[0].Tile.pos == playerlist[2].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[2])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[2])
+      screen.blit(bg, (0,0))
   elif len(playerlist) == 4:
     if playerlist[0].Tile.pos == playerlist[2].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[2])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[2])
+      screen.blit(bg, (0,0))
     if playerlist[0].Tile.pos == playerlist[3].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[3])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[3])
+      screen.blit(bg, (0,0))
     if playerlist[2].Tile.pos == playerlist[3].Tile.pos:
-     return UltraPVP(screen,width,height,playerlist[2],playerlist[3])
+      UltraPVP(screen,width,height,playerlist[2],playerlist[3])
+      screen.blit(bg, (0,0))
     if playerlist[1].Tile.pos == playerlist[3].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[1],playerlist[3])
+      UltraPVP(screen,width,height,playerlist[1],playerlist[3])
+      screen.blit(bg, (0,0))
     if playerlist[0].Tile.pos == playerlist[1].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      screen.blit(bg, (0,0))
     if playerlist[1].Tile.pos == playerlist[2].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[1],playerlist[2])
+      UltraPVP(screen,width,height,playerlist[1],playerlist[2])
+      screen.blit(bg, (0,0))
 
