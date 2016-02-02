@@ -115,6 +115,12 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 for i in range (0, len(player)):
                     screen.blit(player[i].Texture, player[i].Tile.pos)
             checkPvp(player,screen,width,height)
+            for i in range (0, len(player)):
+                if player[i].Pos in startingTiles and player[i].Pos != startingTiles[i]:
+                    pvp(player[i],player[startingTiles.index(player[i].Pos)], PlayerversusPlayer(screen,width,height,player[i],player[startingTiles.index(player[i].Pos)]))
+                if player[i].Pos == startingTiles[i]:
+                    player[i].Lifepoints += 10
+                    player[i].Conditionpoints = 15
             pygame.display.flip()
         pygame.event.get()
         
