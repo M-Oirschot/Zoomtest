@@ -69,7 +69,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
             while True:
                 playeronturn = font.render("It's " + player[i].Name + "'s turn!", 1, (255,255,0))
                 screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 2.3), GetCenter(width,height, playerName)[1] - (height / 2.4) + 30))
-                screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] - (height / 2.4) - 50))
+                screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.2), GetCenter(width,height, playerName)[1] - (height / 2.4) - 50))
                 screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
                 screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
                 screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
@@ -88,7 +88,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                             player[i].Tile = getItemFromList(board, player[i].Pos, 0)
                         diceImg = pygame.image.load("content\\" + str(diceroll) + ".png")
                         screen.blit(bg, (0,0))
-                        screen.blit(diceImg, (GetCenter(width, height, diceImg)[0] - (width / 3), GetCenter(width,height, diceImg)[1] + (height / 3)))
+                        screen.blit(diceImg, (GetCenter(width, height, diceImg)[0] - (width / 10), GetCenter(width,height, diceImg)[1] - ((height / 2) -80)))
                         playersStandingOnSameTile = checkPlayers(player)
                         if len(playersStandingOnSameTile) != 0:
                             offset = 0
@@ -139,7 +139,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
 
 def Main(screen,width,height,players,list,board):
     pygame.mixer.music.fadeout(1000)
-    bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
+    bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
     templist = MakeList()
   
     while True:
@@ -149,7 +149,7 @@ def Main(screen,width,height,players,list,board):
         #screen.blit(Condition, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.4)))
         
         diceImg = pygame.image.load("content\\" + str(dice(6)) +".png")
-        screen.blit(diceImg, (GetCenter(width, height, playerName)[0] - (width / 2.4), GetCenter(width,height, playerName)[1] + (height / 2.825)))
+        screen.blit(diceImg, (GetCenter(width, height, diceImg)[0] - (width / 10), GetCenter(width,height, diceImg)[1] - ((height / 2) -80)))
 
         #pygame.draw.rect(screen,blue,(200,150,100,50))
         pygame.display.flip()
