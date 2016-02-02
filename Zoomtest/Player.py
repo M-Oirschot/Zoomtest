@@ -35,7 +35,7 @@ def MakePlayer(x,health,condition,texture,name,playernum,tile):
   if playernum == 1:
     return Player(x,health,condition,texture,name, tile,dmg(dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)), 
                                                     dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15, 5)), 
-                                                    dmgList(dmgItem(7, 3), dmgItem(12, 3), dmgItem(16, 4)),
+                                                    dmgList(dmgItem(7, 2), dmgItem(12, 3), dmgItem(16, 4)),
                                                     dmgList(dmgItem(2, 1), dmgItem(2, 1), dmgItem(6, 3)),
                                                     dmgList(dmgItem(10, 2), dmgItem(20, 5), dmgItem(30, 8)),
                                                     dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5))))
