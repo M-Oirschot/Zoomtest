@@ -48,6 +48,9 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
 
     while not done:
         screen.blit(bg, (0,0))
+        if len(player) == 1:
+            return player[0].Name
+            break
         playersStandingOnSameTile = checkPlayers(player)
         if len(playersStandingOnSameTile) != 0:
             offset = 0
@@ -82,7 +85,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 pygame.event.get()
                 pygame.display.flip()
                 if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
-                    diceroll = dice(6)  
+                    diceroll = 5#dice(6)  
                     drawDice(diceroll,width, height, screen)
                     time.sleep(0.5)
                     for k in range (0, diceroll):
@@ -126,7 +129,12 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
             if player[i].Pos == startingTiles[i]:
                 player[i].Lifepoints += 10
                 player[i].Conditionpoints = 15
-                
+            tempvar = removeDead(player,startingTiles)
+            player = tempvar[0]
+            startingTiles = tempvar[1]
+            if len(player) == 1:
+                return player[0].Name
+                break
             pygame.display.flip()
         pygame.event.get()
         
@@ -166,7 +174,10 @@ def Main(screen,width,height,players,list,board):
 
         #pygame.draw.rect(screen,blue,(200,150,100,50))
         pygame.display.flip()
-        Menushit(screen,width,height,players,list,templist,board,bg)
+        tempusvar = Menushit(screen,width,height,players,list,templist,board,bg)
+        winScreen(screen,width,height,tempusvar)
+        break
+    
 
 def playerstats(player):
     while True:

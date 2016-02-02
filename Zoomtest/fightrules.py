@@ -41,19 +41,21 @@ def AliveCheck(players):
             alive += 1
     return alive
 
-def removeDead(players):
+def removeDead(players,startingTilesList):
     newlist = []
+    starttileslist = []
     for i in range(len(players)):
-        if not players[i].health <= 0:
-            newlist += [player[i]]
-    return newlist
-
+        if not players[i].Lifepoints <= 0:
+            newlist += [players[i]]
+            starttileslist += [startingTilesList[i]]
+    return [newlist,starttileslist]
+"""
 def removeTile(Stile, dead):
     newlist = []
     for i in range(Stile):
         if not Stile[i] == dead:
             newlist += [player[i]]
-    return newlist
+    return newlist"""
 
 
             
