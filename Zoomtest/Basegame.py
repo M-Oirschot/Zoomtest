@@ -27,20 +27,17 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
         player1 = list.Value
         player2 = list.Tail.Value
         player = [player1,player2]
-        startingTiles = [0,20]
     elif players == 3:
         player1 = list.Value
         player2 = list.Tail.Value
         player3 = list.Tail.Tail.Value
         player = [player1,player2,player3]
-        startingTiles = [0,20,10]
     elif players == 4:
         player1 = list.Value
         player2 = list.Tail.Value
         player3 = list.Tail.Tail.Value
         player4 = list.Tail.Tail.Tail.Value
         player = [player1,player2,player3,player4]
-        startingTiles = [0,20,10,30]
     done = False
     first = True
 
@@ -63,6 +60,8 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
             for j in range (0, len(player)):
                 screen.blit(player[j].Texture, player[j].Tile.pos)
 
+    
+        checkPvp(player,screen,width,height)
         #winScreen(screen, width, height, "test")
         #for i in range (0, len(player)):
         #    screen.blit(player[i].Texture, player[i].Tile.pos)
@@ -70,8 +69,11 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
         for i in range (0, len(player)):
             while True:
                 player1health = statfont.render("Health: " + str(player[1].Lifepoints), 1, (0,0,0))
-                player1stamina = font.render(str(player[1].Conditionpoints), 1, (0,0,0))
-                screen.blit(player1health, (GetCenter(width, height, player1health)[0] - (width / 2.8), GetCenter(width,height, player1health)[1] - (height / 6.5) + 10))
+                player1stamina = statfont.render("Condition: " + str(player[1].Conditionpoints), 1, (0,0,0))
+                screen.blit(player1health, (GetCenter(width, height, player1health)[0] - (width / 2.8), GetCenter(width,height, player1health)[1] - (height / 6.5) + 8))
+                screen.blit(player1stamina, (GetCenter(width, height, player1stamina)[0] - (width / 2.8) + 27, GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 65))
+                screen.blit(player[1].Texture, (GetCenter
+
                 playeronturn = font.render("It's " + player[i].Name + "'s turn!", 1, (0,0,0))
                 screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 3), GetCenter(width,height, playerName)[1] - (height / 2.4) - 15))
                 screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.1) + 45, GetCenter(width,height, playerName)[1] - (height / 2.4) - 20))
@@ -119,13 +121,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 for i in range (0, len(player)):
                     screen.blit(player[i].Texture, player[i].Tile.pos)
             checkPvp(player,screen,width,height)
-            for i in range (0, len(player)):
-                if player[i].Pos in startingTiles and player[i].Pos != startingTiles[i]:
-                    pvp(player[i],player[startingTiles.index(player[i].Pos)], PlayerversusPlayer(screen,width,height,player[i],player[startingTiles.index(player[i].Pos)]))
-                if player[i].Pos == startingTiles[i]:
-                    player[i].Lifepoints += 10
-                    player[i].Conditionpoints = 15
-            pygame.display.flip()
+            
         pygame.event.get()
         
         #if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height,rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
