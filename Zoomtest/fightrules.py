@@ -33,8 +33,7 @@ def pvp(attacker,defender,fight):
     else:
         attacker.Conditionpoints -= playeronecond
         defender.Conditionpoints -= playertwocond
-
-        
+   
 def AliveCheck(players):
     alive = 0
     for i in range (0,len(players)):
@@ -45,9 +44,18 @@ def AliveCheck(players):
 def removeDead(players):
     newlist = []
     for i in range(len(players)):
-        if not players[i].health < 0:
+        if not players[i].health <= 0:
             newlist += [player[i]]
     return newlist
+
+def removeTile(Stile, dead):
+    newlist = []
+    for i in range(Stile):
+        if not Stile[i] == dead:
+            newlist += [player[i]]
+    return newlist
+
+
             
 
 
