@@ -71,29 +71,9 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
         pygame.display.flip()
         for i in range (0, len(player)):
             while True:
-                player1health = statfont.render("Health: " + str(player[0].Lifepoints), 1, (0,0,0))
-                player1stamina = statfont.render("Condition: " + str(player[0].Conditionpoints), 1, (0,0,0))
-                player2health = statfont.render("Health: " + str(player[1].Lifepoints), 1, (0,0,0))
-                player2stamina = statfont.render("Condition: " + str(player[1].Conditionpoints), 1, (0,0,0))
-                player3health = statfont.render("Health: " + str(player[2].Lifepoints), 1, (0,0,0))
-                player3stamina = statfont.render("Condition: " + str(player[2].Conditionpoints), 1, (0,0,0))
-                player4health = statfont.render("Health: " + str(player[3].Lifepoints), 1, (0,0,0))
-                player4stamina = statfont.render("Condition: " + str(player[3].Conditionpoints), 1, (0,0,0))
-
-                screen.blit(player1health, (GetCenter(width, height, player1health)[0] - (width / 2.8), GetCenter(width,height, player1health)[1] - (height / 6.5) + 8))
-                screen.blit(player1stamina, (GetCenter(width, height, player1stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 66))
-                screen.blit(player[0].Texture, (GetCenter(width, height, player1stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 25))
-                screen.blit(player2health, (GetCenter(width, height, player2health)[0] - (width / 2.8), GetCenter(width,height, player2health)[1] - (height / 6.5) + 136))
-                screen.blit(player2stamina, (GetCenter(width, height, player2stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player2stamina)[1] - (height / 6.5) + 194))
-                screen.blit(player[1].Texture, (GetCenter(width, height, player2stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player2stamina)[1] - (height / 6.5) + 153))
-                screen.blit(player3health, (GetCenter(width, height, player3health)[0] - (width / 2.8), GetCenter(width,height, player3health)[1] - (height / 6.5) + 264))
-                screen.blit(player3stamina, (GetCenter(width, height, player3stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player3stamina)[1] - (height / 6.5) + 322))
-                screen.blit(player[2].Texture, (GetCenter(width, height, player3stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player3stamina)[1] - (height / 6.5) + 281))
-                screen.blit(player4health, (GetCenter(width, height, player4health)[0] - (width / 2.8), GetCenter(width,height, player4health)[1] - (height / 6.5) + 392))
-                screen.blit(player4stamina, (GetCenter(width, height, player4stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player4stamina)[1] - (height / 6.5) + 452))
-                screen.blit(player[3].Texture, (GetCenter(width, height, player4stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player4stamina)[1] - (height / 6.5) + 409))
-
-                playeronturn = font.render("It's " + player[i].Name + "'s turn!", 1, (0,0,0))
+                
+                printVisuals(player,screen,width,height)
+                playeronturn = font.render(player[i].Name + "'s turn", 1, (0,0,0))
                 screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 3), GetCenter(width,height, playerName)[1] - (height / 2.4) - 15))
                 screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.1) + 45, GetCenter(width,height, playerName)[1] - (height / 2.4) - 20))
                 screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
