@@ -72,7 +72,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 player1stamina = statfont.render("Condition: " + str(player[1].Conditionpoints), 1, (0,0,0))
                 screen.blit(player1health, (GetCenter(width, height, player1health)[0] - (width / 2.8), GetCenter(width,height, player1health)[1] - (height / 6.5) + 8))
                 screen.blit(player1stamina, (GetCenter(width, height, player1stamina)[0] - (width / 2.8) + 27, GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 65))
-                screen.blit(player[1].Texture, (GetCenter
+                screen.blit(player[1].Texture, (GetCenter(width, height, player1stamina)[0] - (width / 2.8) + 15, GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 65))
 
                 playeronturn = font.render("It's " + player[i].Name + "'s turn!", 1, (0,0,0))
                 screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 3), GetCenter(width,height, playerName)[1] - (height / 2.4) - 15))
