@@ -140,7 +140,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
           else:
             player[i].Pos += 1
             player[i].Tile = getItemFromList(board, player[i].Pos, 0)"""
-
+             
 def Main(screen,width,height,players,list,board):
     pygame.mixer.music.fadeout(1000)
     bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
