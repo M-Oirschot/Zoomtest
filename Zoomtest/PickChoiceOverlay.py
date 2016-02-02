@@ -238,7 +238,7 @@ def PlayerversusPlayer(screen,width,height,attacker,defender):
     square = pygame.image.load("content\\eventscreen.png")
     #title = 
     square.fill(maincolor)
-    outline.fill((0,0,0))
+    #outline.fill((0,0,0))
     screen.blit(outline, (GetCenter(width,height,outline)))
     #screen.blit(square, (GetCenter(width,height,square)))
     pygame.display.flip()
