@@ -82,6 +82,10 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                                 screen.blit(player[j].Texture, (player[j].Tile.pos[0] + 10,player[j].Tile.pos[1]))
                             else:
                                 screen.blit(player[j].Texture, player[j].Tile.pos)
+
+
+
+
                         time.sleep(0.2)
                         pygame.display.flip()
                     break
