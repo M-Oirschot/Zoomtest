@@ -51,6 +51,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
 
     while not done:
         screen.blit(bg, (0,0))
+        #pauseScreen(screen, width, height)
         if len(player) == 1:
             return player[0].Name
             break

@@ -5,6 +5,7 @@ from PickChoiceOverlay import *
 
 black = (0,0,0)
 white = (255,255,255)
+mute = False
  
 def mainMenu(screen,width, height):
     pygame.mixer.music.load("content\\sound\\EoT.mid")
@@ -53,5 +54,33 @@ def mainMenu(screen,width, height):
         time.sleep(0.033)
 
 
-def settingScreen():
-    print()
+def settingScreen(mute):
+    font = pygame.font.Font("content\\font\\retro.ttf", 75)
+    square = pygame.image.load("content\\eventscreen.png")
+    back = pygame.image.load("content\\back.png" )
+    back_h = pygame.image.load("content\\back_h.png")
+    soundT = pygame.imgage.load("")
+    soundT_h = pygame.image.load("")
+
+    screen.blit(square, GetCenter(width,height,square))
+    settingsText = font.render("Settings", 1, (0,0,0))
+    screen.blit(settingText, (GetCenter(width,height,settingsText)[0], GetCenter(width,height,settingsText)[1] - (height / 3) + 35))
+    while True:
+        screen.blit(soundT, (GetCenter(width,height,soundT)[0],GetCenter(width,height,soundT)[1]+ (height / 6)))
+        screen.blit(back, (GetCenter(width,height,back)[0],GetCenter(width,height,back)[1]+ (height / 6)))
+        screen.blit(quit, (GetCenter(width,height,back)[0],GetCenter(width,height,back)[1] +(height / 6) + 70))
+        pygame.event.get()
+
+        if soundT.get_rect(topleft=(GetCenter(width,height,soundT)[0],GetCenter(width,height,soundT)[1]+ (height / 6))).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(soundT_h,(GetCenter(width,height,soundT)[0],GetCenter(width,height,soundT)[1]+ (height / 6)))
+        if (pygame.mouse.get_pressed()==(1,0,0) and soundT.get_rect(topleft=(GetCenter(width,height,back)[0],GetCenter(width,height,back)[1]+ (height / 6))).collidepoint(pygame.mouse.get_pos())):
+            if mute == False:
+                mute = True
+            else:
+                mute = False
+
+        if back.get_rect(topleft=(GetCenter(width,height,back)[0],GetCenter(width,height,back)[1]+ (height / 6))).collidepoint(pygame.mouse.get_pos()):
+            screen.blit(back_h,(GetCenter(width,height,back)[0],GetCenter(width,height,back)[1]+ (height / 6)))
+        if (pygame.mouse.get_pressed()==(1,0,0) and back.get_rect(topleft=(GetCenter(width,height,back)[0],GetCenter(width,height,back)[1]+ (height / 6))).collidepoint(pygame.mouse.get_pos())):
+            return 
+        pygame.display.flip()
