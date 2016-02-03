@@ -18,7 +18,8 @@ font = pygame.font.Font("content\\font\\retro.ttf", 35)
 statfont = pygame.font.Font("content\\font\\retro.ttf", 25)
 playerName = font.render("Name:", 1, (255,255,0))
 Condition = font.render("Condition:  4", 1, (255,255,0))
-helpBtn = pygame.image.load("content\\helpbtn.png")
+helpBtn = pygame.image.load("content\\rules.png")
+helpBtnh = pygame.image.load("content\\rules_h.png")
 rollDiceBtn = pygame.image.load("content\\rolldice.png")
 rollDiceBtnh = pygame.image.load("content\\rolldice_h.png")
 
@@ -90,14 +91,16 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 playeronturn = font.render(player[i].Name + "'s turn", 1, (0,0,0))
                 screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 3) - 80, GetCenter(width,height, playerName)[1] - (height / 2.4) - 15))
                 screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.1) + 45, GetCenter(width,height, playerName)[1] - (height / 2.4) - 20))
-                screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
-                screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
-                if rollDiceBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos()):
-                    screen.blit(rollDiceBtnh,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
+                screen.blit(helpBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))
+                screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 6) + 20 , GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))
+                if rollDiceBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 6) + 20 , GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15)).collidepoint(pygame.mouse.get_pos()):
+                    screen.blit(rollDiceBtnh,(GetCenter(width, height, rollDiceBtn)[0] - (width / 6) + 20 , GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))
+                if helpBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15)).collidepoint(pygame.mouse.get_pos()):
+                    screen.blit(helpBtnh,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))
 
                 pygame.event.get()
                 pygame.display.flip()
-                if (pygame.mouse.get_pressed()==(1,0,0) and rollDiceBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
+                if (pygame.mouse.get_pressed()==(1,0,0) and rollDiceBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 6) + 20 , GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15)).collidepoint(pygame.mouse.get_pos())):
                     diceroll = dice(6)  
                     drawDice(diceroll,width, height, screen)
                     time.sleep(0.5)
