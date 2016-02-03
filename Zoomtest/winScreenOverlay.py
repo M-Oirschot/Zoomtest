@@ -8,4 +8,4 @@ def winScreen(screen, width, height, winner):
     
     screen.blit(square, (GetCenter(width,height,square)))
     screen.blit(wPlayer, (GetCenter(width, height, wPlayer)[0], GetCenter(width,height, wPlayer)[1] - (height / 3.3)))
-    #test
+    
