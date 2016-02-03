@@ -136,7 +136,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         pygame.display.flip()
                     
                     break
-                #if dhsjahsjkdahadkjhdsa
+
             if player[i].Pos == 5 or player[i].Pos == 15 or player[i].Pos == 25 or player[i].Pos == 35:
                 superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))
                 screen.blit(bg, (0,0))
@@ -164,7 +164,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
         #if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,helpBtn)[0] - (width / 3.525), GetCenter(width,height,helpBtn)[1] - (height / 3.525))).collidepoint(pygame.mouse.get_pos())):
         #    print("Help")
         #    done = True
-
+ 
         pygame.display.flip()
         """time.sleep(0.5)
         for i in range (0, len(player)):
