@@ -30,7 +30,6 @@ if preset == 1:
     width = 1920  
     height = 1080
     size = (width,height)
-    #screen = pygame.display.set_mode(size)
     screen = pygame.display.set_mode((size),pygame.FULLSCREEN)
 while True:
     if width >= 800 and height >= 600:
@@ -97,14 +96,6 @@ while True:
     elif pressed == 2:
         print("Highscores go here")           #Hier komt de highscore function
     elif pressed == 3:
-        print("Help goes here")               #Hier komt de help/rules function
-#while True:
-#pygame.display.flip()
-#  time.sleep(0.1)
-#print(glove.get_rect().size)
+        showrules()               #Hier komt de help/rules function
 
-#player1 = MakePlayer(0,0,100,15,3,"Bamischijf",1)
-#print(player1.dmg.five.one.dmg)
-#print(player1.Name)
-#print(player1.dmg.six.three.cond)
 
