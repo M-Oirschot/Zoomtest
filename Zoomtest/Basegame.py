@@ -101,7 +101,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 pygame.event.get()
                 pygame.display.flip()
                 if (pygame.mouse.get_pressed()==(1,0,0) and rollDiceBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 6) + 20 , GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15)).collidepoint(pygame.mouse.get_pos())):
-                    diceroll = dice(6)  
+                    diceroll = 5#dice(6)  
                     drawDice(diceroll,width, height, screen)
                     time.sleep(0.5)
                     for k in range (0, diceroll):
@@ -194,8 +194,9 @@ def Main(screen,width,height,players,list,board):
         #pygame.draw.rect(screen,blue,(200,150,100,50))
         pygame.display.flip()
         tempusvar = Menushit(screen,width,height,players,list,templist,board,bg)
-        winScreen(screen,width,height,tempusvar)
-        break
+        if tempusvar != 1:
+          winScreen(screen,width,height,tempusvar)
+        #break
     
 
 def playerstats(player):
