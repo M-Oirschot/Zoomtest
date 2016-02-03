@@ -144,15 +144,15 @@ def checkPvp(playerlist,screen,width,height):
 def printVisuals(player, screen, width, height):
     statfont = pygame.font.Font("content\\font\\retro.ttf", 25)
     player1health = statfont.render("Health: " + str(player[0].Lifepoints), 1, (0,0,0))
-    player1stamina = statfont.render("Condition: " + str(player[0].Conditionpoints), 1, (0,0,0))
+    player1stamina = statfont.render("Stamina: " + str(player[0].Conditionpoints), 1, (0,0,0))
     player2health = statfont.render("Health: " + str(player[1].Lifepoints), 1, (0,0,0))
-    player2stamina = statfont.render("Condition: " + str(player[1].Conditionpoints), 1, (0,0,0))
+    player2stamina = statfont.render("Stamina: " + str(player[1].Conditionpoints), 1, (0,0,0))
     if len(player) >= 3:
         player3health = statfont.render("Health: " + str(player[2].Lifepoints), 1, (0,0,0))
-        player3stamina = statfont.render("Condition: " + str(player[2].Conditionpoints), 1, (0,0,0))
+        player3stamina = statfont.render("Stamina: " + str(player[2].Conditionpoints), 1, (0,0,0))
     if len(player) == 4:
         player4health = statfont.render("Health: " + str(player[3].Lifepoints), 1, (0,0,0))
-        player4stamina = statfont.render("Condition: " + str(player[3].Conditionpoints), 1, (0,0,0))
+        player4stamina = statfont.render("Stamina: " + str(player[3].Conditionpoints), 1, (0,0,0))
 
   
     screen.blit(player1health, (GetCenter(width, height, player1health)[0] - (width / 2.8), GetCenter(width,height, player1health)[1] - (height / 6.5) + 8))

@@ -24,46 +24,46 @@ def Firstplayer(screen,width,height,player1):
     textButton4 = smallfont.render("Do nothing",1,(64,0,0))
     time.sleep(0.5)
     if rolled == 1:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.one.one.dmg) + " Cond: " + str(player1.dmg.one.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.one.one.dmg) + " Stam: " + str(player1.dmg.one.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.one.one.dmg, player1.dmg.one.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.one.two.dmg) + " Cond: " + str(player1.dmg.one.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.one.two.dmg) + " Stam: " + str(player1.dmg.one.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.one.two.dmg, player1.dmg.one.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.one.three.dmg) + " Cond: " + str(player1.dmg.one.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.one.three.dmg) + " Stam: " + str(player1.dmg.one.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.one.three.dmg, player1.dmg.one.three.cond]
     elif rolled == 2:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.two.one.dmg) + " Cond: " + str(player1.dmg.two.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.two.one.dmg) + " Stam: " + str(player1.dmg.two.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.two.one.dmg, player1.dmg.two.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.two.two.dmg) + " Cond: " + str(player1.dmg.two.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.two.two.dmg) + " Stam: " + str(player1.dmg.two.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.two.two.dmg, player1.dmg.two.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.two.three.dmg) + " Cond: " + str(player1.dmg.two.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.two.three.dmg) + " Stam: " + str(player1.dmg.two.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.two.three.dmg, player1.dmg.two.three.cond]
     elif rolled == 3:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.three.one.dmg) + " Cond: " + str(player1.dmg.three.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.three.one.dmg) + " Stam: " + str(player1.dmg.three.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.three.one.dmg, player1.dmg.three.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.three.two.dmg) + " Cond: " + str(player1.dmg.three.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.three.two.dmg) + " Stam: " + str(player1.dmg.three.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.three.two.dmg, player1.dmg.three.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.three.three.dmg) + " Cond: " + str(player1.dmg.three.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.three.three.dmg) + " Stam: " + str(player1.dmg.three.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.three.three.dmg, player1.dmg.three.three.cond]
     elif rolled == 4:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.four.one.dmg) + " Cond: " + str(player1.dmg.four.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.four.one.dmg) + " Stam: " + str(player1.dmg.four.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.four.one.dmg, player1.dmg.four.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.four.two.dmg) + " Cond: " + str(player1.dmg.four.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.four.two.dmg) + " Stam: " + str(player1.dmg.four.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.four.two.dmg, player1.dmg.four.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.four.three.dmg) + " Cond: " + str(player1.dmg.four.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.four.three.dmg) + " Stam: " + str(player1.dmg.four.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.four.three.dmg, player1.dmg.four.three.cond]
     elif rolled == 5:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.five.one.dmg) + " Cond: " + str(player1.dmg.five.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.five.one.dmg) + " Stam: " + str(player1.dmg.five.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.five.one.dmg, player1.dmg.five.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.five.two.dmg) + " Cond: " + str(player1.dmg.five.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.five.two.dmg) + " Stam: " + str(player1.dmg.five.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.five.two.dmg, player1.dmg.five.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.five.three.dmg) + " Cond: " + str(player1.dmg.five.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.five.three.dmg) + " Stam: " + str(player1.dmg.five.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.five.three.dmg, player1.dmg.five.three.cond]
     elif rolled == 6:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.six.one.dmg) + " Cond: " + str(player1.dmg.six.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.six.one.dmg) + " Stam: " + str(player1.dmg.six.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.six.one.dmg, player1.dmg.six.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.six.two.dmg) + " Cond: " + str(player1.dmg.six.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.six.two.dmg) + " Stam: " + str(player1.dmg.six.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.six.two.dmg, player1.dmg.six.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.six.three.dmg) + " Cond: " + str(player1.dmg.six.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.six.three.dmg) + " Stam: " + str(player1.dmg.six.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.six.three.dmg, player1.dmg.six.three.cond]
   
     done = False
@@ -139,46 +139,46 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
     button.fill((200,200,200))
     buttonoutline.fill((0,0,0))
     if rolled == 1:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.one.one.dmg) + " Cond: " + str(player1.dmg.one.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.one.one.dmg) + " Stam: " + str(player1.dmg.one.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.one.one.dmg, player1.dmg.one.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.one.two.dmg) + " Cond: " + str(player1.dmg.one.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.one.two.dmg) + " Stam: " + str(player1.dmg.one.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.one.two.dmg, player1.dmg.one.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.one.three.dmg) + " Cond: " + str(player1.dmg.one.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.one.three.dmg) + " Stam: " + str(player1.dmg.one.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.one.three.dmg, player1.dmg.one.three.cond]
     elif rolled == 2:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.two.one.dmg) + " Cond: " + str(player1.dmg.two.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.two.one.dmg) + " Stam: " + str(player1.dmg.two.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.two.one.dmg, player1.dmg.two.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.two.two.dmg) + " Cond: " + str(player1.dmg.two.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.two.two.dmg) + " Stam: " + str(player1.dmg.two.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.two.two.dmg, player1.dmg.two.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.two.three.dmg) + " Cond: " + str(player1.dmg.two.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.two.three.dmg) + " Stam: " + str(player1.dmg.two.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.two.three.dmg, player1.dmg.two.three.cond]
     elif rolled == 3:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.three.one.dmg) + " Cond: " + str(player1.dmg.three.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.three.one.dmg) + " Stam: " + str(player1.dmg.three.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.three.one.dmg, player1.dmg.three.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.three.two.dmg) + " Cond: " + str(player1.dmg.three.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.three.two.dmg) + " Stam: " + str(player1.dmg.three.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.three.two.dmg, player1.dmg.three.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.three.three.dmg) + " Cond: " + str(player1.dmg.three.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.three.three.dmg) + " Stam: " + str(player1.dmg.three.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.three.three.dmg, player1.dmg.three.three.cond]
     elif rolled == 4:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.four.one.dmg) + " Cond: " + str(player1.dmg.four.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.four.one.dmg) + " Stam: " + str(player1.dmg.four.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.four.one.dmg, player1.dmg.four.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.four.two.dmg) + " Cond: " + str(player1.dmg.four.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.four.two.dmg) + " Stam: " + str(player1.dmg.four.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.four.two.dmg, player1.dmg.four.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.four.three.dmg) + " Cond: " + str(player1.dmg.four.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.four.three.dmg) + " Stam: " + str(player1.dmg.four.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.four.three.dmg, player1.dmg.four.three.cond]
     elif rolled == 5:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.five.one.dmg) + " Cond: " + str(player1.dmg.five.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.five.one.dmg) + " Stam: " + str(player1.dmg.five.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.five.one.dmg, player1.dmg.five.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.five.two.dmg) + " Cond: " + str(player1.dmg.five.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.five.two.dmg) + " Stam: " + str(player1.dmg.five.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.five.two.dmg, player1.dmg.five.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.five.three.dmg) + " Cond: " + str(player1.dmg.five.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.five.three.dmg) + " Stam: " + str(player1.dmg.five.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.five.three.dmg, player1.dmg.five.three.cond]
     elif rolled == 6:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.six.one.dmg) + " Cond: " + str(player1.dmg.six.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.six.one.dmg) + " Stam: " + str(player1.dmg.six.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.six.one.dmg, player1.dmg.six.one.cond]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.six.two.dmg) + " Cond: " + str(player1.dmg.six.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.six.two.dmg) + " Stam: " + str(player1.dmg.six.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.six.two.dmg, player1.dmg.six.two.cond]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.six.three.dmg) + " Cond: " + str(player1.dmg.six.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.six.three.dmg) + " Stam: " + str(player1.dmg.six.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.six.three.dmg, player1.dmg.six.three.cond]
     done = False
     while not done:
@@ -279,46 +279,46 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     buttonoutline.fill((0,0,0))
     
     if rolled == 1:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.one.one.dmg) + " Cond: " + str(player1.dmg.one.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.one.one.dmg) + " Stam: " + str(player1.dmg.one.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.one.one.dmg, player1.dmg.one.one.cond, sdmg]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.one.two.dmg) + " Cond: " + str(player1.dmg.one.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.one.two.dmg) + " Stam: " + str(player1.dmg.one.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.one.two.dmg, player1.dmg.one.two.cond, sdmg]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.one.three.dmg) + " Cond: " + str(player1.dmg.one.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.one.three.dmg) + " Stam: " + str(player1.dmg.one.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.one.three.dmg, player1.dmg.one.three.cond, sdmg]
     elif rolled == 2:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.two.one.dmg) + " Cond: " + str(player1.dmg.two.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.two.one.dmg) + " Stam: " + str(player1.dmg.two.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.two.one.dmg, player1.dmg.two.one.cond, sdmg]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.two.two.dmg) + " Cond: " + str(player1.dmg.two.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.two.two.dmg) + " Stam: " + str(player1.dmg.two.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.two.two.dmg, player1.dmg.two.two.cond, sdmg]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.two.three.dmg) + " Cond: " + str(player1.dmg.two.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.two.three.dmg) + " Stam: " + str(player1.dmg.two.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.two.three.dmg, player1.dmg.two.three.cond, sdmg]
     elif rolled == 3:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.three.one.dmg) + " Cond: " + str(player1.dmg.three.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.three.one.dmg) + " Stam: " + str(player1.dmg.three.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.three.one.dmg, player1.dmg.three.one.cond, sdmg]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.three.two.dmg) + " Cond: " + str(player1.dmg.three.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.three.two.dmg) + " Stam: " + str(player1.dmg.three.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.three.two.dmg, player1.dmg.three.two.cond, sdmg]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.three.three.dmg) + " Cond: " + str(player1.dmg.three.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.three.three.dmg) + " Stam: " + str(player1.dmg.three.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.three.three.dmg, player1.dmg.three.three.cond, sdmg]
     elif rolled == 4:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.four.one.dmg) + " Cond: " + str(player1.dmg.four.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.four.one.dmg) + " Stam: " + str(player1.dmg.four.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.four.one.dmg, player1.dmg.four.one.cond, sdmg]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.four.two.dmg) + " Cond: " + str(player1.dmg.four.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.four.two.dmg) + " Stam: " + str(player1.dmg.four.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.four.two.dmg, player1.dmg.four.two.cond, sdmg]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.four.three.dmg) + " Cond: " + str(player1.dmg.four.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.four.three.dmg) + " Stam: " + str(player1.dmg.four.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.four.three.dmg, player1.dmg.four.three.cond, sdmg]
     elif rolled == 5:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.five.one.dmg) + " Cond: " + str(player1.dmg.five.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.five.one.dmg) + " Stam: " + str(player1.dmg.five.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.five.one.dmg, player1.dmg.five.one.cond, sdmg]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.five.two.dmg) + " Cond: " + str(player1.dmg.five.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.five.two.dmg) + " Stam: " + str(player1.dmg.five.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.five.two.dmg, player1.dmg.five.two.cond, sdmg]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.five.three.dmg) + " Cond: " + str(player1.dmg.five.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.five.three.dmg) + " Stam: " + str(player1.dmg.five.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.five.three.dmg, player1.dmg.five.three.cond, sdmg]
     elif rolled == 6:
-        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.six.one.dmg) + " Cond: " + str(player1.dmg.six.one.cond), 1,(0,0,0))
+        textButton1 = smallfont.render("Dmg: " + str(player1.dmg.six.one.dmg) + " Stam: " + str(player1.dmg.six.one.cond), 1,(0,0,0))
         returnvalue1 = [player1.dmg.six.one.dmg, player1.dmg.six.one.cond, sdmg]
-        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.six.two.dmg) + " Cond: " + str(player1.dmg.six.two.cond), 1,(0,0,0))
+        textButton2 = smallfont.render("Dmg: " + str(player1.dmg.six.two.dmg) + " Stam: " + str(player1.dmg.six.two.cond), 1,(0,0,0))
         returnvalue2 = [player1.dmg.six.two.dmg, player1.dmg.six.two.cond, sdmg]
-        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.six.three.dmg) + " Cond: " + str(player1.dmg.six.three.cond), 1,(0,0,0))
+        textButton3 = smallfont.render("Dmg: " + str(player1.dmg.six.three.dmg) + " Stam: " + str(player1.dmg.six.three.cond), 1,(0,0,0))
         returnvalue3 = [player1.dmg.six.three.dmg, player1.dmg.six.three.cond, sdmg]
     done = False
     while not done:
@@ -368,8 +368,13 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
         time.sleep(0.033)
 
 def UltraPVP(screen,width,height,attacker,defender):
-    memes = random.randint(0,1)
-    if memes == 1:
-        return pvp(attacker,defender,PlayerversusPlayer(screen,width,height,attacker,defender))
-    else:
-        return pvp(defender,attacker,PlayerversusPlayer(screen,width,height,defender,attacker))
+  memes = random.randint(0,1)
+  if memes == 1:
+    return pvp(attacker,defender,PlayerversusPlayer(screen,width,height,attacker,defender))
+  else:
+    return pvp(defender,attacker,PlayerversusPlayer(screen,width,height,defender,attacker))
+
+def pauseScreen(screen,width,height):
+  font = pygame.font.Font("content\\font\\retro.ttf", 30)
+  square = pygame.image.load("content\\eventscreen.png")
+  screen.blit(square, GetCenter(width,height,square))
