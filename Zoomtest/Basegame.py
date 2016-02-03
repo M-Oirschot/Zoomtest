@@ -61,7 +61,6 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 if player[j] not in playersStandingOnSameTile:
                     screen.blit(player[j].Texture, player[j].Tile.pos)
         
-        
         else:
             for j in range (0, len(player)):
                 screen.blit(player[j].Texture, player[j].Tile.pos)
