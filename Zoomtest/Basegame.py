@@ -149,6 +149,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 if (pygame.mouse.get_pressed() == (1,0,0) and pausebutton.get_rect(topleft=(GetCenter(width, height, pausebutton)[0] - (width / 3.5) , GetCenter(width,height, pausebutton)[1] - (height / 3.5) + 15))):
                     if pauseScreen(screen, width, height)==1:
                         return 1
+                        break
 
                  
             if player[i].Pos == 5 or player[i].Pos == 15 or player[i].Pos == 25 or player[i].Pos == 35:
@@ -208,7 +209,7 @@ def Main(screen,width,height,players,list,board):
         tempusvar = Menushit(screen,width,height,players,list,templist,board,bg)
         if tempusvar != 1:
           winScreen(screen,width,height,tempusvar)
-        #break
+        break
     
 
 def playerstats(player):
