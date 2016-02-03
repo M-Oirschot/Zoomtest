@@ -156,16 +156,16 @@ def printVisuals(player, screen, width, height):
 
   
     screen.blit(player1health, (GetCenter(width, height, player1health)[0] - (width / 2.8), GetCenter(width,height, player1health)[1] - (height / 6.5) + 8))
-    screen.blit(player1stamina, (GetCenter(width, height, player1stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 66))
-    screen.blit(player[0].Texture, (GetCenter(width, height, player1stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 25))
+    screen.blit(player1stamina, (GetCenter(width, height, player1stamina)[0] - (width / 2.8), GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 66))
+    screen.blit(player[0].Texture, (GetCenter(width, height, player1stamina)[0] - (width / 2.4) -30, GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 25))
     screen.blit(player2health, (GetCenter(width, height, player2health)[0] - (width / 2.8), GetCenter(width,height, player2health)[1] - (height / 6.5) + 136))
-    screen.blit(player2stamina, (GetCenter(width, height, player2stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player2stamina)[1] - (height / 6.5) + 194))
-    screen.blit(player[1].Texture, (GetCenter(width, height, player2stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player2stamina)[1] - (height / 6.5) + 153))
+    screen.blit(player2stamina, (GetCenter(width, height, player2stamina)[0] - (width / 2.8), GetCenter(width,height, player2stamina)[1] - (height / 6.5) + 194))
+    screen.blit(player[1].Texture, (GetCenter(width, height, player2stamina)[0] - (width / 2.4) -30, GetCenter(width,height, player2stamina)[1] - (height / 6.5) + 153))
     if len(player) >= 3:
         screen.blit(player3health, (GetCenter(width, height, player3health)[0] - (width / 2.8), GetCenter(width,height, player3health)[1] - (height / 6.5) + 264))
-        screen.blit(player3stamina, (GetCenter(width, height, player3stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player3stamina)[1] - (height / 6.5) + 322))
-        screen.blit(player[2].Texture, (GetCenter(width, height, player3stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player3stamina)[1] - (height / 6.5) + 281))
+        screen.blit(player3stamina, (GetCenter(width, height, player3stamina)[0] - (width / 2.8), GetCenter(width,height, player3stamina)[1] - (height / 6.5) + 322))
+        screen.blit(player[2].Texture, (GetCenter(width, height, player3stamina)[0] - (width / 2.4) -30, GetCenter(width,height, player3stamina)[1] - (height / 6.5) + 281))
     if len(player) == 4:
         screen.blit(player4health, (GetCenter(width, height, player4health)[0] - (width / 2.8), GetCenter(width,height, player4health)[1] - (height / 6.5) + 392))
-        screen.blit(player4stamina, (GetCenter(width, height, player4stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player4stamina)[1] - (height / 6.5) + 452))
-        screen.blit(player[3].Texture, (GetCenter(width, height, player4stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player4stamina)[1] - (height / 6.5) + 409))
+        screen.blit(player4stamina, (GetCenter(width, height, player4stamina)[0] - (width / 2.8), GetCenter(width,height, player4stamina)[1] - (height / 6.5) + 452))
+        screen.blit(player[3].Texture, (GetCenter(width, height, player4stamina)[0] - (width / 2.4) -30, GetCenter(width,height, player4stamina)[1] - (height / 6.5) + 411))
