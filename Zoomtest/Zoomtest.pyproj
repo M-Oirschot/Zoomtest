@@ -50,6 +50,7 @@
     <Compile Include="winScreen.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="winScreenOverlay.py" />
     <Compile Include="Zoomtest.py" />
   </ItemGroup>
   <PropertyGroup>

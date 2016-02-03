@@ -375,6 +375,27 @@ def UltraPVP(screen,width,height,attacker,defender):
     return pvp(defender,attacker,PlayerversusPlayer(screen,width,height,defender,attacker))
 
 def pauseScreen(screen,width,height):
-  font = pygame.font.Font("content\\font\\retro.ttf", 30)
+  font = pygame.font.Font("content\\font\\retro.ttf", 75)
   square = pygame.image.load("content\\eventscreen.png")
+  quit = pygame.image.load("content\\quit.png")
+  quit_h = pygame.image.load("content\\quit_h.png")
+  back = pygame.image.load("content\\back.png" )
+  back_h = pygame.image.load("content\\back_h.png")
   screen.blit(square, GetCenter(width,height,square))
+  pauseText = font.render("PAUSED", 1, (0,0,0))
+  screen.blit(pauseText, (GetCenter(width,height,pauseText)[0], GetCenter(width,height,pauseText)[1] - (height / 3) + 35))
+  while True:
+    screen.blit(back, (GetCenter(width,height,back)[0],GetCenter(width,height,back)[1]+ (height / 6)))
+    screen.blit(quit, (GetCenter(width,height,back)[0],GetCenter(width,height,back)[1] +(height / 6) + 70))
+    pygame.event.get()
+    if back.get_rect(topleft=(GetCenter(width,height,back)[0],GetCenter(width,height,back)[1]+ (height / 6))).collidepoint(pygame.mouse.get_pos()):
+      screen.blit(back_h,(GetCenter(width,height,back)[0],GetCenter(width,height,back)[1]+ (height / 6)))
+    if quit.get_rect(topleft=(GetCenter(width,height,quit)[0],GetCenter(width,height,quit)[1]+ (height / 6) + 70)).collidepoint(pygame.mouse.get_pos()):
+      screen.blit(quit_h,(GetCenter(width,height,quit_h)[0],GetCenter(width,height,quit_h)[1]+ (height / 6) + 70))
+      
+    if (pygame.mouse.get_pressed()==(1,0,0)  and back.get_rect(topleft=(GetCenter(width,height,back)[0],GetCenter(width,height,back)[1]+ (height / 6))).collidepoint(pygame.mouse.get_pos())):
+      return 1
+    if (pygame.mouse.get_pressed()==(1,0,0)  and quit.get_rect(topleft=(GetCenter(width,height,quit)[0],GetCenter(width,height,quit)[1]+ (height / 6) + 70)).collidepoint(pygame.mouse.get_pos())):
+      return
+    pygame.display.flip()
+
