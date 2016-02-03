@@ -394,8 +394,8 @@ def pauseScreen(screen,width,height):
       screen.blit(quit_h,(GetCenter(width,height,quit_h)[0],GetCenter(width,height,quit_h)[1]+ (height / 6) + 70))
       
     if (pygame.mouse.get_pressed()==(1,0,0)  and back.get_rect(topleft=(GetCenter(width,height,back)[0],GetCenter(width,height,back)[1]+ (height / 6))).collidepoint(pygame.mouse.get_pos())):
-      return 1
+      return 
     if (pygame.mouse.get_pressed()==(1,0,0)  and quit.get_rect(topleft=(GetCenter(width,height,quit)[0],GetCenter(width,height,quit)[1]+ (height / 6) + 70)).collidepoint(pygame.mouse.get_pos())):
-      return
+      return 0
     pygame.display.flip()
 
