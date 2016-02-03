@@ -11,7 +11,7 @@ def mainMenu(screen,width, height):
     pygame.mixer.music.play(-1,0.0)
     font = pygame.font.Font(None, 40)
     img = pygame.transform.scale(pygame.image.load("content\\Board3d.png").convert(), (width,height))
-    realglove = pygame.image.load("content\\glove.png").convert_alpha()
+    realglove = pygame.image.load("content\\title.png").convert_alpha()
     textButton1 = pygame.image.load('content\start.png')
     textButton1h = pygame.image.load('content\start_h.png')
     textButton2 = pygame.image.load('content\highscores.png')
@@ -24,7 +24,7 @@ def mainMenu(screen,width, height):
     memes = 0
     while True:
         screen.blit(img, (0,0))
-        screen.blit(pygame.image.load("content\\glove.png").convert_alpha(), (GetCenter(width,height,realglove)[0], GetCenter(width,height,realglove)[1] - (height / 6)))
+        screen.blit(realglove, (GetCenter(width,height,realglove)[0], GetCenter(width,height,realglove)[1] - (height / 6)))
         screen.blit(textButton1, (GetCenter(width,height,textButton1)[0], GetCenter(width,height,textButton1)[1] + (height / 8) - 10))
         screen.blit(textButton2, (GetCenter(width,height,textButton2)[0], GetCenter(width,height,textButton2)[1] + (height / 8) + 45))
         screen.blit(textButton3, (GetCenter(width,height,textButton3)[0], GetCenter(width,height,textButton3)[1] + (height / 8) + 100))
