@@ -136,6 +136,8 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         pygame.display.flip()
                     
                     break
+                if (pygame.mouse.get_pressed() == (1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))):
+                    showrules()
 
             if player[i].Pos == 5 or player[i].Pos == 15 or player[i].Pos == 25 or player[i].Pos == 35:
                 superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))
