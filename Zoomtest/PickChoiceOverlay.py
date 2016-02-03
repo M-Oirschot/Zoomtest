@@ -11,9 +11,9 @@ def Firstplayer(screen,width,height,player1):
     bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
     rolled = dice(6)
     drawDiceBL(rolled,width,height,screen)
-    rolltext = font.render("Attacker: '" + player1.Name + "' rolled " + str(rolled)  + " and has " + str(player1.Conditionpoints) + " conditionpoints", 1,(0,64,0))
+    rolltext = font.render("Attacker: '" + player1.Name + "' rolled " + str(player1.Lifepoints)  + " health and " + str(player1.Conditionpoints) + " stamina", 1,(0,64,0))
     errtext = font.render("You have too little condition", 1,(242,7,7))
-    screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
+    screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 35))
     buttonh = pygame.Surface((250,140), pygame.SRCALPHA, 32)
     button = pygame.Surface((250,140), pygame.SRCALPHA, 32)
     buttonoutline = pygame.Surface((255,145), pygame.SRCALPHA, 32)
@@ -123,15 +123,15 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
     bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
     #time.sleep(0.5)
     rolled = dice(6)
-    drawDiceBL(rolled,width,height,screen)
+    
     square = pygame.image.load("content\\eventscreen.png")
     #title = 
-    square.fill((100,100,100))
     #outline.fill((0,0,0))
     #screen.blit(outline, (GetCenter(width,height,outline)))
     screen.blit(square, (GetCenter(width,height,square)))
     pygame.display.flip()
-    rolltext = font.render("Defender: '" + player1.Name + "' rolled " + str(rolled) + " and has " + str(player1.Conditionpoints) + " condition", 1,(0,64,0))
+    drawDiceBL(rolled,width,height,screen)
+    rolltext = font.render("Defender: '" + player1.Name + "' has " + str(player1.Lifepoints) + " health and " + str(player1.Conditionpoints) + " stamina", 1,(0,64,0))
     memetext = font.render("Attacker: '" + otherplayer.Name + "' does " + str(damage) + " damage", 1,(128,0,0))
     screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
     screen.blit(memetext, (GetCenter(width,height,memetext)[0],GetCenter(width,height,memetext)[1] - (height / 3)))
@@ -230,17 +230,13 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
         if (pygame.mouse.get_pressed()==(1,0,0)  and button.get_rect(topleft=(GetCenter(width,height,button)[0], GetCenter(width,height,button)[1] + 150)).collidepoint(pygame.mouse.get_pos())):
             return [0,0]
         pygame.display.flip()
-
+         
 def PlayerversusPlayer(screen,width,height,attacker,defender):
-
-    maincolor = (100,100,100)
-
     square = pygame.image.load("content\\eventscreen.png")
     #title = 
-    square.fill(maincolor)
     #outline.fill((0,0,0))
-    screen.blit(outline, (GetCenter(width,height,outline)))
-    #screen.blit(square, (GetCenter(width,height,square)))
+    #screen.blit(outline, (GetCenter(width,height,outline)))
+    screen.blit(square, (GetCenter(width,height,square)))
     pygame.display.flip()
     Attacker = Firstplayer(screen,width,height,attacker)
     Defender = Secondplayer(screen,width,height,defender,attacker,Attacker[0])
@@ -287,7 +283,7 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     drawDiceBL(rolled,width,height,screen)
     #screen.blit(fillsquare, (GetCenter(width,height,fillsquare)[0], GetCenter(width,height,fillsquare)[1] - 325 ))
     screen.blit(fightertext, (GetCenter(width,height,fightertext)[0],GetCenter(width,height,fightertext)[1] - (height / 3)))
-    rolltext = font.render("'" + player1.Name + "'" + " rolled " + str(rolled) + " and has " + str(player1.Conditionpoints) + " conditionpoints", 1,(0,64,0))
+    rolltext = font.render("'" + player1.Name + "'" + " has " + str(player1.Lifepoints) + " health and " + str(player1.Conditionpoints) + " stamina", 1,(0,64,0))
     errtext = font.render("You have too little condition", 1,(242,7,7))
     screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 70))
     button = pygame.Surface((250,140), pygame.SRCALPHA, 32)

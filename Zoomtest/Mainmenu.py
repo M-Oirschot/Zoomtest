@@ -29,6 +29,7 @@ def mainMenu(screen,width, height):
         screen.blit(textButton2, (GetCenter(width,height,textButton2)[0], GetCenter(width,height,textButton2)[1] + (height / 8) + 45))
         screen.blit(textButton3, (GetCenter(width,height,textButton3)[0], GetCenter(width,height,textButton3)[1] + (height / 8) + 100))
         screen.blit(textButton4, (GetCenter(width,height,textButton4)[0], GetCenter(width,height,textButton4)[1] + (height / 8) + 155))
+
         if textButton1.get_rect(topleft=(GetCenter(width,height,textButton1)[0],GetCenter(width,height,textButton1)[1] + (height / 8 - 10))).collidepoint(pygame.mouse.get_pos()):
                 screen.blit(textButton1h,(GetCenter(width,height,textButton1)[0],GetCenter(width,height,textButton1)[1] + (height / 8 - 10)))
         if textButton2.get_rect(topleft=(GetCenter(width,height,textButton2)[0],GetCenter(width,height,textButton2)[1] + (height / 8 + 45))).collidepoint(pygame.mouse.get_pos()):

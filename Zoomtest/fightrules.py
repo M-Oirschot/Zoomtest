@@ -1,9 +1,10 @@
 ﻿import pygame
+import subprocess
 
 def superfight(player, fight):
     playerdmg = fight[0]
     playercond = fight[1]
-    sdmg = fight[2]
+    sdmg = fight[2]         #dmg of the Superfighter
 
     if sdmg > playerdmg:
         sdmg -= playerdmg
@@ -33,8 +34,7 @@ def pvp(attacker,defender,fight):
     else:
         attacker.Conditionpoints -= playeronecond
         defender.Conditionpoints -= playertwocond
-
-        
+   
 def AliveCheck(players):
     alive = 0
     for i in range (0,len(players)):
@@ -42,12 +42,19 @@ def AliveCheck(players):
             alive += 1
     return alive
 
-def removeDead(players):
+def removeDead(players,startingTilesList):
     newlist = []
+    starttileslist = []
     for i in range(len(players)):
-        if not players[i].health < 0:
-            newlist += [player[i]]
-    return newlist
+        if not players[i].Lifepoints <= 0:
+            newlist += [players[i]]
+            starttileslist += [startingTilesList[i]]
+    return [newlist,starttileslist]
+
+def showrules():
+    p = subprocess.Popen("content\\Manual.pdf", shell = True)
+
+
             
 
 

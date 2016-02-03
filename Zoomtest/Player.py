@@ -35,7 +35,7 @@ def MakePlayer(x,health,condition,texture,name,playernum,tile):
   if playernum == 1:
     return Player(x,health,condition,texture,name, tile,dmg(dmgList(dmgItem(3, 1), dmgItem(9, 2), dmgItem(19, 3)), 
                                                     dmgList(dmgItem(5, 2), dmgItem(11, 3), dmgItem(15, 5)), 
-                                                    dmgList(dmgItem(7, 3), dmgItem(12, 3), dmgItem(16, 4)),
+                                                    dmgList(dmgItem(7, 2), dmgItem(12, 3), dmgItem(16, 4)),
                                                     dmgList(dmgItem(2, 1), dmgItem(2, 1), dmgItem(6, 3)),
                                                     dmgList(dmgItem(10, 2), dmgItem(20, 5), dmgItem(30, 8)),
                                                     dmgList(dmgItem(8, 3), dmgItem(13, 4), dmgItem(17, 5))))
@@ -108,27 +108,66 @@ def checkPlayers(playerlist):
       return []
 
 def checkPvp(playerlist,screen,width,height):
+  bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
   if len(playerlist) == 2:
     if playerlist[0].Tile.pos == playerlist[1].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      screen.blit(bg, (0,0))
   elif len(playerlist) == 3:
     if playerlist[0].Tile.pos == playerlist[1].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      screen.blit(bg, (0,0))
     if playerlist[1].Tile.pos == playerlist[2].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[1],playerlist[2])
+      UltraPVP(screen,width,height,playerlist[1],playerlist[2])
+      screen.blit(bg, (0,0))
     if playerlist[0].Tile.pos == playerlist[2].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[2])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[2])
+      screen.blit(bg, (0,0))
   elif len(playerlist) == 4:
     if playerlist[0].Tile.pos == playerlist[2].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[2])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[2])
+      screen.blit(bg, (0,0))
     if playerlist[0].Tile.pos == playerlist[3].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[3])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[3])
+      screen.blit(bg, (0,0))
     if playerlist[2].Tile.pos == playerlist[3].Tile.pos:
-     return UltraPVP(screen,width,height,playerlist[2],playerlist[3])
+      UltraPVP(screen,width,height,playerlist[2],playerlist[3])
+      screen.blit(bg, (0,0))
     if playerlist[1].Tile.pos == playerlist[3].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[1],playerlist[3])
+      UltraPVP(screen,width,height,playerlist[1],playerlist[3])
+      screen.blit(bg, (0,0))
     if playerlist[0].Tile.pos == playerlist[1].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+      screen.blit(bg, (0,0))
     if playerlist[1].Tile.pos == playerlist[2].Tile.pos:
-      return UltraPVP(screen,width,height,playerlist[1],playerlist[2])
+      UltraPVP(screen,width,height,playerlist[1],playerlist[2])
+      screen.blit(bg, (0,0))
 
+def printVisuals(player, screen, width, height):
+  statfont = pygame.font.Font("content\\font\\retro.ttf", 25)
+  player1health = statfont.render("Health: " + str(player[0].Lifepoints), 1, (0,0,0))
+  player1stamina = statfont.render("Condition: " + str(player[0].Conditionpoints), 1, (0,0,0))
+  player2health = statfont.render("Health: " + str(player[1].Lifepoints), 1, (0,0,0))
+  player2stamina = statfont.render("Condition: " + str(player[1].Conditionpoints), 1, (0,0,0))
+  if len(player) >= 3:
+    player3health = statfont.render("Health: " + str(player[2].Lifepoints), 1, (0,0,0))
+    player3stamina = statfont.render("Condition: " + str(player[2].Conditionpoints), 1, (0,0,0))
+  if len(player) == 4:
+    player4health = statfont.render("Health: " + str(player[3].Lifepoints), 1, (0,0,0))
+    player4stamina = statfont.render("Condition: " + str(player[3].Conditionpoints), 1, (0,0,0))
+
+  
+  screen.blit(player1health, (GetCenter(width, height, player1health)[0] - (width / 2.8), GetCenter(width,height, player1health)[1] - (height / 6.5) + 8))
+  screen.blit(player1stamina, (GetCenter(width, height, player1stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 66))
+  screen.blit(player[0].Texture, (GetCenter(width, height, player1stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player1stamina)[1] - (height / 6.5) + 25))
+  screen.blit(player2health, (GetCenter(width, height, player2health)[0] - (width / 2.8), GetCenter(width,height, player2health)[1] - (height / 6.5) + 136))
+  screen.blit(player2stamina, (GetCenter(width, height, player2stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player2stamina)[1] - (height / 6.5) + 194))
+  screen.blit(player[1].Texture, (GetCenter(width, height, player2stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player2stamina)[1] - (height / 6.5) + 153))
+  if len(player) >= 3:
+    screen.blit(player3health, (GetCenter(width, height, player3health)[0] - (width / 2.8), GetCenter(width,height, player3health)[1] - (height / 6.5) + 264))
+    screen.blit(player3stamina, (GetCenter(width, height, player3stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player3stamina)[1] - (height / 6.5) + 322))
+    screen.blit(player[2].Texture, (GetCenter(width, height, player3stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player3stamina)[1] - (height / 6.5) + 281))
+  if len(player) == 4:
+    screen.blit(player4health, (GetCenter(width, height, player4health)[0] - (width / 2.8), GetCenter(width,height, player4health)[1] - (height / 6.5) + 392))
+    screen.blit(player4stamina, (GetCenter(width, height, player4stamina)[0] - (width / 2.8) + 22, GetCenter(width,height, player4stamina)[1] - (height / 6.5) + 452))
+    screen.blit(player[3].Texture, (GetCenter(width, height, player4stamina)[0] - (width / 2.4) - 10 , GetCenter(width,height, player4stamina)[1] - (height / 6.5) + 409))

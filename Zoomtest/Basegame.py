@@ -14,29 +14,33 @@ white = (255, 255, 255)
 blue=(0,0,255)
 
 pygame.init()
-font = pygame.font.Font("content\\font\\retro.ttf", 15)
+font = pygame.font.Font("content\\font\\retro.ttf", 35)
+statfont = pygame.font.Font("content\\font\\retro.ttf", 25)
 playerName = font.render("Name:", 1, (255,255,0))
 Condition = font.render("Condition:  4", 1, (255,255,0))
 helpBtn = pygame.image.load("content\\helpbtn.png")
 scBtn = pygame.image.load("content\\scoreBoardbtn.png")
-rollDiceBtn = pygame.image.load("content\\rollDiceBtn.png")
+rollDiceBtn = pygame.image.load("content\\rolldice.png")
 
 def Menushit(screen,width,height,players,list,fighterlist,board,bg):
     if players == 2:
         player1 = list.Value
         player2 = list.Tail.Value
         player = [player1,player2]
+        startingTiles = [0,20]
     elif players == 3:
         player1 = list.Value
         player2 = list.Tail.Value
         player3 = list.Tail.Tail.Value
         player = [player1,player2,player3]
+        startingTiles = [0,20,10]
     elif players == 4:
         player1 = list.Value
         player2 = list.Tail.Value
         player3 = list.Tail.Tail.Value
         player4 = list.Tail.Tail.Tail.Value
         player = [player1,player2,player3,player4]
+        startingTiles = [0,20,10,30]
     done = False
     first = True
 
@@ -44,6 +48,9 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
 
     while not done:
         screen.blit(bg, (0,0))
+        if len(player) == 1:
+            return player[0].Name
+            break
         playersStandingOnSameTile = checkPlayers(player)
         if len(playersStandingOnSameTile) != 0:
             offset = 0
@@ -67,9 +74,28 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
         pygame.display.flip()
         for i in range (0, len(player)):
             while True:
-                playeronturn = font.render("It's " + player[i].Name + "'s turn!", 1, (255,255,0))
-                screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 2.3), GetCenter(width,height, playerName)[1] - (height / 2.4) + 30))
-                screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.2), GetCenter(width,height, playerName)[1] - (height / 2.4) - 50))
+                screen.blit(bg, (0,0))
+                if len(player) == 1:
+                    return player[0].Name
+                    break
+                playersStandingOnSameTile = checkPlayers(player)
+                if len(playersStandingOnSameTile) != 0:
+                    offset = 0
+                    for m in range (0, len(playersStandingOnSameTile)):
+                        screen.blit(playersStandingOnSameTile[m].Texture, (playersStandingOnSameTile[m].Tile.pos[0] + offset, playersStandingOnSameTile[m].Tile.pos[1]))
+                        offset += 10
+                    for j in range (0, len(player)):
+                        if player[j] not in playersStandingOnSameTile:
+                            screen.blit(player[j].Texture, player[j].Tile.pos)
+        
+        
+                else:
+                    for j in range (0, len(player)):
+                        screen.blit(player[j].Texture, player[j].Tile.pos)
+                printVisuals(player,screen,width,height)
+                playeronturn = font.render(player[i].Name + "'s turn", 1, (0,0,0))
+                screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 3) - 80, GetCenter(width,height, playerName)[1] - (height / 2.4) - 15))
+                screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.1) + 45, GetCenter(width,height, playerName)[1] - (height / 2.4) - 20))
                 screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
                 screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
                 screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3)))
@@ -86,6 +112,10 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         else:
                             player[i].Pos += 1
                             player[i].Tile = getItemFromList(board, player[i].Pos, 0)
+                        if player[i].Pos == startingTiles[i]:
+                            player[i].Lifepoints += 10
+                            player[i].Conditionpoints = 15
+                            printVisuals(player,screen,width,height)
                         diceImg = pygame.image.load("content\\" + str(diceroll) + ".png")
                         screen.blit(bg, (0,0))
                         screen.blit(diceImg, (GetCenter(width, height, diceImg)[0] - (width / 10), GetCenter(width,height, diceImg)[1] - ((height / 2) -80)))
@@ -114,7 +144,16 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 for i in range (0, len(player)):
                     screen.blit(player[i].Texture, player[i].Tile.pos)
             checkPvp(player,screen,width,height)
-            
+            if player[i].Pos in startingTiles and player[i].Pos != startingTiles[i]:
+                pvp(player[i],player[startingTiles.index(player[i].Pos)], PlayerversusPlayer(screen,width,height,player[i],player[startingTiles.index(player[i].Pos)]))
+                screen.blit(bg, (0,0))
+            tempvar = removeDead(player,startingTiles)
+            player = tempvar[0]
+            startingTiles = tempvar[1]
+            if len(player) == 1:
+                return player[0].Name
+                break
+            pygame.display.flip()
         pygame.event.get()
         
         #if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height,rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
@@ -136,7 +175,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
           else:
             player[i].Pos += 1
             player[i].Tile = getItemFromList(board, player[i].Pos, 0)"""
-
+             
 def Main(screen,width,height,players,list,board):
     pygame.mixer.music.fadeout(1000)
     bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
@@ -153,4 +192,13 @@ def Main(screen,width,height,players,list,board):
 
         #pygame.draw.rect(screen,blue,(200,150,100,50))
         pygame.display.flip()
-        Menushit(screen,width,height,players,list,templist,board,bg)
+        tempusvar = Menushit(screen,width,height,players,list,templist,board,bg)
+        winScreen(screen,width,height,tempusvar)
+        break
+    
+
+def playerstats(player):
+    while True:
+        player1health = font.render(player[1].Lifepoints, 1, (0,0,0))
+        player1stamina = font.render(player[1].Conditionpoints, 1, (0,0,0))
+        screen.blit(player1health, (GetCenter(width, height, player1health)[0] - (width / 3), GetCenter(width,height, player1health)[1] - (height / 2.4) - 15))
