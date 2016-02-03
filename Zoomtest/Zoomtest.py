@@ -97,7 +97,7 @@ while True:
     elif pressed == 2:
         print("Highscores go here")           #Hier komt de highscore function
     elif pressed == 3:
-        print("Help goes here")               #Hier komt de help/rules function
+        showrules()               #Hier komt de help/rules function
 #while True:
 #pygame.display.flip()
 #  time.sleep(0.1)
