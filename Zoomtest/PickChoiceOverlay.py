@@ -11,7 +11,7 @@ def Firstplayer(screen,width,height,player1):
     bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
     rolled = dice(6)
     drawDiceBL(rolled,width,height,screen)
-    rolltext = font.render("Attacker: '" + player1.Name + "' rolled " + str(player1.Lifepoints)  + " health and " + str(player1.Conditionpoints) + " stamina", 1,(0,64,0))
+    rolltext = font.render("Attacker: '" + player1.Name + "' has " + str(player1.Lifepoints)  + " health and " + str(player1.Conditionpoints) + " stamina", 1,(0,64,0))
     errtext = font.render("You have too little condition", 1,(242,7,7))
     screen.blit(rolltext, (GetCenter(width,height,rolltext)[0],GetCenter(width,height,rolltext)[1] - (height / 3) + 35))
     buttonh = pygame.Surface((250,140), pygame.SRCALPHA, 32)
