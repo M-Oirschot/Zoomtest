@@ -47,27 +47,14 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg,mute):
     done = False
     first = True
 
-    
-
     while not done:
+        tempvar = removeDead(player,startingTiles)
+        player = tempvar[0]
+        startingTiles = tempvar[1]
         screen.blit(bg, (0,0))
         if len(player) == 1:
             return player[0].Name
             break
-        """playersStandingOnSameTile = checkPlayers(player)
-        if len(playersStandingOnSameTile) != 0:
-            offset = 0
-            for m in range (0, len(playersStandingOnSameTile)):
-                screen.blit(playersStandingOnSameTile[m].Texture, (playersStandingOnSameTile[m].Tile.pos[0] + offset, playersStandingOnSameTile[m].Tile.pos[1]))
-                offset += 10
-            for j in range (0, len(player)):
-                if player[j] not in playersStandingOnSameTile:
-                    screen.blit(player[j].Texture, player[j].Tile.pos)
-        
-        else:
-            for j in range (0, len(player)):
-                screen.blit(player[j].Texture, player[j].Tile.pos)"""
-
         pygame.display.flip()
         for i in range (0, len(player)):
             done = True
@@ -80,16 +67,19 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg,mute):
                 if len(playersStandingOnSameTile) != 0:
                     offset = 0
                     for m in range (0, len(playersStandingOnSameTile)):
-                        screen.blit(playersStandingOnSameTile[m].Texture, (playersStandingOnSameTile[m].Tile.pos[0] + offset, playersStandingOnSameTile[m].Tile.pos[1]))
-                        offset += 10
+                        if playersStandingOnSameTile[m].Lifepoints > 0:
+                            screen.blit(playersStandingOnSameTile[m].Texture, (playersStandingOnSameTile[m].Tile.pos[0] + offset, playersStandingOnSameTile[m].Tile.pos[1]))
+                            offset += 10
                     for j in range (0, len(player)):
                         if player[j] not in playersStandingOnSameTile:
-                            screen.blit(player[j].Texture, player[j].Tile.pos)
+                            if player[j].Lifepoints > 0:
+                                screen.blit(player[j].Texture, player[j].Tile.pos)
         
         
                 else:
                     for j in range (0, len(player)):
-                        screen.blit(player[j].Texture, player[j].Tile.pos)
+                        if player[j].Lifepoints > 0:
+                            screen.blit(player[j].Texture, player[j].Tile.pos)
                 printVisuals(player,screen,width,height)
                 playeronturn = font.render(player[i].Name + "'s turn", 1, (0,0,0))
                 screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 3) - 80, GetCenter(width,height, playerName)[1] - (height / 2.4) - 15))
@@ -162,9 +152,9 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg,mute):
             if player[i].Pos in startingTiles and player[i].Pos != startingTiles[i]:
                 pvp(player[i],player[startingTiles.index(player[i].Pos)], PlayerversusPlayer(screen,width,height,player[i],player[startingTiles.index(player[i].Pos)]))
                 screen.blit(bg, (0,0))
-            tempvar = removeDead(player,startingTiles)
-            player = tempvar[0]
-            startingTiles = tempvar[1]
+            #tempvar = removeDead(player,startingTiles)
+            #player = tempvar[0]
+            #startingTiles = tempvar[1]
             if len(player) == 1:
                 return player[0].Name
                 break
