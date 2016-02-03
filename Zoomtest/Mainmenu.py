@@ -51,3 +51,7 @@ def mainMenu(screen,width, height):
             return 4
         pygame.display.flip()
         time.sleep(0.033)
+
+
+def settingScreen():
+    print()
