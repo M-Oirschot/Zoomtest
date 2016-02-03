@@ -1,4 +1,5 @@
 ﻿import pygame
+import subprocess
 
 def superfight(player, fight):
     playerdmg = fight[0]
@@ -49,13 +50,9 @@ def removeDead(players,startingTilesList):
             newlist += [players[i]]
             starttileslist += [startingTilesList[i]]
     return [newlist,starttileslist]
-"""
-def removeTile(Stile, dead):
-    newlist = []
-    for i in range(Stile):
-        if not Stile[i] == dead:
-            newlist += [player[i]]
-    return newlist"""
+
+def showrules():
+    p = subprocess.Popen("content\\Manual.pdf", shell = True)
 
 
             
