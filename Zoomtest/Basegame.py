@@ -137,7 +137,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         pygame.display.flip()
                     
                     break
-
+                #if dhsjahsjkdahadkjhdsa
             if player[i].Pos == 5 or player[i].Pos == 15 or player[i].Pos == 25 or player[i].Pos == 35:
                 superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))
                 screen.blit(bg, (0,0))

@@ -388,3 +388,8 @@ def UltraPVP(screen,width,height,attacker,defender):
     return pvp(attacker,defender,PlayerversusPlayer(screen,width,height,attacker,defender))
   else:
     return pvp(defender,attacker,PlayerversusPlayer(screen,width,height,defender,attacker))
+
+def pauseScreen(screen,width,height):
+  font = pygame.font.Font("content\\font\\retro.ttf", 30)
+  square = pygame.image.load("content\\eventscreen.png")
+  screen.blit(square, GetCenter(width,height,square))
