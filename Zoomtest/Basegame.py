@@ -94,7 +94,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                         screen.blit(player[j].Texture, player[j].Tile.pos)
                 printVisuals(player,screen,width,height)
                 playeronturn = font.render(player[i].Name + "'s turn", 1, (0,0,0))
-                screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 3), GetCenter(width,height, playerName)[1] - (height / 2.4) - 15))
+                screen.blit(playeronturn, (GetCenter(width, height, playerName)[0] - (width / 3) - 80, GetCenter(width,height, playerName)[1] - (height / 2.4) - 15))
                 screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.1) + 45, GetCenter(width,height, playerName)[1] - (height / 2.4) - 20))
                 screen.blit(helpBtn,(GetCenter(width, height, helpBtn)[0] - (width / 3.525), GetCenter(width,height, helpBtn)[1] - (height / 3.525)))
                 screen.blit(scBtn,(GetCenter(width, height, scBtn)[0] - (width / 2.4), GetCenter(width,height, scBtn)[1] - (height / 3.525)))
