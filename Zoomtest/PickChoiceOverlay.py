@@ -121,13 +121,9 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
     errtext = font.render("You have too little condition", 1,(242,7,7))
     textButton4 = smallfont.render("Do nothing",1,(64,0,0))
     bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
-    #time.sleep(0.5)
     rolled = dice(6)
     
     square = pygame.image.load("content\\eventscreen.png")
-    #title = 
-    #outline.fill((0,0,0))
-    #screen.blit(outline, (GetCenter(width,height,outline)))
     screen.blit(square, (GetCenter(width,height,square)))
     pygame.display.flip()
     drawDiceBL(rolled,width,height,screen)
@@ -233,9 +229,6 @@ def Secondplayer (screen,width,height,player1,otherplayer,damage):
          
 def PlayerversusPlayer(screen,width,height,attacker,defender):
     square = pygame.image.load("content\\eventscreen.png")
-    #title = 
-    #outline.fill((0,0,0))
-    #screen.blit(outline, (GetCenter(width,height,outline)))
     screen.blit(square, (GetCenter(width,height,square)))
     pygame.display.flip()
     Attacker = Firstplayer(screen,width,height,attacker)
@@ -249,15 +242,8 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
     font = pygame.font.Font("content\\font\\retro.ttf", 30)
     smallfont = pygame.font.Font("content\\font\\fipps.TTF", 15)
     square = pygame.image.load("content\\eventscreen.png")
-    #fillsquare = pygame.Surface((1264,120), pygame.SRCALPHA, 32)
-    #fillsquare.fill((222,222,222))
-    # square = pygame.Surface((width - 200,height - 200), pygame.SRCALPHA, 32)
-    #outline = pygame.Surface((width - 190, height - 190), pygame.SRCALPHA, 32)
     bg = pygame.transform.scale(pygame.image.load("content\\bordspel_background.png"), (width,height))
     textButton4 = smallfont.render("Do nothing",1,(64,0,0))
-    #square.fill(maincolor)
-    #outline.fill((0,0,0))
-    #screen.blit(outline, (GetCenter(width,height,outline)))
     screen.blit(square, (GetCenter(width,height,square)))
 
     fighter = ReturnSuperfighter(fighterlist)
@@ -281,7 +267,6 @@ def PlayerversusSuperfight(screen,width,height,player1,fighterlist):
   
     rolled = dice(6)
     drawDiceBL(rolled,width,height,screen)
-    #screen.blit(fillsquare, (GetCenter(width,height,fillsquare)[0], GetCenter(width,height,fillsquare)[1] - 325 ))
     screen.blit(fightertext, (GetCenter(width,height,fightertext)[0],GetCenter(width,height,fightertext)[1] - (height / 3)))
     rolltext = font.render("'" + player1.Name + "'" + " has " + str(player1.Lifepoints) + " health and " + str(player1.Conditionpoints) + " stamina", 1,(0,64,0))
     errtext = font.render("You have too little condition", 1,(242,7,7))
