@@ -22,6 +22,8 @@ helpBtn = pygame.image.load("content\\rules.png")
 helpBtnh = pygame.image.load("content\\rules_h.png")
 rollDiceBtn = pygame.image.load("content\\rolldice.png")
 rollDiceBtnh = pygame.image.load("content\\rolldice_h.png")
+pausebutton = pygame.image.load("content\\pause.png")
+pausebuttonh = pygame.image.load("content\\pause_h.png")
 
 def Menushit(screen,width,height,players,list,fighterlist,board,bg):
     if players == 2:
@@ -49,6 +51,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
 
     while not done:
         screen.blit(bg, (0,0))
+        #pauseScreen(screen, width, height)
         if len(player) == 1:
             return player[0].Name
             break
@@ -93,10 +96,14 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 screen.blit(player[i].Texture, (GetCenter(width, height, playerName)[0] - (width / 2.1) + 45, GetCenter(width,height, playerName)[1] - (height / 2.4) - 20))
                 screen.blit(helpBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))
                 screen.blit(rollDiceBtn,(GetCenter(width, height, rollDiceBtn)[0] - (width / 6) + 20 , GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))
+                screen.blit(pausebutton,(GetCenter(width, height, pausebutton)[0] - (width / 3.5) , GetCenter(width,height, pausebutton)[1] - (height / 3.5) + 15))
+
                 if rollDiceBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 6) + 20 , GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15)).collidepoint(pygame.mouse.get_pos()):
                     screen.blit(rollDiceBtnh,(GetCenter(width, height, rollDiceBtn)[0] - (width / 6) + 20 , GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))
                 if helpBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15)).collidepoint(pygame.mouse.get_pos()):
                     screen.blit(helpBtnh,(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))
+                if pausebutton.get_rect(topleft=(GetCenter(width, height, pausebutton)[0] - (width / 3.5) , GetCenter(width,height, pausebutton)[1] - (height / 3.5) + 15)).collidepoint(pygame.mouse.get_pos()):
+                    screen.blit(pausebuttonh,(GetCenter(width, height, pausebutton)[0] - (width / 3.5) , GetCenter(width,height, pausebutton)[1] - (height / 3.5) + 15))
 
                 pygame.event.get()
                 pygame.display.flip()
@@ -139,6 +146,12 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 if (pygame.mouse.get_pressed() == (1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))):
                     showrules()
 
+                if (pygame.mouse.get_pressed() == (1,0,0) and pausebutton.get_rect(topleft=(GetCenter(width, height, pausebutton)[0] - (width / 3.5) , GetCenter(width,height, pausebutton)[1] - (height / 3.5) + 15))):
+                    if pauseScreen(screen, width, height)==1:
+                        return 1
+                        break
+
+                 
             if player[i].Pos == 5 or player[i].Pos == 15 or player[i].Pos == 25 or player[i].Pos == 35:
                 superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))
                 screen.blit(bg, (0,0))
@@ -196,7 +209,7 @@ def Main(screen,width,height,players,list,board):
         tempusvar = Menushit(screen,width,height,players,list,templist,board,bg)
         if tempusvar != 1:
           winScreen(screen,width,height,tempusvar)
-        #break
+        break
     
 
 def playerstats(player):
