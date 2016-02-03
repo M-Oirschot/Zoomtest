@@ -65,11 +65,6 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
             for j in range (0, len(player)):
                 screen.blit(player[j].Texture, player[j].Tile.pos)
 
-    
-        #checkPvp(player,screen,width,height)
-        winScreen(screen, width, height, "test")
-        #for i in range (0, len(player)):
-        #    screen.blit(player[i].Texture, player[i].Tile.pos)
         pygame.display.flip()
         for i in range (0, len(player)):
             while True:
