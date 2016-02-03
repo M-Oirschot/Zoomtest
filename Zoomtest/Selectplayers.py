@@ -1,8 +1,6 @@
 ﻿import pygame
 import time
 from Getcenter import *
-#pion = pygame.image.load('pion.png')
-#bg= pygame.image.load('board.jpg')
 font = pygame.font.Font("content\\font\\retro.ttf", 20)
 bg1 = pygame.image.load('content\\playerselect1.png')
 bg = pygame.image.load('content\\playerselect.png')
@@ -18,7 +16,6 @@ def Playerselect(screen,width,height):
     
     screen.fill((100,100,100))
     screen.blit(bg1, (0,0))
-    #screen.blit(titletext, (GetCenter(width,height,titletext)[0], GetCenter(width, height, titletext)[1] - 155))
 
     pygame.display.flip()
     time.sleep(0.5)

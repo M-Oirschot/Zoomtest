@@ -25,7 +25,7 @@ rollDiceBtnh = pygame.image.load("content\\rolldice_h.png")
 pausebutton = pygame.image.load("content\\pause.png")
 pausebuttonh = pygame.image.load("content\\pause_h.png")
 
-def Menushit(screen,width,height,players,list,fighterlist,board,bg):
+def Menushit(screen,width,height,players,list,fighterlist,board,bg,mute):
     if players == 2:
         player1 = list.Value
         player2 = list.Tail.Value
@@ -51,11 +51,10 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
 
     while not done:
         screen.blit(bg, (0,0))
-        #pauseScreen(screen, width, height)
         if len(player) == 1:
             return player[0].Name
             break
-        playersStandingOnSameTile = checkPlayers(player)
+        """playersStandingOnSameTile = checkPlayers(player)
         if len(playersStandingOnSameTile) != 0:
             offset = 0
             for m in range (0, len(playersStandingOnSameTile)):
@@ -67,11 +66,12 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
         
         else:
             for j in range (0, len(player)):
-                screen.blit(player[j].Texture, player[j].Tile.pos)
+                screen.blit(player[j].Texture, player[j].Tile.pos)"""
 
         pygame.display.flip()
         for i in range (0, len(player)):
-            while True:
+            done = True
+            while done == True:
                 screen.blit(bg, (0,0))
                 if len(player) == 1:
                     return player[0].Name
@@ -108,7 +108,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 pygame.event.get()
                 pygame.display.flip()
                 if (pygame.mouse.get_pressed()==(1,0,0) and rollDiceBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 6) + 20 , GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15)).collidepoint(pygame.mouse.get_pos())):
-                    diceroll = 5#dice(6)  
+                    diceroll = dice(6)  
                     drawDice(diceroll,width, height, screen)
                     time.sleep(0.5)
                     for k in range (0, diceroll):
@@ -141,15 +141,16 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
 
                         time.sleep(0.2)
                         pygame.display.flip()
-                    
+                    done = False
                     break
-                if (pygame.mouse.get_pressed() == (1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15))):
+                if (pygame.mouse.get_pressed() == (1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width, height, rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height, rollDiceBtn)[1] - (height / 3.5) + 15)).collidepoint(pygame.mouse.get_pos())):
                     showrules()
 
-                if (pygame.mouse.get_pressed() == (1,0,0) and pausebutton.get_rect(topleft=(GetCenter(width, height, pausebutton)[0] - (width / 3.5) , GetCenter(width,height, pausebutton)[1] - (height / 3.5) + 15))):
+                if (pygame.mouse.get_pressed() == (1,0,0) and pausebutton.get_rect(topleft=(GetCenter(width, height, pausebutton)[0] - (width / 3.5) , GetCenter(width,height, pausebutton)[1] - (height / 3.5) + 15)).collidepoint(pygame.mouse.get_pos())):
                     if pauseScreen(screen, width, height)==1:
                         return 1
                         break
+                        
 
                  
             if player[i].Pos == 5 or player[i].Pos == 15 or player[i].Pos == 25 or player[i].Pos == 35:
@@ -157,7 +158,7 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 screen.blit(bg, (0,0))
                 for i in range (0, len(player)):
                     screen.blit(player[i].Texture, player[i].Tile.pos)
-            checkPvp(player,screen,width,height)
+            checkPvp(player,screen,width,height,player[i])
             if player[i].Pos in startingTiles and player[i].Pos != startingTiles[i]:
                 pvp(player[i],player[startingTiles.index(player[i].Pos)], PlayerversusPlayer(screen,width,height,player[i],player[startingTiles.index(player[i].Pos)]))
                 screen.blit(bg, (0,0))
@@ -169,44 +170,21 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 break
             pygame.display.flip()
         pygame.event.get()
-        
-        #if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,rollDiceBtn)[0] - (width / 2.4), GetCenter(width,height,rollDiceBtn)[1] - (height / 3))).collidepoint(pygame.mouse.get_pos())):
-        #    print("done0")
-        #    diceRoll = dice(6)
-        #    diceImg = pygame.image.load("content\\" + str(dice(6)) +".png")
-        #    print("done1")
-        #    done = True
-        #if (pygame.mouse.get_pressed()==(1,0,0) and helpBtn.get_rect(topleft=(GetCenter(width,height,helpBtn)[0] - (width / 3.525), GetCenter(width,height,helpBtn)[1] - (height / 3.525))).collidepoint(pygame.mouse.get_pos())):
-        #    print("Help")
-        #    done = True
  
         pygame.display.flip()
-        """time.sleep(0.5)
-        for i in range (0, len(player)):
-          if player[i].Pos == 39:
-            player[i].Pos = 0
-            player[i].Tile = board.Value
-          else:
-            player[i].Pos += 1
-            player[i].Tile = getItemFromList(board, player[i].Pos, 0)"""
              
-def Main(screen,width,height,players,list,board):
-    pygame.mixer.music.fadeout(1000)
+def Main(screen,width,height,players,list,board,mute):
     bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
     templist = MakeList()
   
     while True:
         screen.fill(white)
         screen.blit(bg, (0, 0))
-        #screen.blit(playerName, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.2)))
-        #screen.blit(Condition, (GetCenter(width, height, playerName)[0] - (width / 2.5), GetCenter(width,height, playerName)[1] - (height / 2.4)))
-        
         diceImg = pygame.image.load("content\\" + str(dice(6)) +".png")
         screen.blit(diceImg, (GetCenter(width, height, diceImg)[0] - (width / 10), GetCenter(width,height, diceImg)[1] - ((height / 2) -80)))
 
-        #pygame.draw.rect(screen,blue,(200,150,100,50))
         pygame.display.flip()
-        tempusvar = Menushit(screen,width,height,players,list,templist,board,bg)
+        tempusvar = Menushit(screen,width,height,players,list,templist,board,bg,mute)
         if tempusvar != 1:
           winScreen(screen,width,height,tempusvar)
         break

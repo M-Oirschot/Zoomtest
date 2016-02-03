@@ -21,5 +21,3 @@ def winScreen(screen, width, height, winner):
         if (pygame.mouse.get_pressed()==(1,0,0)  and textButton4.get_rect(topleft=(GetCenter(width,height,textButton4))).collidepoint(pygame.mouse.get_pos())):
                 return
         pygame.display.flip()
-
-    #test

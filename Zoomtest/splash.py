@@ -6,6 +6,8 @@ black = (0,0,0)
 white = (255,255,255)
 
 def SplashScreen(screen,width,height):
+    pygame.mixer.music.load("content\\sound\\vape.mp3")
+    pygame.mixer.music.play(1,0.0)
     screen.fill(white)
     templogo = pygame.image.load("content\\logo.png").convert()
     tempglove = pygame.image.load("content\\glove.png").convert()

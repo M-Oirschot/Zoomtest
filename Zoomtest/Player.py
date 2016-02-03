@@ -105,42 +105,38 @@ def checkPlayers(playerlist):
         else:
             return []
 
-def checkPvp(playerlist,screen,width,height):
+def checkPvp(playerlist,screen,width,height,currentplayer):
     bg = pygame.transform.scale(pygame.image.load("content\\board.png"), (width,height))
     if len(playerlist) == 2:
-        if playerlist[0].Tile.pos == playerlist[1].Tile.pos:
-            UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+        if currentplayer.Tile.pos == playerlist[0].Tile.pos and currentplayer.Texture != playerlist[0].Texture:
+            UltraPVP(screen,width,height,currentplayer,playerlist[0])
             screen.blit(bg, (0,0))
-    elif len(playerlist) == 3:
-        if playerlist[0].Tile.pos == playerlist[1].Tile.pos:
-            UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+        if currentplayer.Tile.pos == playerlist[1].Tile.pos and currentplayer.Texture != playerlist[1].Texture:
+            UltraPVP(screen,width,height,currentplayer,playerlist[1])
             screen.blit(bg, (0,0))
-        if playerlist[1].Tile.pos == playerlist[2].Tile.pos:
-            UltraPVP(screen,width,height,playerlist[1],playerlist[2])
+    if len(playerlist) == 3:
+        if currentplayer.Tile.pos == playerlist[0].Tile.pos and currentplayer.Texture != playerlist[0].Texture:
+            UltraPVP(screen,width,height,currentplayer,playerlist[0])
             screen.blit(bg, (0,0))
-        if playerlist[0].Tile.pos == playerlist[2].Tile.pos:
-            UltraPVP(screen,width,height,playerlist[0],playerlist[2])
+        if currentplayer.Tile.pos == playerlist[1].Tile.pos and currentplayer.Texture != playerlist[1].Texture:
+            UltraPVP(screen,width,height,currentplayer,playerlist[1])
             screen.blit(bg, (0,0))
-    elif len(playerlist) == 4:
-        if playerlist[0].Tile.pos == playerlist[2].Tile.pos:
-            UltraPVP(screen,width,height,playerlist[0],playerlist[2])
+        if currentplayer.Tile.pos == playerlist[2].Tile.pos and currentplayer.Texture != playerlist[2].Texture:
+            UltraPVP(screen,width,height,currentplayer,playerlist[2])
             screen.blit(bg, (0,0))
-        if playerlist[0].Tile.pos == playerlist[3].Tile.pos:
-            UltraPVP(screen,width,height,playerlist[0],playerlist[3])
+    if len(playerlist) == 4:
+        if currentplayer.Tile.pos == playerlist[0].Tile.pos and currentplayer.Texture != playerlist[0].Texture:
+            UltraPVP(screen,width,height,currentplayer,playerlist[0])
             screen.blit(bg, (0,0))
-        if playerlist[2].Tile.pos == playerlist[3].Tile.pos:
-            UltraPVP(screen,width,height,playerlist[2],playerlist[3])
+        if currentplayer.Tile.pos == playerlist[1].Tile.pos and currentplayer.Texture != playerlist[1].Texture:
+            UltraPVP(screen,width,height,currentplayer,playerlist[1])
             screen.blit(bg, (0,0))
-        if playerlist[1].Tile.pos == playerlist[3].Tile.pos:
-            UltraPVP(screen,width,height,playerlist[1],playerlist[3])
+        if currentplayer.Tile.pos == playerlist[2].Tile.pos and currentplayer.Texture != playerlist[2].Texture:
+            UltraPVP(screen,width,height,currentplayer,playerlist[2])
             screen.blit(bg, (0,0))
-        if playerlist[0].Tile.pos == playerlist[1].Tile.pos:
-            UltraPVP(screen,width,height,playerlist[0],playerlist[1])
+        if currentplayer.Tile.pos == playerlist[3].Tile.pos and currentplayer.Texture != playerlist[3].Texture:
+            UltraPVP(screen,width,height,currentplayer,playerlist[3])
             screen.blit(bg, (0,0))
-        if playerlist[1].Tile.pos == playerlist[2].Tile.pos:
-            UltraPVP(screen,width,height,playerlist[1],playerlist[2])
-            screen.blit(bg, (0,0))
-
 def printVisuals(player, screen, width, height):
     statfont = pygame.font.Font("content\\font\\retro.ttf", 25)
     player1health = statfont.render("Health: " + str(player[0].Lifepoints), 1, (0,0,0))
