@@ -20,7 +20,7 @@ playerName = font.render("Name:", 1, (255,255,0))
 Condition = font.render("Condition:  4", 1, (255,255,0))
 helpBtn = pygame.image.load("content\\helpbtn.png")
 scBtn = pygame.image.load("content\\scoreBoardbtn.png")
-rollDiceBtn = pygame.image.load("content\\rollDiceBtn.png")
+rollDiceBtn = pygame.image.load("content\\rolldice.png")
 
 def Menushit(screen,width,height,players,list,fighterlist,board,bg):
     if players == 2:
@@ -67,8 +67,8 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg):
                 screen.blit(player[j].Texture, player[j].Tile.pos)
 
     
-        checkPvp(player,screen,width,height)
-        #winScreen(screen, width, height, "test")
+        #checkPvp(player,screen,width,height)
+        winScreen(screen, width, height, "test")
         #for i in range (0, len(player)):
         #    screen.blit(player[i].Texture, player[i].Tile.pos)
         pygame.display.flip()
