@@ -20,7 +20,7 @@ playerName = font.render("Name:", 1, (255,255,0))
 Condition = font.render("Condition:  4", 1, (255,255,0))
 helpBtn = pygame.image.load("content\\helpbtn.png")
 scBtn = pygame.image.load("content\\scoreBoardbtn.png")
-rollDiceBtn = pygame.image.load("content\\rollDiceBtn.png")
+rollDiceBtn = pygame.image.load("content\\rolldice.png")
 
 def Menushit(screen,width,height,players,list,fighterlist,board,bg):
     if players == 2:
