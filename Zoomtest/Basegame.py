@@ -123,10 +123,12 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg,mute):
                                 offset += 10
                             for j in range (0, len(player)):
                                 if player[j] not in playersStandingOnSameTile:
-                                    screen.blit(player[j].Texture, player[j].Tile.pos)
+                                    if player[j].Lifepoints > 0:
+                                        screen.blit(player[j].Texture, player[j].Tile.pos)
                         else:
                             for j in range (0, len(player)):
-                                screen.blit(player[j].Texture, player[j].Tile.pos)
+                                if player[j].Lifepoints > 0:
+                                    screen.blit(player[j].Texture, player[j].Tile.pos)
 
 
                         time.sleep(0.2)
@@ -142,19 +144,15 @@ def Menushit(screen,width,height,players,list,fighterlist,board,bg,mute):
                         break
                         
 
-                 
+            if player[i].Pos in startingTiles and player[i].Pos != startingTiles[i]:
+                pvp(player[i],player[startingTiles.index(player[i].Pos)], PlayerversusPlayer(screen,width,height,player[i],player[startingTiles.index(player[i].Pos)]))
+                screen.blit(bg, (0,0)) 
             if player[i].Pos == 5 or player[i].Pos == 15 or player[i].Pos == 25 or player[i].Pos == 35:
                 superfight(player[i], PlayerversusSuperfight(screen,width,height,player[i],fighterlist))
                 screen.blit(bg, (0,0))
                 for i in range (0, len(player)):
                     screen.blit(player[i].Texture, player[i].Tile.pos)
             checkPvp(player,screen,width,height,player[i])
-            if player[i].Pos in startingTiles and player[i].Pos != startingTiles[i]:
-                pvp(player[i],player[startingTiles.index(player[i].Pos)], PlayerversusPlayer(screen,width,height,player[i],player[startingTiles.index(player[i].Pos)]))
-                screen.blit(bg, (0,0))
-            #tempvar = removeDead(player,startingTiles)
-            #player = tempvar[0]
-            #startingTiles = tempvar[1]
             if len(player) == 1:
                 return player[0].Name
                 break
