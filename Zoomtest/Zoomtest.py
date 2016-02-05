@@ -77,7 +77,7 @@ while True:
             emptyList = Node(MakePlayer(20,80,15,ptwo,namelist.Value,1,getItemFromList(tpboard,20,0)),emptyList)#20
             flippedList = Node(emptyList.Tail.Value, Node(emptyList.Value, Empty))
         elif playercount == 3:
-            emptyList = Node(MakePlayer(0,10,15,pfour,namelist.Tail.Tail.Value,3, tpboard.Value),emptyList)#0               #90 hp
+            emptyList = Node(MakePlayer(0,90,15,pfour,namelist.Tail.Tail.Value,3, tpboard.Value),emptyList)#0               #90 hp
             emptyList = Node(MakePlayer(20,90,15,ptwo,namelist.Tail.Value,1, getItemFromList(tpboard,20,0)),emptyList)#20
             emptyList = Node(MakePlayer(10,90,15,pthree,namelist.Value,2, getItemFromList(tpboard,10,0)),emptyList)#10
             flippedList = Node(emptyList.Tail.Tail.Value, Node(emptyList.Tail.Value, Node(emptyList.Value, Empty)))
